@@ -43,10 +43,13 @@ sass:
   style: :compressed
 
 # Include custom directories
-include: ["_pages"]
+include:
+  - _pages
+  - _redirects
 
 # Exclude from _site
-exclude: ["node_modules"]
+exclude:
+  - node_modules
 
 # Post excerpts
 excerpt_separator: <!--more-->
