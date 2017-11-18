@@ -5,7 +5,6 @@ description: >
   Semantic, dynamic and maintainable Web development using Ruby on Rails and React.
 keywords: >
   html, css, javascript, ruby, rails, react, web development
-
 version: 1.0.0
 github:
   repo: https://github.com/mnishiguchi/mnishiguchi.github.io
@@ -50,6 +49,7 @@ include:
 # Exclude from _site
 exclude:
   - node_modules
+  - admin/index.js
 
 # Post excerpts
 excerpt_separator: <!--more-->
