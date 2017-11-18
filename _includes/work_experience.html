@@ -1,0 +1,25 @@
+<h2 class="h1">Tech work experience</h2>
+
+<div class="work-experience">
+  {% for job in site.data.work_experience %}
+  <div class="job">
+    <h4 class="job-heading">
+      <span class="position">
+        {{ job.position }}
+      </span>
+      <span class="company">
+        <a href="{{ job.company_url | prepend: baseurl }}">
+          {{ job.company_name }}
+        </a>
+      </span>
+      <span class="duration">
+        <em>{{ job.duration }}</em>
+      </span>
+    </h4>
+
+    <p class="description">
+      {{ job.description | markdownify }}
+    </p>
+  </div>
+  {% endfor %}
+</div>

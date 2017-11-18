@@ -1,0 +1,58 @@
+# Meta
+title: Masatoshi Nishiguchi
+tagline: Web developer
+description: >
+  Semantic, dynamic and maintainable Web development using Ruby on Rails and React.
+keywords: >
+  html, css, javascript, ruby, rails, react, web development
+
+version: 1.0.0
+github:
+  repo: https://github.com/mnishiguchi/mnishiguchi.github.io
+
+# About/contact
+author:
+  name:              Masatoshi Nishiguchi
+  email:             nishiguchi.masa@gmail.com
+  url:               https://mnishiguchi.com
+  github_url:        https://github.com/mnishiguchi
+  linkedin_url:      https://linkedin.com/in/mnishiguchi
+  twitter_url:       https://twitter.com/mnishiguchiDC
+  stackoverflow_url: https://stackoverflow.com/users/3837223/mnishiguchi
+
+# Url and Permalinks
+permalink: pretty
+url:       "https://mnishiguchi.com"  # Hostname & protocol for your site
+baseurl:   ""
+
+# Navigation links in the header of the website
+navigation_items:
+  Home:     "/"         # /index.html
+  About:    "/about"    # /about.html
+  Blog:     "/blog/"    # /blog/index.html
+  Projects: "/projects" # /projects.html
+  Talks:    "/talks"    # /talks.html
+
+# # Pagination
+# paginate: 10
+# paginate_path: /blog/page:num
+
+# Assets
+sass:
+  sass_dir: _sass  # Specify the directory that contains sass partials.
+  style: :compressed
+
+# Include custom directories
+include: ["_pages"]
+
+# Exclude from _site
+exclude: ["node_modules"]
+
+# Post excerpts
+excerpt_separator: <!--more-->
+
+# Feed
+feed: false
+
+# Helpers
+empty_array: []

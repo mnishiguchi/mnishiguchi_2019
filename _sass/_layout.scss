@@ -1,0 +1,83 @@
+// Layout
+//
+// Styles for managing the structural hierarchy of the site.
+
+// * { border: 1px dotted red; }
+
+// http://www.websitedimensions.com/
+body {
+  min-width: 320px;
+}
+
+main {
+  position: relative;
+}
+
+// NOTE: .container is used in multiple places.
+.container {
+  max-width: 43rem;
+  padding-left:  1.0rem;
+  padding-right: 1.0rem;
+  margin-left:  auto;
+  margin-right: auto;
+  // // This is specially for contents.
+  // &.content-wrapper {
+  //   margin-bottom: 4em;
+  //   min-height: 500px;
+  // }
+}
+
+// A panel with an introduction text.
+.introduction {
+  padding: 1.5em;
+  margin: 0;
+  background: $image-background;
+  font-family: $introduction-font-family;
+  font-weight: lighter;
+  font-size: 1.3rem;
+  color: $header-color;
+}
+
+footer {
+  vertical-align: middle;
+  margin-top: 4rem;
+  padding: 4rem 0;
+  color: $gray-2;
+  background: $header-color;
+  .contact-info {
+    display: inline-block;
+    padding: 0 5px;
+  }
+  .social-links {
+    display: inline-block;
+    float: right;
+    font-size: 1.0em;
+    a {
+      color:inherit;
+      margin: 0 .5rem;
+      color: $link-hover-color;
+    }
+    a:hover {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+.clearfix {
+  clear: both;
+}
+
+// ul.inline {
+//   list-style: none;
+//   padding: 0;
+//   li {
+//     display: inline;
+//     margin: 0;
+//     // font-weight:bold;
+//     font-size: 1.2rem;
+//   }
+//   li:not(:last-child):after{
+//     content:", ";
+//   }
+// }

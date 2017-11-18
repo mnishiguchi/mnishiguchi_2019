@@ -1,0 +1,183 @@
+// Posts and pages
+//
+// Each post is wrapped in `.post` and is used on default and post layouts.
+// Each page is wrapped in `.page` and is only used on the page layout.
+
+@mixin post-tag-link($font-size) {
+  a {
+    display: inline-block;
+    font-family: $heading-font-family;
+    font-size: $font-size;
+    padding: 0 .3rem;
+    margin: 0 .1rem;
+    background: $link-color;
+    color: white;
+    text-align: center;
+    &:hover {
+      text-decoration: inherit;
+    }
+  }
+}
+
+.page,
+.post {
+  margin-top: 2em;
+  // margin-bottom: 4em;
+
+  li + li {
+    margin-top: .25rem;
+  }
+}
+
+
+/**
+ *  Blog post or page title
+ */
+.page-title,
+.post-title,
+.post-title a {
+  color: $heading-font-color;
+}
+.page-title,
+.post-title {
+  margin-top: 0;
+}
+
+
+/**
+ *  Meta data line below post title
+ */
+// For
+.post-meta {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: $gray-2;
+  time {
+    display: inline-block;
+    margin-right: .5rem;
+  }
+  .post-tags {
+    display: block;
+    @include post-tag-link(.7rem);
+  }
+}
+// For Blog page
+.page-blog .post-meta {
+  margin-top: -.3rem;
+  time {
+    display: inline-block;
+    color: $gray-3;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: .9rem;
+  }
+  .post-tags {
+    display: inline-block;
+    a {
+      vertical-align: middle;
+    }
+  }
+}
+
+
+/**
+ *  Related posts
+ *  - Has a separator line at the top.
+ */
+ aside.related {
+  margin-top: 2rem;
+  border-top: 1px solid #eee;
+  .related-heading {
+    margin-top: inherit;
+  }
+  // .related-posts {
+  //   padding: 0;
+  //   list-style: none;
+  //   li >a {
+  //     line-height: inherit;
+  //   }
+  // }
+ }
+
+
+/**
+ * Styles for _pages/tags.html
+ */
+.tag-cloud {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    margin: 0;
+    padding: .2rem .1rem;
+    display: inline-block;
+    @include post-tag-link(.8rem);
+  }
+}
+// To offset an HTML anchor destination.
+.posts-by-tags {
+  h3:before {
+    content: '';
+    display: block;
+    position: relative;
+    width: 0;
+    height: 50px;
+    margin-top: -50px
+  }
+}
+
+#disqus_thread {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+
+/**
+ *  Work experience for the Home page.
+ */
+.work-experience {
+  position: relative;
+  .job {
+    margin-top: 1rem;
+    padding: 1.0rem;
+    border: 1px solid $gray_2;
+    border-radius: 6px;
+  }
+  .job-heading {
+    margin-top: 0;
+    .position {
+      @extend .h2;
+      display: block;
+      margin-top: 0;
+      line-height: 1;
+    }
+    .company {
+      @extend .h3;
+      display: block;
+      margin: 0;
+      font-style: italic;
+      font-weight:normal;
+      line-height: 1.4;
+      @media only screen and (min-width : 768px) {
+            display: inline-block;
+      }
+    }
+    .duration {
+      display: block;
+      margin: 0;
+      font-size: .9rem;
+      color: $gray_3;
+      line-height: 1.4;
+      @media only screen and (min-width : 768px) {
+        display: inline-block;
+        float: right;
+      }
+    }
+  }
+  .description {
+    margin-top: 1rem;
+    line-height: 1.2;
+  }
+}

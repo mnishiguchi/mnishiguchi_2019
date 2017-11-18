@@ -1,0 +1,15 @@
+---
+layout: default
+comments: true
+---
+
+<article class="post">
+  {{ content }}
+</article>
+
+{% if site.related_posts != empty %}
+  <aside class="related">
+    <h2 class="related-heading">Related posts</h2>
+    {% include related_posts.html posts=site.related_posts limit=6 %}
+  </aside>
+{% endif %}
