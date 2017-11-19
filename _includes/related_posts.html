@@ -40,12 +40,8 @@ Jekyll variables: https://jekyllrb.com/docs/variables/
 <ul class="related-posts">
   {% for post in posts_list limit:include.limit %}
     <li>
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        {{ post.title }}
-      </a>
-      <span class="post-meta">
-        {% include post_tags.html %}
-      </span>
+      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      <span class="post-meta">{% include post_tags.html %}</span>
     </li>
   {% endfor %}
 </ul>

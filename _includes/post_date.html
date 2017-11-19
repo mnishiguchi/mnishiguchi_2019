@@ -11,8 +11,6 @@ NOTE: post is a local variable used in a loop
   {% assign date = page.date %}
 {% endif %}
 
-<time
-  datetime="{{ date | date_to_xmlschema }}"
-  class="post-date">
+<time class="post-date" datetime="{{ date | date_to_xmlschema }}">
   {{ date | date_to_string }}
 </time>

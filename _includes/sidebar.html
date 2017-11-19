@@ -1,19 +1,14 @@
 <!--
-  Target for toggling the sidebar `.sidebar-checkbox` is for regular styles,
-  `#sidebar-checkbox` for behavior.
+Target for toggling the sidebar
+`.sidebar-checkbox` is for regular styles, `#sidebar-checkbox` for behavior.
 -->
 <label for="sidebar-checkbox" class="sidebar-toggle">
   <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
 </label>
-<input
-  type="checkbox"
-  class="sidebar-checkbox"
-  id="sidebar-checkbox">
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
-<!-- Toggleable sidebar -->
-<div
-  class="sidebar"
-  id="sidebar">
+<!-- Drawer sidebar -->
+<div class="sidebar" id="sidebar">
 
   <label for="sidebar-checkbox" class="sidebar-toggle">
     <i class="fa fa-times fa-2x" aria-hidden="true"></i>
@@ -24,30 +19,15 @@
     <p>{{ site.description }}</p>
   </div>
 
-  <nav class="sidebar-nav right">
-    {% for each in site.navigation_items %}
-      {% if each[1] == page.url %}
-        <a class="sidebar-nav-item active">{{ each[0] }}</a>
-      {% else %}
-        <a
-          href="{{ each[1] | prepend: site.baseurl }}"
-          class="sidebar-nav-item">
-          {{ each[0] }}
-        </a>
-      {% endif %}
-    {% endfor %}
-
-    <a
-      href="{{site.baseurl}}/documents/resume.pdf"
-      class="sidebar-nav-item" >
-      Resume
-    </a>
-
-    <!-- <a
-      class="sidebar-nav-item"
-      href="{{ site.github.repo }}">
-      This site
-    </a> -->
+  <nav class="sidebar-nav">
+  {% for each in site.navigation_items %}
+    {% if each[1] == page.url %}
+    <a class="sidebar-nav-item active">{{ each[0] }}</a>
+    {% else %}
+    <a class="sidebar-nav-item" href="{{ each[1] | prepend: site.baseurl }}">{{ each[0] }}</a>
+    {% endif %}
+  {% endfor %}
+    <a class="sidebar-nav-item" href="{{site.baseurl}}/documents/resume.pdf">Download Resume (pdf)</a>
   </nav>
 
   <div class="sidebar-item">

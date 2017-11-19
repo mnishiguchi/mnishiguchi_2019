@@ -1,7 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=PT+Serif);
-// @import url(https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,300);
-// @import url(https://fonts.googleapis.com/css?family=Muli:400,400italic,300);
-// @import url(https://fonts.googleapis.com/css?family=Roboto:100italic);
 @import url(https://fonts.googleapis.com/css?family=Nunito:400,700,300);
 
 // Swatch
@@ -21,7 +17,7 @@ $cyan: #75b5aa;
 $brown: #8f5536;
 
 // Configure colors for the app.
-$root-font-family: "PT Serif", 'Times New Roman', serif;
+$root-font-family: 'Nunito', "Helvetica Neue", Arial, sans-serif;
 $root-font-size: 18px;
 $root-line-height: 1.6;
 
@@ -33,13 +29,14 @@ $body-bg: $gray_1;
 $link-color: $blue;
 $link-hover-color: #6a9fb5;
 
-$heading-font-family: 'Nunito', "Helvetica Neue", Arial, sans-serif;
+$heading-font-family: $root-font-family;
 $heading-font-color: #425469;
 
-$introduction-font-family: 'Nunito', "Helvetica Neue", Arial, sans-serif;
+$introduction-font-family: $root-font-family;
 
 $border-color: $gray-4;
 
+$navbar-height: 48px;
 $large-breakpoint: 38em;
 $large-font-size: 20px;
 

@@ -7,12 +7,13 @@ sitemap: false
 @import "variables";
 @import "base";
 @import "sidebar";
-@import "type";
+@import "typography";
 @import "syntax";
 @import "code";
 @import "layout";
 @import "logo_animation";
-@import "canvas_header";
+@import "top_nav";
+@import "masthead";
 @import "posts";
 @import "pagination";
 @import "cbutton";

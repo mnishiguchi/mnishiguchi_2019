@@ -27,20 +27,14 @@ Sort by name
 
 <section class="posts-by-tags">
   {% for tag_name in sorted_by_name %}
-    <div>
-      <h3 id="{{ tag_name }}">
-        {{ tag_name | upcase | replace: "_", " " }}
-      </h3>
-
-      <ul class="related-posts">
-        {% for post in site.tags[tag_name] %}
-          <li>
-            <a href="{{ post.url | prepend: site.baseurl }}">
-              {{ post.title }}
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
+  <div>
+    <h3 id="{{ tag_name }}">{{ tag_name | upcase | replace: "_", " " }}</h3>
+    
+    <ul class="related-posts">
+    {% for post in site.tags[tag_name] %}
+      <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
   {% endfor %}
 </section>

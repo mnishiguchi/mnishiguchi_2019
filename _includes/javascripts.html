@@ -1,23 +1,38 @@
 <!-- Load vendor libraries -->
-<!--
-<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
--->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/10.0.0/js/smooth-scroll.min.js"></script>
 
-<!-- Load custom js -->
+<!-- Our custom js -->
 <script src="{{ site.baseurl }}/js/custom.js"></script>
 
-<!-- Load scripts for animated background -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenLite.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/easing/EasePack.min.js"></script>
-<script src="{{ site.baseurl }}/js/vendor/animated-background-header.js"></script>
-
-<!-- Load script for filtering a list -->
+<!-- For filtering a list -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.2.0/list.min.js"></script>
 
-<!-- Load scripts for svg ripple animation -->
+<!-- For svg ripple animation -->
 <script src="{{ site.baseurl }}/js/vendor/svganimations2.js"></script>
 <script src="{{ site.baseurl }}/js/vendor/cbutton.js"></script>
+
+<!-- google analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76603801-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<!-- netlify identity redirect -->
+<script>
+  // https://github.com/netlify/netlify-cms/blob/master/docs/quick-start.md#add-the-netlify-identity-widget
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>

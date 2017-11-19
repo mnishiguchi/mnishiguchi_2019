@@ -2,9 +2,6 @@
 //
 // Styles for managing the structural hierarchy of the site.
 
-// * { border: 1px dotted red; }
-
-// http://www.websitedimensions.com/
 body {
   min-width: 320px;
 }
@@ -20,11 +17,6 @@ main {
   padding-right: 1.0rem;
   margin-left:  auto;
   margin-right: auto;
-  // // This is specially for contents.
-  // &.content-wrapper {
-  //   margin-bottom: 4em;
-  //   min-height: 500px;
-  // }
 }
 
 // A panel with an introduction text.
@@ -36,6 +28,24 @@ main {
   font-weight: lighter;
   font-size: 1.3rem;
   color: $header-color;
+}
+
+// mimick style of sidebar-toggle
+.anchor-jump {
+  position: fixed;
+  bottom: 0;
+  left: auto;
+  right: 0;
+  width: $navbar-height;
+  height: $navbar-height;
+  line-height: $navbar-height;
+  z-index: 12; // Sit on top of canvas header
+  display: block;
+  text-align: center;
+  padding: .25rem;
+  color: white;
+  background-color: rgba($header-color, 0.6);
+  cursor: pointer;
 }
 
 footer {
@@ -63,21 +73,3 @@ footer {
     }
   }
 }
-
-.clearfix {
-  clear: both;
-}
-
-// ul.inline {
-//   list-style: none;
-//   padding: 0;
-//   li {
-//     display: inline;
-//     margin: 0;
-//     // font-weight:bold;
-//     font-size: 1.2rem;
-//   }
-//   li:not(:last-child):after{
-//     content:", ";
-//   }
-// }

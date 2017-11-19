@@ -1,15 +1,8 @@
-<!--
-Comments are inserted only in pages that specify "comments: true" explicitly.
- -->
 {% if page.comments %}
-  <!-- Add Disqus comments. -->
-  <div id="disqus_thread"></div>
-  <script>
-  /**
-   * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-   */
+<div id="disqus_thread"></div>
+<script>
+  // https://disqus.com/admin/universalcode/
   document.addEventListener( "DOMContentLoaded", function() {
-
     var disqus_config = function () {
       var disqus_shortname  = 'mnishiguchi';
       var disqus_identifier = "{{ site.disqusid }}{{ page.url | replace:'index.html','' }}";  // Use Canonical URL
@@ -22,6 +15,6 @@ Comments are inserted only in pages that specify "comments: true" explicitly.
       (d.head || d.body).appendChild(s);
     })();
   });
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 {% endif %}

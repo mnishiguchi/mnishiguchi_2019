@@ -1,3 +1,11 @@
+<!-- anchor-jump button -->
+<a href="#top" class="anchor-jump js-anchor-jump-up" style="display:none;">
+  <i class="fa fa-angle-up fa-2x"></i>
+</a>
+<a href="#content" class="anchor-jump js-anchor-jump-down">
+  <i class="fa fa-angle-down fa-2x"></i>
+</a>
+
 <footer>
   <div class="container">
     <div class="contact-info">
@@ -12,32 +20,33 @@
       </a>
 
       {% if site.author.github_url %}
-        <a class="cbutton cbutton--effect-radomir" href="{{ site.author.github_url }}">
-          <i class="cbutton__icon fa fa-github"></i>
-        </a>
+      <a class="cbutton cbutton--effect-radomir" href="{{ site.author.github_url }}">
+        <i class="cbutton__icon fa fa-github"></i>
+      </a>
       {% endif %}
 
       {% if site.author.twitter_url %}
-        <a class="cbutton cbutton--effect-radomir" href="{{ site.author.linkedin_url }}">
-          <i class="cbutton__icon fa fa-linkedin"></i>
-        </a>
+      <a class="cbutton cbutton--effect-radomir" href="{{ site.author.linkedin_url }}">
+        <i class="cbutton__icon fa fa-linkedin"></i>
+      </a>
       {% endif %}
 
       {% if site.author.stackoverflow_url %}
-        <a class="cbutton cbutton--effect-radomir" href="{{ site.author.stackoverflow_url }}">
-          <i class="cbutton__icon fa fa-stack-overflow"></i>
-        </a>
+      <a class="cbutton cbutton--effect-radomir" href="{{ site.author.stackoverflow_url }}">
+        <i class="cbutton__icon fa fa-stack-overflow"></i>
+      </a>
       {% endif %}
 
       {% if site.author.twitter_url %}
-        <a class="cbutton cbutton--effect-radomir" href="{{ site.author.twitter_url }}">
-          <i class="cbutton__icon fa fa-twitter"></i>
-        </a>
+      <a class="cbutton cbutton--effect-radomir" href="{{ site.author.twitter_url }}">
+        <i class="cbutton__icon fa fa-twitter"></i>
+      </a>
       {% endif %}
+
       {% if site.feed %}
-        <a class="cbutton cbutton--effect-radomir" href="{{ site.baseurl }}/atom.xml">
-          <i class="cbutton__icon fa fa-feed"></i>
-        </a>
+      <a class="cbutton cbutton--effect-radomir" href="{{ site.baseurl }}/atom.xml">
+        <i class="cbutton__icon fa fa-feed"></i>
+      </a>
       {% endif %}
     </div>
   </div>

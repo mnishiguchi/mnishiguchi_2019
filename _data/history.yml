@@ -1,7 +1,8 @@
-- title:        Linguistics
-  year_tag:     2000
-  duration:     1996 - 2000
-  description:  |
+# 2000
+- title: Linguistics
+  year_tag: 2000
+  duration: 1996 - 2000
+  description: |
     At [Aichi Shukutoku University](http://www.aasa.ac.jp/) in Japan, I majored in Linguistics, with a specialization in Syntax.
 
     Syntactical analysis is performed in our natural languages when we analyze
@@ -12,10 +13,11 @@
     understanding how natural languages work is useful in understanding
     computer languages.
 
-- title:        Counseling
-  year_tag:     2005
-  duration:     2003 - 2005
-  description:  |
+# 2005
+- title: Counseling
+  year_tag: 2005
+  duration: 2003 - 2005
+  description: |
     At [Waikato Institute of Technology](http://www.wintec.ac.nz/) in New Zealand, I obtained a certificate in Counseling.
     As part of my Counseling major, I assisted young people experiencing
     difficulties with empowerment, coping and self-care to identify best
@@ -25,10 +27,11 @@
     to assist them in identifying their programming needs and collaboratively
     working with the clients to deliver a quality and meaningful product.
 
-- title:        Sales and engineering
-  year_tag:     2011
-  duration:     2006 - 2011
-  description:  |
+# 2011
+- title: Sales and engineering
+  year_tag: 2011
+  duration: 2006 - 2011
+  description: |
     Because of my desire to use my counseling skills to work in sales and
     my burgeoning interest in technology, I sought and landed a job as a
     salesperson with [ESTIC](http://www.estic.co.jp/en/index.html),
@@ -37,18 +40,19 @@
     but also some insight into mechanical and software engineering through
     working with clients and in-house engineers.
 
-- title:        Customer service coordinator
-  year_tag:     2013
-  duration:     2011 - 2013
-  description:  |
+# 2013
+- title: Customer service coordinator
+  year_tag: 2013
+  duration: 2011 - 2013
+  description: |
     I moved to the United States and started working for the Washington, DC office of
     Japan's largest export-import company, Nippon Express. I was in charge of
     coordinating transporting household goods between Washington and Japan.
 
-- title:        Self-directed Coding
+- title: Self-directed Coding
   year_tag:
-  duration:     2013 - 2014
-  description:  |
+  duration: 2013
+  description: |
     Shortly after moving to the United States, I met a professional programmer
     at a rock climbing gym. His passion for coding inspired me to research the
     field.
@@ -66,10 +70,11 @@
     - [COMP102x: Introduction to Computing with Java - HKUST](http://mnishiguchi.com/documents/certificate_java.pdf)
     - [Introduction to Linux - Linux Foundation](http://mnishiguchi.com/documents/certificate_linux.pdf)
 
-- title:        Mobile development (Android)
-  year_tag:     2014
-  duration:     2014
-  description:  |
+# 2014
+- title: Mobile development (Android)
+  year_tag: 2014
+  duration: 2014
+  description: |
     When I became comfortable with problem solving in coding, I started to want to
     create something concrete using my programming skills, and I decided to learn
     Android application development using Java. I learned it through the following resources:
@@ -81,16 +86,10 @@
 
     - [Moving Estimator (Android)](https://play.google.com/store/apps/details?id=com.mnishiguchi.android.movingestimator)
 
-- title:        Web development
-  year_tag:     2015
-  duration:     2015
-  description:  |
-    When I was itching to create a larger scale web application, I came across this web developing tutorial, [Ruby on Rails Tutorial by Michael Hartl](https://www.railstutorial.org/). It taught me how to build web applications as well as Unix command-line and other development tools. Ever since I am passionate about improving web application development skills. By following Rails philosophy and conventions, I was able to absorb key elements of web development rapidly. I managed to built a web service, [Moving Estimator (Web)](https://moving-estimator.herokuapp.com/).
-
-- title:        Associate of Computer Science
+- title: Associate of Computer Science
   year_tag:
-  duration:     2014 - 2016
-  description:  |
+  duration: 2014 - 2016
+  description: |
     Without hesitation, I enrolled in a Computer Science program at [University of the District of Columbia](http://www.udc.edu/) to complement my self-directed learning. I was able to fortify my programming skills with better understanding of operating systems and data structures through intense programming trainings for C++ and Java.
     I also developed basic web design and graphic designing skills using Photoshop, Illustrator and InDesign.
 
@@ -100,20 +99,35 @@
     - Web Design (Professor: [Rachid Mrad](http://rachidmrad.com/))
     - Digital Applications / Desktop Publishing
 
-- title:        Freelance
+# 2016
+- title: Freelance
   year_tag:
-  duration:     2016
-  description:  |
-    I designed a WordPress theme and set it up on the server for a client. I also
-    assisted in the development of American Petroleum Institute's website,
-    particularly proofread and correcting broken user-interface components.
+  duration: 2016
+  description: |
+    I designed a WordPress theme and set it up on the server for a client.
 
-- title:        Web development immersive
-  year_tag:     2016
-  duration:     2016
-  description:  |
-    I joined a bootcamp to expand my field of expertise towards modern web application development.
+    [http://www.claramlovett.com](http://www.claramlovett.com/)
+
+- title: Web development assistant
+  year_tag:
+  duration: 2016
+  description: |
+    At American Petroleum Institute (API), I assisted the dev team in debugging HTML and CSS for each page of the organization's new website. I searched for invalid code and broken links that
+    potentially existed in the project's code and resolved those issues appropriately.
+    Also, I performed redirect mapping between the old site and the new site.
+
+- title: Web development immersive student
+  year_tag: 2016
+  duration: 2016
+  description: |
+    I joined a bootcamp at General Assembly to expand my field of expertise towards modern web application development.
     I fine-tuned all my skill-sets so that I will be ready for contributing to the tech communities.
 
     I was trained in MVC frameworks, data modeling, test driven development, and agile methodologies.
     Aso, I acquired industry common best practices in object oriented design and programming.
+
+- title: Web developer
+  year_tag:
+  duration: 2016 - present
+  description: |
+    Currently I am a web developer at Greater Washington Publishing.

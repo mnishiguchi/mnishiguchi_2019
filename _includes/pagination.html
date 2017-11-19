@@ -3,9 +3,7 @@
   {% assign newer = "Newer Entries >>" %}
 
   {% if paginator.next_page %}
-    <a
-      class="pagination-item older"
-      href="{{ paginator.next_page_path | prepend: site.baseurl }}">
+    <a class="pagination-item older" href="{{ paginator.next_page_path | prepend: site.baseurl }}">
       {{ older }}
     </a>
   {% else %}
@@ -15,9 +13,7 @@
   <span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
 
   {% if paginator.previous_page %}
-    <a
-      class="pagination-item newer"
-      href="{{ paginator.previous_page_path | prepend: site.baseurl }}">
+    <a class="pagination-item newer" href="{{ paginator.previous_page_path | prepend: site.baseurl }}">
       {{ newer }}
     </a>
   {% else %}

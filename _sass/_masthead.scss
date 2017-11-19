@@ -1,0 +1,70 @@
+// Masthead
+//
+// Navigation and page title.
+.masthead {
+  background-color: $header-color;
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  min-height: 300px;  // For mobile landscape mode.
+}
+
+.masthead-content {
+  display: block;
+  padding-left:  1.5rem;
+  padding-right: 1.5rem;
+  margin-left:  auto;
+  margin-right: auto;
+  img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin: 0 auto;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+    background: $image-background;
+    border-radius: 0;
+    &:hover {
+      background: $image-background-hover;
+    }
+  }
+  .intro-title {
+    display: block;
+    color: white;
+    font-size: 1.3rem;
+    margin: .5rem 0 0 0;
+    @media only screen and (min-width : 768px) {
+      font-size: 30px;
+    }
+    a {
+      min-width: 150px;
+      min-height: 150px;
+      color: inherit;
+      padding: 2em 0;
+      img:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  .post_meta {
+    display: block;
+    width: 100%;
+    time {
+      margin-top: -10px;
+      display: inline-block;
+    }
+  }
+  small {
+    display: block;
+    font-size: 60%;
+    font-weight: 400;
+    opacity: .8;
+  }
+  .page-title {
+    color: $gray-3;
+    font-size: 40px;
+  }
+}
