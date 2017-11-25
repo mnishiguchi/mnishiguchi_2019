@@ -1,16 +1,14 @@
 ---
 layout: post
-title: git rebase
+title: Git rebase
 comments: true
 tags:
 - git
-
 ---
 
 <!--more-->
 
-### Rebase
-
+## Use case
 > One of the best ways to incorporate rebasing into your workflow is to clean up local, in-progress features.
 
 - [https://www.atlassian.com/git/tutorials/merging-vs-rebasing/](https://www.atlassian.com/git/tutorials/merging-vs-rebasing/)
@@ -19,7 +17,7 @@ tags:
 $ git rebase -i HEAD~3
 ```
 
-### In case of conflicts
+## In case of conflicts
 
 Relax and do not panic.
 
@@ -35,26 +33,15 @@ To check out the original branch and stop rebasing, run "git rebase --abort".
 Could not apply f8a87e6a17d80b13048a7d2dfb90cfd77dd0066e... Add layout to timeline in the About page
 ```
 
-#### First, resolve conflicts.
-
-#### Then run the following command to continue.
+- Resolve conflicts.
+- Then run `git rebase --continue` to continue.
 
 ```
 masa@Masas-Mac:~/blog (master|REBASE-i 3/10)
 $ git rebase --continue
 ```
 
-
-masa@Masas-Mac:~/blog (master|REBASE-i 3/10)
-$ git rebase --continue
-
-```
-
-
-
-
-### Undoing `git rebase`
-
+## Undoing `git rebase`
 - [stackoverflow](http://stackoverflow.com/a/135614/3837223)
 
 ```bash
@@ -66,10 +53,3 @@ $ git reflog
 # Suppose the old commit was HEAD@{5} in the ref log:
 git reset --hard HEAD@{5}
 ```
-
----
-
-## References
-
-- [stackoverflow](http://stackoverflow.com/a/135614/3837223)
-- [https://www.atlassian.com/git/tutorials/merging-vs-rebasing/](https://www.atlassian.com/git/tutorials/merging-vs-rebasing/)

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Optimizing rails app performance
+title: Rails optimizing app performance
 comments: true
 tags:
 - ruby

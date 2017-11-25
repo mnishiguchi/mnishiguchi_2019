@@ -9,7 +9,6 @@ tags:
 - authentication
 ---
 
-
 ## Problem
 - I want to let user update user account info without password, unless he/she wants to change password.
 - By default, devise requires the user to enter current password when user wants to change any field in
