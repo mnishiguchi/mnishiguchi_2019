@@ -13,9 +13,10 @@ main {
 // NOTE: .container is used in multiple places.
 .container {
   max-width: 43rem;
-  padding-left:  1.0rem;
-  padding-right: 1.0rem;
-  margin-left:  auto;
+  padding-top: 1em;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
   margin-right: auto;
 }
 
@@ -28,48 +29,4 @@ main {
   font-weight: lighter;
   font-size: 1.3rem;
   color: $header-color;
-}
-
-// mimick style of sidebar-toggle
-.anchor-jump {
-  position: fixed;
-  bottom: 0;
-  left: auto;
-  right: 0;
-  width: $navbar-height;
-  height: $navbar-height;
-  line-height: $navbar-height;
-  z-index: 12; // Sit on top of canvas header
-  display: block;
-  text-align: center;
-  padding: .25rem;
-  color: white;
-  background-color: rgba($header-color, 0.6);
-  cursor: pointer;
-}
-
-footer {
-  vertical-align: middle;
-  margin-top: 4rem;
-  padding: 4rem 0;
-  color: $gray-2;
-  background: $header-color;
-  .contact-info {
-    display: inline-block;
-    padding: 0 5px;
-  }
-  .social-links {
-    display: inline-block;
-    float: right;
-    font-size: 1.0em;
-    a {
-      color:inherit;
-      margin: 0 .5rem;
-      color: $link-hover-color;
-    }
-    a:hover {
-      text-decoration: none;
-      color: white;
-    }
-  }
 }

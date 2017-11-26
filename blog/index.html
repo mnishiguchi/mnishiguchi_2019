@@ -7,7 +7,7 @@ excerpt: false
 
 <div class="page-blog">
   <div class="posts" id="posts">
-    <input class="search" placeholder="Search posts" style="width: 100%; margin-top: 1rem;" />
+    <input class="search form-control" placeholder="Search posts" style="margin-bottom: 2rem;" />
 
     <div class="list">
       {% for post in site.posts %}
@@ -37,13 +37,13 @@ excerpt: false
 
 {% include tag_cloud.html %}
 
+<!-- Initialize List.js -->
 <script>
-// Initialize List.js when DOM is loaded.
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
   var options = {
-    valueNames: [ 'post-title', 'post-meta' ]
+    valueNames: ['post-title', 'post-meta']
   };
 
   var userList = new List('posts', options);
-})
+});
 </script>

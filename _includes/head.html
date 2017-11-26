@@ -30,8 +30,9 @@
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}/atom.xml">
 
   <!-- https://github.com/netlify/netlify-cms/blob/master/docs/quick-start.md#add-the-netlify-identity-widget -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
+  {% if page.title == "Blog" or page.id %}
   <!-- Google AdSense -->
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
@@ -40,4 +41,5 @@
       enable_page_level_ads: true
     });
   </script>
+  {% endif %}
 </head>

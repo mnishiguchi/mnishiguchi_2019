@@ -48,10 +48,10 @@ function initializeSidebarToggle() {
 initializeSidebarToggle();
 
 function initializeAnchorJumpButton() {
-  const breakpoint = -330;
+  const breakpoint = -170;
   const topEl = document.querySelector('.js-top');
-  const downButton = document.querySelector('.js-anchor-jump-down');
-  const upButton = document.querySelector('.js-anchor-jump-up');
+  const downButton = document.querySelector('.js-anchor-jump--down');
+  const upButton = document.querySelector('.js-anchor-jump--up');
 
   window.addEventListener('scroll', () => {
     if (topEl.getBoundingClientRect().top > breakpoint) {

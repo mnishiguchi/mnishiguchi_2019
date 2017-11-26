@@ -1,12 +1,34 @@
 // Based on https://github.com/poole/lanyon
 
-@mixin navbar-item-align {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  vertical-align: top;
+@mixin navigation_button {
+  position: fixed;
+  left: auto;
+  right: 0;
+  width: $navbar-height;
   height: $navbar-height;
   line-height: $navbar-height;
+  z-index: 12; // Sit on top of canvas header
+  display: block;
+  text-align: center;
+  padding: 0.25rem;
+  margin: 5px;
+  color: white;
+  background-color: rgba($header-color, 0.6);
+  cursor: pointer;
+}
+
+@mixin navigation_button--top {
+  @include navigation_button;
+  top: 0;
+}
+
+@mixin navigation_button--bottom {
+  @include navigation_button;
+  top: 70px;
+}
+
+.anchor-jump {
+  @include navigation_button--bottom;
 }
 
 /* Sidebar
@@ -65,24 +87,24 @@
 
 /* Sidebar nav */
 .sidebar-nav {
-  border-bottom: 1px solid rgba(255,255,255,.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .sidebar-nav-item {
   display: block;
   padding: 0.5rem 1rem;
-  border-top: 1px solid rgba(255,255,255,.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: $gray-2;
-  font-size: .9rem;
+  font-size: 0.9rem;
   text-decoration: none;
   transition: all 0.4s ease;
   &.active {
-    background-color: rgba(255,255,255,.1);
+    background-color: rgba(255, 255, 255, 0.1);
   }
   &:hover {
-    background-color: rgba(255,255,255,.1);
+    background-color: rgba(255, 255, 255, 0.1);
   }
   &:focus {
-    background-color: rgba(255,255,255,.1);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 }
 @media (min-width: 48em) {
@@ -105,20 +127,7 @@
 
 /* Style the `label` that we use to target the `.sidebar-checkbox` */
 .sidebar-toggle {
-  position: fixed;
-  top: 0;
-  left: auto;
-  right: 0;
-  width: $navbar-height;
-  height: $navbar-height;
-  line-height: $navbar-height;
-  z-index: 12; // Sit on top of canvas header
-  display: block;
-  text-align: center;
-  padding: .25rem;
-  color: white;
-  background-color: rgba($header-color, 0.6);
-  cursor: pointer;
+  @include navigation_button--top;
 }
 @media print {
   .sidebar-toggle {
@@ -171,5 +180,5 @@
   box-shadow: 0 0 0 0.25rem #555;
 }
 .sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
-  box-shadow: -.25rem 0 0.5rem rgba(0,0,0,.1);
+  box-shadow: -0.25rem 0 0.5rem rgba(0, 0, 0, 0.1);
 }

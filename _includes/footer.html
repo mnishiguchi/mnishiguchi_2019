@@ -1,20 +1,12 @@
-<!-- anchor-jump button -->
-<a href="#top" class="anchor-jump js-anchor-jump-up" style="display:none;">
-  <i class="fa fa-angle-up fa-2x"></i>
-</a>
-<a href="#content" class="anchor-jump js-anchor-jump-down">
-  <i class="fa fa-angle-down fa-2x"></i>
-</a>
-
 <footer>
-  <div class="container">
-    <div class="contact-info">
+  <div class="footer__container">
+    <div class="footer__contact-info">
       &copy;
       <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>.
       {{ site.author.name }}
     </div>
 
-    <div class="social-links">
+    <div class="footer__social-links">
       <a class="cbutton cbutton--effect-radomir" href="{{ 'mailto:' | append:  site.author.email }}">
         <i class="cbutton__icon fa fa-envelope-o"></i>
       </a>

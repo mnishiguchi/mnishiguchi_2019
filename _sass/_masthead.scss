@@ -4,11 +4,11 @@
 .masthead {
   background-color: $header-color;
   width: 100vw;
-  height: 50vh;
+  height: auto;
   display: flex;
   align-items: center;
   text-align: center;
-  min-height: 300px;  // For mobile landscape mode.
+  padding: 2rem 0;
 }
 
 .masthead-content {

@@ -9,10 +9,12 @@
   <div class="wrap">
     {% include top_nav.html %}
     {% include masthead.html %}
-    <div class="container content" id="content">
-      <main>{{ content }}</main>
+    {% include anchor_jump_button.html %}
+    <main class="container content" id="content">
+      {{ content }}
       {% include comments.html %}
-    </div>
+    </main>
+
     {% include footer.html %}
   </div>
 
