@@ -48,7 +48,7 @@ function initializeSidebarToggle() {
 initializeSidebarToggle();
 
 function initializeAnchorJumpButton() {
-  const breakpoint = -170;
+  const breakpoint = -160;
   const topEl = document.querySelector('.js-top');
   const downButton = document.querySelector('.js-anchor-jump--down');
   const upButton = document.querySelector('.js-anchor-jump--up');

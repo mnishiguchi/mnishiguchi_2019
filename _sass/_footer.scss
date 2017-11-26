@@ -3,10 +3,7 @@ footer {
   padding: 4rem 0;
   color: $gray-2;
   background: $header-color;
-  font-size: 0.9em;
-  @media only screen and (min-width: 768px) {
-    font-size: 1em;
-  }
+  font-size: 1rem;
 }
 
 .footer__container {
@@ -39,15 +36,11 @@ footer {
   padding: 1rem 0 1rem 5px;
   @media only screen and (min-width: 768px) {
     display: inline-block;
-    padding: 1rem 0 1rem 5px;
   }
   a {
     color: inherit;
-    margin: 0 0 0 0.5rem;
+    margin: 0 0 0 1rem;
     color: $link-hover-color;
-    @media only screen and (min-width: 768px) {
-      margin: 0 0 0 1rem;
-    }
   }
 
   a:hover {

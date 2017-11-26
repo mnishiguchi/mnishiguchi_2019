@@ -26,7 +26,7 @@ baseurl:   ""
 
 # Navigation links in the header of the website
 navigation_items:
-  Home:     "/"         # /index.html
+  About:    "/"         # /index.html
   Blog:     "/blog/"    # /blog/index.html
   Talks:    "/talks"    # /talks.html
 

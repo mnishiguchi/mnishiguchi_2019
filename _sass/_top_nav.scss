@@ -10,24 +10,20 @@
 
 .top-nav-item {
   display: inline-block;
-  padding: 0 1rem;
+  padding: 0 0.3rem;
   height: $navbar-height;
   border: none;
-  color: $gray-2;
-  font-size: .9rem;
+  color: white;
+  font-size: 0.9rem;
   text-decoration: none;
   transition: all 0.4s ease;
+  @media only screen and (min-width: 768px) {
+    padding: 0 1rem;
+  }
   &.active {
-    background-color: rgba(255,255,255,.1);
-  }
-  &:hover {
-    background-color: rgba(255,255,255,.1);
-  }
-  &:focus {
-    background-color: rgba(255,255,255,.1);
+    color: lighten($link-hover-color, 20%);
   }
   &:not(.active):hover {
-    color: $link-hover-color;
-    text-decoration: none;
+    color: lighten($link-hover-color, 20%);
   }
 }

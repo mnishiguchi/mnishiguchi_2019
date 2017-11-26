@@ -1,5 +1,5 @@
 <div id="logo-wrapper">
-  <a href="{{ site.baseurl }}/" title="Home" id="logo">
+  <a href="{{ site.baseurl }}/" title="About" id="logo">
     <svg
       id="logo-svg"
       class="line-drawing"
@@ -16,7 +16,7 @@
 
 <header class="masthead">
   <div class="masthead-content">
-  {% if page.title == "Home" %}
+  {% if page.title == "About" %}
     {% assign image_url = "/images/masatoshi_portrait_300.png" %}
     {% assign clip      = "clip-right-point" %}
     <a class="{{ clip }} clip-wrapper page-scroll">
@@ -25,9 +25,9 @@
   {% endif %}
 
   <!-- Page title -->
-  {% if page.title == "Home" %}
+  {% if page.title == "About" %}
     <h1 class="intro-title">
-      <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
+      <a href="{{ site.baseurl }}/" title="About">{{ site.title }}</a>
       <small class="tagline">{{ site.tagline }}</small>
     </h1>
   {% elsif page.id %}
