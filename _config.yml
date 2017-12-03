@@ -55,5 +55,9 @@ excerpt_separator: <!--more-->
 # Feed
 feed: false
 
+plugins:
+  - jekyll-gist
+  # - jekyll-paginate
+
 # Helpers
 empty_array: []

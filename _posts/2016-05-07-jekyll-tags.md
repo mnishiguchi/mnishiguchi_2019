@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Implementing tags in Jekyll site
+title: Jekyll tags
 comments: true
 tags:
 - jekyll

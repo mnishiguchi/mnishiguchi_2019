@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Implementing related pages list in Jekyll
+title: Jekyll related page list
 comments: true
 tags:
 - jekyll
@@ -18,7 +18,6 @@ I wanted to make a list of related pages at the bottom of each post in my Jekyll
 
 ![]({{ site.baseurl }}/images/20160512_related_posts.png)
 
-
 ## [Jekyll variables](https://jekyllrb.com/docs/variables/)
 At first, I was a little bit confused about the usage of these [Jekyll variables](https://jekyllrb.com/docs/variables/). Actually that is the reason I decided to write this post so that I can save time in the future.
 
@@ -30,8 +29,6 @@ At first, I was a little bit confused about the usage of these [Jekyll variables
 I heard that Liquid limits its capability for the safety reason. I realized that it was important to clearly understand what we cannot do with Liquid. Also, I need to get used to Liquid's syntax some of which is very different from Ruby's.
 
 ## Pseudo-code
-Here is the pseudo-code for logic in this code:
-
 - Create an empty array, `posts_list`
 - If the current page has any tags
   + iterate over lists under each tag

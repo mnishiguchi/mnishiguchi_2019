@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Rake tesks basics
+title: Rake tasks basics
 comments: true
 tags:
 - ruby
