@@ -8,12 +8,15 @@
     display: inline-block;
     font-family: $heading-font-family;
     font-size: $font-size;
-    padding: 0 0.3rem;
-    margin: 0 0.1rem;
+    padding: 1px 8px;
+    margin-right: 0.1rem;
     background: $link-color;
     color: white;
     text-align: center;
+    transition: all 0.4s ease;
+    border-radius: 5px;
     &:hover {
+      background: darken($link-color, 8%);
       text-decoration: inherit;
     }
   }
@@ -26,6 +29,14 @@
   li + li {
     margin-top: 0.25rem;
   }
+}
+
+.post {
+  padding: 1rem;
+  margin-bottom: 10px;
+  background-color: white;
+  box-shadow: 0 3px 0 #d7e4ed;
+  border: 1px solid #d7e4ed;
 }
 
 /**
@@ -46,8 +57,7 @@
  */
 .post-meta {
   display: block;
-  margin-top: 0;
-  margin-bottom: 1rem;
+  margin: 0;
   color: $gray-2;
   time {
     display: inline-block;

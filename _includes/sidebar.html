@@ -22,7 +22,7 @@ Target for toggling the sidebar
   <nav class="sidebar-nav">
   {% for each in site.navigation_items %}
     {% if each[1] == page.url %}
-    <a class="sidebar-nav-item active">{{ each[0] }}</a>
+    <a class="sidebar-nav-item active" href="{{ each[1] | prepend: site.baseurl }}">{{ each[0] }}</a>
     {% else %}
     <a class="sidebar-nav-item" href="{{ each[1] | prepend: site.baseurl }}">{{ each[0] }}</a>
     {% endif %}
