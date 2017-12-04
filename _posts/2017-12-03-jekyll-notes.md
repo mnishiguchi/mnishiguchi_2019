@@ -150,6 +150,9 @@ This statement is valid.
 #### B: Create custom variables
 - http://nateeagle.com/2011/08/31/how-to-output-curly-brackets-in-jekyll/
 
+## CSS themes for Pygments syntax highlighter
+- https://github.com/jwarby/jekyll-pygments-themes
+
 ## Links and References
 - https://jekyllrb.com/
 - https://github.com/poole
