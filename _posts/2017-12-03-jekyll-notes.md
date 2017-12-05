@@ -84,14 +84,14 @@ plugins:
 ## Markdown in yaml
 
 #### Single paragraphs (`>`)
-```md
+```
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description: >
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 ```
 
 #### Multiple paragraphs (`|`)
-```md
+```
 # Markdown enabled, can use multiple paragraphs (enabled by `|`)
 about: |
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -103,7 +103,7 @@ about: |
 - https://docs.shopify.com/themes/liquid/tags/variable-tags
 
 {% raw %}
-```md
+```
 {% assign my_variable = false %}
 
 {% if my_variable != true %}
@@ -128,7 +128,7 @@ This statement is valid.
 - https://jekyllrb.com/docs/templates/
 
 {% raw %}
-```html
+```
 <!--Create an emply array-->
 {% assign tag_names = "" | split: "|" %}
 

@@ -37,11 +37,17 @@ Jekyll variables: https://jekyllrb.com/docs/variables/
   {% assign posts_list = site.posts %}
 {% endif %}
 
-<ul class="related-posts">
+<div class="related-posts">
   {% for post in posts_list limit:include.limit %}
-    <li>
-      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      <span class="post-meta">{% include post_tags.html %}</span>
-    </li>
+    <article class="related-posts__post">
+      <h3 class="related-posts__post-title">
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </h3>
+
+      <div class="related-posts__post-meta">
+        {% include post_date.html %}
+        {% include post_tags.html %}
+      </div>
+    </article>
   {% endfor %}
-</ul>
+</div>

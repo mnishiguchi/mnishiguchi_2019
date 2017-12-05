@@ -5,7 +5,7 @@
 
 @mixin post-tag-link($font-size) {
   a {
-    display: inline-block;
+    display: inline;
     font-family: $heading-font-family;
     font-size: $font-size;
     padding: 1px 8px;
@@ -22,6 +22,15 @@
   }
 }
 
+@mixin related_article_card {
+  display: block;
+  padding: 1rem;
+  margin-bottom: 12px;
+  background-color: white;
+  box-shadow: 0 3px 0 #d7e4ed;
+  border: 1px solid #d7e4ed;
+}
+
 .page,
 .post {
   overflow-x: auto;
@@ -31,75 +40,79 @@
   }
 }
 
-.post {
-  padding: 1rem;
-  margin-bottom: 10px;
-  background-color: white;
-  box-shadow: 0 3px 0 #d7e4ed;
-  border: 1px solid #d7e4ed;
-}
-
-/**
- *  Blog post or page title
- */
+// Blog post or page title
 .page-title,
 .post-title,
-.post-title a {
-  color: $heading-font-color;
-}
-.page-title,
-.post-title {
+.post-title > a {
   margin-top: 0;
-}
-
-/**
- *  Meta data line below post title
- */
-.post-meta {
-  display: block;
-  margin: 0;
-  color: $gray-2;
-  time {
-    display: inline-block;
-    margin-right: 0.5rem;
-  }
-  .post-tags {
-    display: block;
-    @include post-tag-link(0.7rem);
+  color: $heading-font-color;
+  transition: all 0.4s ease;
+  &:hover {
+    color: lighten($heading-font-color, 20%);
   }
 }
 
-// For Blog page
-.page-blog .post-meta {
-  margin-top: -0.3rem;
-  time {
-    display: inline-block;
-    color: $gray-3;
-    vertical-align: middle;
-    line-height: 1;
-    font-size: 0.9rem;
+// Blog page
+//
+.blog-page {
+  .blog-posts__post {
+    @include related_article_card;
   }
-  .post-tags {
-    display: inline-block;
-    a {
-      vertical-align: middle;
+
+  .blog-posts__post-title,
+  .blog-posts__post-title > a {
+    margin: 0;
+    color: $heading-font-color;
+    transition: all 0.4s ease;
+    &:hover {
+      color: lighten($heading-font-color, 20%);
+    }
+  }
+
+  .blog-posts__post-meta {
+    .post-date {
+      margin-right: 0.5rem;
+    }
+    .post-tags {
+      @include post-tag-link(0.7rem);
     }
   }
 }
 
-/**
- *  Related posts
- */
+// Related posts
+//
 aside.related {
   margin: 2rem 0 2rem 0;
   .related-heading {
     margin-top: inherit;
   }
+
+  .related-posts__post {
+    @include related_article_card;
+  }
+
+  .related-posts__post-title,
+  .related-posts__post-title > a {
+    margin: 0;
+    color: $heading-font-color;
+    transition: all 0.4s ease;
+    &:hover {
+      color: lighten($heading-font-color, 20%);
+    }
+  }
+
+  .related-posts__post-meta {
+    .post-date {
+      margin-right: 0.5rem;
+    }
+    .post-tags {
+      @include post-tag-link(0.7rem);
+    }
+  }
 }
 
-/**
- * Styles for _pages/tags.html
- */
+// tag cloud
+//
 .tag-cloud {
   list-style: none;
   padding: 0;
@@ -112,6 +125,7 @@ aside.related {
   }
 }
 
+// Tags page
 // To offset an HTML anchor destination.
 .posts-grouped-by-tags {
   h3:before {
@@ -124,6 +138,8 @@ aside.related {
   }
 }
 
+// disqus
+//
 #disqus_thread {
   margin-top: 2rem;
   padding-top: 2rem;

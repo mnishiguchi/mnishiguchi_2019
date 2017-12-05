@@ -8,9 +8,9 @@ body {
 
 main {
   position: relative;
+  min-height: 50vh;
 }
 
-// NOTE: .container is used in multiple places.
 .container {
   max-width: 43rem;
   padding-left: 1rem;

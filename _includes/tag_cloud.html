@@ -20,7 +20,7 @@ Sort by count
   {% assign count  = site.tags[tag].size %}
   {% assign prefix = count | plus: 1000 %}
   {% assign tag = tag | prepend: '#' | prepend: prefix %}
-  {% assign tag = tag | append: '(' | append: count | append: ')' %}
+  {% assign tag = tag | append: ' (' | append: count | append: ')' %}
   {% assign tmp_array = tmp_array | push: tag %}
 {% endfor %}
 
@@ -40,11 +40,11 @@ Sort by count
 
 <ul class="tag-cloud">
   {% for tag_name_with_count in sorted_by_count %}
-    {% assign tmp = tag_name_with_count | strip | split: "(" %}
+    {% assign tmp = tag_name_with_count | strip | split: " (" %}
     {% assign tag_name_only = tmp[0] %}
     <li>
       <a href="{{ baseurl }}/tags#{{ tag_name_only | slugize }}">
-        {{ tag_name_with_count | upcase | replace "_", " " }}
+        {{ tag_name_with_count }}
       </a>
     </li>
   {% endfor %}
