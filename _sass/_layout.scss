@@ -29,3 +29,9 @@ main {
   font-size: 1.3rem;
   color: $header-color;
 }
+
+// Control AdSense modules
+.google-auto-placed {
+  max-height: 200px;
+  overflow-y: auto;
+}

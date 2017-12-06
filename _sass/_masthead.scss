@@ -7,6 +7,11 @@
   width: 100vw;
   height: auto;
   padding: 1rem 0;
+
+  // Control AdSense modules
+  .google-auto-placed {
+    visibility: hidden;
+  }
 }
 .masthead__content {
   display: block;
