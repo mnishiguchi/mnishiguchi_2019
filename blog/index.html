@@ -7,29 +7,29 @@ excerpt: false
 
 <div class="page-blog">
   <div class="posts" id="posts">
-    <input class="search form-control" placeholder="Search posts" style="margin-bottom: 2rem;" />
+    <input class="search form-control" placeholder="Search posts" style="margin: 1rem 0 1.5rem 0;" />
 
     <div class="list blog-posts">
       {% for post in site.posts %}
-      <article class="blog-posts__post">
-        <h2 class="blog-posts__post-title js-post-title">
-          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
+        <article class="blog-posts__post">
+          <h2 class="blog-posts__post-title js-post-title">
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          </h2>
 
-        <div class="blog-posts__post-meta js-post-title">
-          {% include post_date.html %}
-          {% include post_tags.html %}
-        </div>
+          <div class="blog-posts__post-meta js-post-title">
+            {% include post_date.html %}
+            {% include post_tags.html %}
+          </div>
 
-        {% if excerpt %}
-        <p>
-          {{ post.excerpt | strip_html | append: "..." }}
-          {% if post.excerpt != post.content %}
-          <a href="{{ post.url | prepend: site.baseurl }}"> >></a>
+          {% if excerpt %}
+            <p>
+              {{ post.excerpt | strip_html | append: "..." }}
+              {% if post.excerpt != post.content %}
+                <a href="{{ post.url | prepend: site.baseurl }}"> >></a>
+              {% endif %}
+            </p>
           {% endif %}
-        </p>
-        {% endif %}
-      </article>
+        </article>
       {% endfor %}
     </div>
   </div>
