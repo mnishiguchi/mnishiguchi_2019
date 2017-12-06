@@ -4,6 +4,11 @@ footer {
   color: $gray-2;
   background: $header-color;
   font-size: 1rem;
+
+  // Control AdSense modules
+  .google-auto-placed {
+    visibility: hidden;
+  }
 }
 
 .footer__container {

@@ -6,6 +6,11 @@
   height: $navbar-height;
   line-height: $navbar-height;
   text-align: center;
+
+  // Control AdSense modules
+  .google-auto-placed {
+    visibility: hidden;
+  }
 }
 
 .top-nav-item {
