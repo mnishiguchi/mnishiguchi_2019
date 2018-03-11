@@ -13,11 +13,10 @@ excerpt: false
       {% for post in site.posts %}
         <article class="blog-posts__post">
           <h2 class="blog-posts__post-title js-post-title">
-            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            <a href="{{ post.url | prepend: site.baseurl }}" style="display: block">{{ post.title }}</a>
           </h2>
 
           <div class="blog-posts__post-meta js-post-title">
-            {% include post_date.html %}
             {% include post_tags.html %}
           </div>
 
@@ -41,10 +40,8 @@ excerpt: false
 <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.2.0/list.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  var options = {
+  window.postList = new List('posts', {
     valueNames: ['js-post-title', 'js-post-meta']
-  };
-
-  var userList = new List('posts', options);
+  });
 });
 </script>

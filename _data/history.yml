@@ -112,7 +112,7 @@
   year_tag:
   duration: 2016
   description: |
-    At American Petroleum Institute (API), I assisted the dev team in debugging HTML and CSS for each page of the organization's new website. I searched for invalid code and broken links that
+    At [American Petroleum Institute (API)](http://www.api.org/), I assisted the dev team in debugging HTML and CSS for each page of the organization's new website. I searched for invalid code and broken links that
     potentially existed in the project's code and resolved those issues appropriately.
     Also, I performed redirect mapping between the old site and the new site.
 
@@ -120,7 +120,7 @@
   year_tag: 2016
   duration: 2016
   description: |
-    I joined a bootcamp at General Assembly to expand my field of expertise towards modern web application development.
+    I joined a bootcamp at [General Assembly](https://generalassemb.ly/) to expand my field of expertise towards modern web application development.
     I fine-tuned all my skill-sets so that I will be ready for contributing to the tech communities.
 
     I was trained in MVC frameworks, data modeling, test driven development, and agile methodologies.
@@ -130,4 +130,4 @@
   year_tag:
   duration: 2016 - present
   description: |
-    Currently I am a web developer at Greater Washington Publishing.
+    Currently I am a web developer at [Greater Washington Publishing](http://www.gwpi.net/).
