@@ -7,9 +7,10 @@
   {% include sidebar.html %}
 
   <div class="wrap">
-    {% include top_nav.html %}
-    {% include logo.html %}
-    {% include masthead.html %}
+    <div class="header-container">
+      {% include top_nav.html %}
+      {% include masthead.html %}
+    </div>
     {% include anchor_jump_button.html %}
     <main class="container content" id="content">
       {{ content }}
@@ -19,6 +20,8 @@
     {% include footer.html %}
   </div>
 
-  {% include javascripts.html %}
+  <div class="footer-container">
+    {% include javascripts.html %}
+  </div>
 </body>
 </html>

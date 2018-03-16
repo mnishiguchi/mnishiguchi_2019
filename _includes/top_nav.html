@@ -1,4 +1,6 @@
 <nav class="top-nav">
+{% include logo.html %}
+
 {% for each in site.navigation_items %}
   {% if each[1] == page.url %}
   <a class="top-nav-item active">{{ each[0] }}</a>

@@ -32,8 +32,13 @@ main {
 
 // Control AdSense modules
 .google-auto-placed {
-  max-height: 200px;
+  max-height: 300px;
+  width: 100vw;
   overflow: auto;
-  border: 4px inset #ccc;
-  padding: 0;
+}
+
+main .google-auto-placed,
+.header-container .google-auto-placed,
+.footer-container .google-auto-placed {
+  display: none;
 }
