@@ -14,14 +14,31 @@
     {% include anchor_jump_button.html %}
     <main class="container content" id="content">
       {{ content }}
-      {% include comments.html %}
+      {% if page.comments %}
+        {% include comments.html %}
+      {% endif %}
     </main>
 
     {% include footer.html %}
   </div>
 
-  <div class="footer-container">
-    {% include javascripts.html %}
-  </div>
+  <div class="footer-container"></div>
+
+  <script src="{{ site.baseurl }}/assets/js/custom.js"></script>
+
+  {% if page.url == "/" %}
+    <script>
+      // https://github.com/netlify/netlify-cms/blob/master/docs/quick-start.md#add-the-netlify-identity-widget
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function(user) {
+          if (!user) {
+            window.netlifyIdentity.on("login", function() {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  {% endif %}
 </body>
 </html>

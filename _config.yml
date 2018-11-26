@@ -1,63 +1,34 @@
-# Meta
 title: Masatoshi Nishiguchi
 tagline: Web Developer
-description: >
-  Maintainable Web Development using Ruby on Rails and React.
-keywords: >
-  html, css, javascript, ruby, rails, react, web development
-version: 2.0.0
-github:
-  repo: https://github.com/mnishiguchi/mnishiguchi.com
-
-# About/contact
+description: Maintainable Web Development using Ruby on Rails and React.
+permalink: pretty
+url:       "https://mnishiguchi.com"  # Hostname & protocol for your site
+baseurl:   ""
+repo: https://github.com/mnishiguchi/mnishiguchi.com
 author:
   name:              Masatoshi Nishiguchi
   email:             nishiguchi.masa@gmail.com
   url:               https://mnishiguchi.com
   github_url:        https://github.com/mnishiguchi
   linkedin_url:      https://linkedin.com/in/mnishiguchi
-  twitter_url:       https://twitter.com/mnishiguchiDC
   stackoverflow_url: https://stackoverflow.com/users/3837223/mnishiguchi
-
-# Url and Permalinks
-permalink: pretty
-url:       "https://mnishiguchi.com"  # Hostname & protocol for your site
-baseurl:   ""
-
-# Navigation links in the header of the website
-navigation_items:
-  About:    "/"         # /index.html
-  Blog:     "/blog/"    # /blog/index.html
-  Talks:    "/talks"    # /talks.html
-
-# # Pagination
-# paginate: 10
-# paginate_path: /blog/page:num
-
-# Assets
 sass:
   sass_dir: _sass  # Specify the directory that contains sass partials.
   style: :compressed
-
-# Include custom directories
 include:
   - _pages
   - _redirects
-
-# Exclude from _site
 exclude:
   - node_modules
   - admin/index.js
-
-# Post excerpts
-excerpt_separator: <!--more-->
-
-# Feed
-feed: false
-
 plugins:
   - jekyll-gist
-  # - jekyll-paginate
 
 # Helpers
+navigation_items:
+  About: "/"      # /index.html
+  Blog:  "/blog/" # /blog/index.html
+  Talks: "/talks" # /talks.html
+excerpt_separator: <!--more-->
+feed: false
 empty_array: []

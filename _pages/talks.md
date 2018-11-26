@@ -9,7 +9,7 @@ permalink: /talks
 
 <time datetime="2016-07-21T00:00:00-04:00" class="post-date">21 Jul 2016</time>
 
-![20160722_brief_introductin_to_turbolinks_5](/images/20160722_brief_introductin_to_turbolinks_5.jpg)
+![20160722_brief_introductin_to_turbolinks_5](/assets/images/20160722_brief_introductin_to_turbolinks_5.jpg)
 
 Here’s a pre-recorded screencast of a talk I gave at [nodeDC meetup](https://www.meetup.com/node-dc/events/232620835/).
 
