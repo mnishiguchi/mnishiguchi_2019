@@ -8,7 +8,7 @@ tags:
 - rspec
 ---
 
-<!--more-->
+
 
 ```rb
 # Gemfile

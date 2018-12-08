@@ -10,7 +10,7 @@ tags:
 
 I have worked on Rails apps more than a few times in the past but every time I set it up, I need some researches to refresh my memory. I decided to put together all my resources here so that I will not need to go anywhere else for this topic.
 
-<!--more-->
+ 
 
 ## 1. Preparing basic tools
 - Text editor: Atom etc

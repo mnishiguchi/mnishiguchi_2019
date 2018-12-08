@@ -1,16 +1,14 @@
 ---
+title: Tags
 layout: page
-title: Post tags
-permalink: /tags
+permalink: /tags # permalink must be specified because this file is not in the root
 ---
 
 {% comment %}
-<!--
 Sort by name
 - Create an empty array.
 - Obtain a tag name and push it to the array.
 - Sort the array (by tag names).
--->
 {% endcomment %}
 
 {% assign sorted_by_name = "" | split: "|" %}
@@ -25,7 +23,7 @@ Sort by name
 
 <hr>
 
-<section class="posts-grouped-by-tags">
+<section>
   {% for tag_name in sorted_by_name %}
     <div>
       <h3 id="{{ tag_name }}">{{ tag_name | upcase | replace: "_", " " }}</h3>

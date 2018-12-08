@@ -6,7 +6,7 @@ tags:
 - git
 ---
 
-<!--more-->
+
 
 ## Use case
 > One of the best ways to incorporate rebasing into your workflow is to clean up local, in-progress features.

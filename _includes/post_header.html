@@ -1,0 +1,8 @@
+<header>
+  <time datetime="{{ page.date | date_to_xmlschema }}">
+    {{ page.date | date: "%B %-d, %Y" }}
+  </time>
+  <h1>
+    <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+  </h1>
+</header>

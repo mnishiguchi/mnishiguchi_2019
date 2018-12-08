@@ -8,7 +8,7 @@ tags:
 - rails
 ---
 
-<!--more-->
+
 
 ## Basic commands
 

@@ -11,7 +11,7 @@ tags:
 
 This is my memo on *{{ page.title }}*.
 
-<!--more-->
+ 
 
 # Implementing search using pg_search gem
 

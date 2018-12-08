@@ -7,7 +7,7 @@ tags:
 - rails
 ---
 
-<!--more-->
+
 
 ## Hash#slice vs Hash#except
 

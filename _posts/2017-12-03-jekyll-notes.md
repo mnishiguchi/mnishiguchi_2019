@@ -8,7 +8,7 @@ tags:
 
 This is my notes on what I learned about Jekyll through my own blog site.
 
-<!--more-->
+
 
 ## page.url
 - the URL of the current page, without the host (e.g. /index.html)
@@ -40,7 +40,7 @@ This is my notes on what I learned about Jekyll through my own blog site.
 #### 1. Specify a separator for experpts in _config.yml
 
 ```yml
-excerpt_separator: <!--more-->
+excerpt_separator:  
 ```
 
 #### 2. Insert the excerpt separator in a post.
@@ -57,7 +57,7 @@ Hi, this is Masatoshi Nishiguchi. I am writing a blog post for the first time.
 
 The primary purpose of this is for me to learn how blog works at the moment. That's it. But I might eventually find out some other purposes that are more fun and more useful for the Internet communities.
 
-<!--more-->
+ 
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 ```

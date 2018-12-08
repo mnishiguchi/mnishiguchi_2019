@@ -16,7 +16,7 @@ Adding a `many to many` relationship between the following two models.
 - `User`
 - `Song`
 
-<!--more-->
+ 
 
 #### Create a migration file to create a join table.
 

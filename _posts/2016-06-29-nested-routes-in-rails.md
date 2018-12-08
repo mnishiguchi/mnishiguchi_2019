@@ -10,7 +10,7 @@ tags:
 
 This is my memo on *{{ page.title }}*.
 
-<!--more-->
+ 
 
 ## [Nested Routes](http://guides.rubyonrails.org/routing.html#path-and-url-helpers#nested-resources)
 - Never nest more than 2-level deep.

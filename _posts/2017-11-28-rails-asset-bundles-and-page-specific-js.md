@@ -8,7 +8,7 @@ tags:
 - asset_pipeline
 ---
 
-<!--more-->
+
 
 ## Single asset bundle vs multiple asset bundles
 - We can create a multiple asset bundles instead of default application.js.

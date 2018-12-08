@@ -12,7 +12,7 @@ This is my memo on *{{ page.title }}*.
 
 > You are not limited to the seven routes that RESTful routing creates by default. If you like, you may add additional routes that apply to the collection or individual members of the collection. - Rails Guides
 
-<!--more-->
+ 
 
 `config/routes.rb`
 

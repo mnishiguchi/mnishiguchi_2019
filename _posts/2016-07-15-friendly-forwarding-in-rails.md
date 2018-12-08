@@ -7,7 +7,6 @@ tags:
 
 ---
 
-<!--more-->
 
 ### When forwarding to the URL immediately before current one
 

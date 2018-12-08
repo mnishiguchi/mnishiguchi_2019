@@ -6,7 +6,11 @@ tags:
   - rails
 comments: true
 ---
+
 A simple PORO that represents a USA state.
+
+
+
 
 ```rb
 class UsaState

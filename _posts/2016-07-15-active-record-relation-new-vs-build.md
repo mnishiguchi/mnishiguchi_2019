@@ -10,7 +10,7 @@ tags:
 
 These are the same as of this writing. `build` is an alias of `new`. (See: [rails/activerecord/lib/active_record/relation.rb](https://github.com/rails/rails/blob/master/activerecord/lib/active_record/relation.rb#L128))
 
-<!--more-->
+
 
 
 - Used for association.

@@ -8,7 +8,6 @@ tags:
 
 I wanted to add a simple tagging functionality to my Jekyll site. As I googled around for implementation ideas, I noticed that most of the snippets found on the Internet seemed over-engineered to me. So, I decided to make my version of tagging system that is simple, minimalistic and easy-to-understand.
 
-<!--more-->
 
 ## Objectives
 - Create a partial for post-meta that contains post-date and post-tags.

@@ -10,7 +10,7 @@ tags:
 
 This is my memo on *{{ page.title }}*.
 
-<!--more-->
+ 
 
 #### Install [browserify-rails](https://github.com/browserify-rails/browserify-rails)
 

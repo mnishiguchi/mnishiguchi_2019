@@ -9,7 +9,7 @@ Hi, this is Masatoshi Nishiguchi. I am writing a blog post for the first time.
 
 The primary purpose of this is for me to learn how blog works at the moment. That's it. But I might eventually find out some other purposes that are more fun and more useful for the Internet communities.
 
-<!--more-->
+
 
 [![](https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/005/0a8/34f/1fa145d.jpg)](https://github.com/mnishiguchi)
 

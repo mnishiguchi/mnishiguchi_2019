@@ -12,7 +12,7 @@ I learned about techniques that Chis Oliver, the author of GoRails screencast se
 uses to optimize the performance of GoRails site.
 The contents below are my personal notes for [GoRails - Episode 113](https://youtu.be/a3YKVmmWU6Y).
 
-<!--more-->
+
 
 #### Foundation
 - Web server (Nginx, etc)
