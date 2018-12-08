@@ -1,59 +1,3 @@
-// Initialize sidebar toggle.
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.querySelector('.sidebar-toggle');
-  const sidebar = document.querySelector('#sidebar');
-  const checkbox = document.querySelector('#sidebar-checkbox');
-
-  // Close the sidebar when the screen other than the sidebar itself is clicked.
-  document.addEventListener(
-    'click',
-    e => {
-      const target = e.target;
-      if (
-        !checkbox.checked ||
-        sidebar.contains(target) ||
-        (target === checkbox || target === toggle)
-      )
-        return;
-      checkbox.checked = false;
-    },
-    false
-  );
-
-  // Close the sidebar on resize if it is open.
-  window.addEventListener(
-    'resize',
-    e => {
-      // console.log("resized");
-      if (!checkbox.checked) return;
-      checkbox.checked = false;
-    },
-    false
-  );
-});
-
-/**
- * Initialize anchor jump button.
- */
-(function() {
-  const breakpoint = -160;
-  const topEl = document.querySelector('.js-top');
-  const downButton = document.querySelector('.js-anchor-jump--down');
-  const upButton = document.querySelector('.js-anchor-jump--up');
-
-  window.addEventListener('scroll', () => {
-    if (topEl.getBoundingClientRect().top > breakpoint) {
-      // use down botton
-      downButton.style.display = 'block';
-      upButton.style.display = 'none';
-    } else {
-      // use up botton
-      downButton.style.display = 'none';
-      upButton.style.display = 'block';
-    }
-  });
-})();
-
 /**
  * svganimations2.js v1.0.0
  * http://www.codrops.com
@@ -112,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
       path[i].style.strokeDasharray = l + ' ' + l;
       path[i].style.strokeDashoffset = l;
     } );
-
   }
 
   function draw() {

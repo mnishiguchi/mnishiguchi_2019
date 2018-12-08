@@ -8,7 +8,7 @@ tags:
 - form
 ---
 
-<!--more-->
+
 
 ```js
 <form

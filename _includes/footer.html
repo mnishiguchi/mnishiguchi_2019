@@ -1,45 +1,41 @@
 <footer>
-  <div class="footer__container">
-    <div class="footer__contact-info">
-      &copy;
-      <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>.
-      {{ site.author.name }}
-    </div>
-
-    <div class="footer__social-links">
-      <a class="cbutton cbutton--effect-radomir" href="{{ 'mailto:' | append:  site.author.email }}">
-        <i class="cbutton__icon fa fa-envelope-o"></i>
+  {% if paginator.total_pages > 1 %}
+    <nav>
+      <a
+        {% if paginator.previous_page %}
+          class="ghost"
+          href="{{ paginator.previous_page_path | prepend: site.baseurl }}"
+        {% else %}
+          class="disabled"
+        {% endif %}
+      >
+        « newer posts
       </a>
-
-      {% if site.author.github_url %}
-      <a class="cbutton cbutton--effect-radomir" href="{{ site.author.github_url }}">
-        <i class="cbutton__icon fa fa-github"></i>
+      <span class="paginate">page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+      <a
+        {% if paginator.next_page %}
+          class="ghost"
+          href="{{ paginator.next_page_path | prepend: site.baseurl }}"
+        {% else %}
+          class="disabled"
+        {% endif %}
+      >
+        older posts »
       </a>
+    </nav>
+  {% elsif page.previous.url or page.next.url %}
+    <nav>
+      {% if page.next.url %}
+        <a href="{{ page.next.url | prepend: site.baseurl }}">« {{ page.next.title }}</a>
       {% endif %}
-
-      {% if site.author.twitter_url %}
-      <a class="cbutton cbutton--effect-radomir" href="{{ site.author.linkedin_url }}">
-        <i class="cbutton__icon fa fa-linkedin"></i>
-      </a>
+      {% if page.previous.url %}
+        <a href="{{ page.previous.url | prepend: site.baseurl }}">{{ page.previous.title }} »</a>
       {% endif %}
-
-      {% if site.author.stackoverflow_url %}
-      <a class="cbutton cbutton--effect-radomir" href="{{ site.author.stackoverflow_url }}">
-        <i class="cbutton__icon fa fa-stack-overflow"></i>
-      </a>
-      {% endif %}
-
-      {% if site.author.twitter_url %}
-      <a class="cbutton cbutton--effect-radomir" href="{{ site.author.twitter_url }}">
-        <i class="cbutton__icon fa fa-twitter"></i>
-      </a>
-      {% endif %}
-
-      {% if site.feed %}
-      <a class="cbutton cbutton--effect-radomir" href="{{ site.baseurl }}/atom.xml">
-        <i class="cbutton__icon fa fa-feed"></i>
-      </a>
-      {% endif %}
-    </div>
-  </div>
+    </nav>
+  {% endif %}
+  <p>
+    &copy;
+    <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>.
+    {{ site.author.name }}
+  </p>
 </footer>

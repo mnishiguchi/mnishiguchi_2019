@@ -6,7 +6,7 @@ tags:
 - mongodb
 ---
 
-<!--more-->
+
 
 ### mongodb can't start with Invariant failure false
 

@@ -10,7 +10,7 @@ tags:
 
 This is my memo on *{{ page.title }}*.
 
-<!--more-->
+ 
 
 Adding Ajax to web forms is a common practice so Rails makes Ajax easy to implement.
 

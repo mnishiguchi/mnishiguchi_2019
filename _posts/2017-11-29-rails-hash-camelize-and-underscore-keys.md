@@ -10,7 +10,7 @@ tags:
 - api
 ---
 
-<!--more-->
+
 
 ## Camelize hash keys before converting hash to json
 

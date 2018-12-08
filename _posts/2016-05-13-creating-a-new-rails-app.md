@@ -9,7 +9,6 @@ tags:
 
 This is my memo on *{{ page.title }}*.
 
-<!--more-->
 
 #### Before getting started
 ```bash

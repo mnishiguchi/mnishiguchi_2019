@@ -10,7 +10,6 @@ tags:
 
 When I was learning basics on Linux operating system following Linux Foundation's [online lectures](https://www.edx.org/course/introduction-linux-linuxfoundationx-lfs101x-0) a few month ago, I created a simple bash script that helps create a new git repository.
 
-<!--more-->
 
 ## [git_mkdir](https://github.com/mnishiguchi/git_mkdir)
 

@@ -7,7 +7,7 @@ tags:
 - devise
 ---
 
-<!--more-->
+
 
 If you have more than one Devise model in your application (such as User and Admin),
 by default Devise uses the same views for all models. But Devise offers an easy way to customize views.

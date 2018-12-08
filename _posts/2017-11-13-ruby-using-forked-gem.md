@@ -11,7 +11,7 @@ tags:
 
 A memo on how to use my forked gem from github.
 
-<!--more-->
+
 
 #### Deploying to Heroku
 - When deploying to Heroku with a forked gem, Heroku does not accept `git` option. Use `github` option instead.

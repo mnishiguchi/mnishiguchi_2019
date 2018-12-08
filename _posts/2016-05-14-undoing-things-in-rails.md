@@ -8,7 +8,7 @@ tags:
 
 This is my memo on *{{ page.title }}*.
 
-<!--more-->
+ 
 
 ## Undo generate
 

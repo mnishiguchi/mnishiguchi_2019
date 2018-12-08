@@ -12,7 +12,7 @@ tags:
 
 This is my memo on *{{ page.title }}*.
 
-<!--more-->
+ 
 
 #### Create models and migration files (database schema)
 

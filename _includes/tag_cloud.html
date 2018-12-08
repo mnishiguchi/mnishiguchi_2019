@@ -1,14 +1,12 @@
 {% comment %}
-<!--
 Sort by count
-- Create an empty array.
-- For each tag
-  - Obtain a tag name and tag count.
-  - Format the tag in "1003#name(3)".
-  - Push the tag to the array.
-- Sort the array (effectively by tag count).
-- Reverse the array and remove the prefix from each element.
--->
+- Create an empty array
+- For each tag:
+  + Obtain a tag name and tag count
+  + Format the tag in "1003#name(3)"
+  + Push the tag to the array
+- Sort the array (effectively by tag count)
+- Reverse the array and remove the prefix from each element
 {% endcomment %}
 
 {% assign tmp_array                   = "" | split: "empty array" %}
@@ -38,14 +36,14 @@ Sort by count
 
 {% assign sorted_by_count = tmp_array %}
 
-<ul class="tag-cloud">
+<div class="tag_cloud">
   {% for tag_name_with_count in sorted_by_count %}
     {% assign tmp = tag_name_with_count | strip | split: " (" %}
     {% assign tag_name_only = tmp[0] %}
-    <li>
+    <span class="tag_cloud__tag">
       <a href="{{ baseurl }}/tags#{{ tag_name_only | slugize }}">
         {{ tag_name_with_count }}
       </a>
-    </li>
+    </span>
   {% endfor %}
-</ul>
+</div>

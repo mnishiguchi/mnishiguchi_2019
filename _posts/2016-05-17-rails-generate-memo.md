@@ -8,7 +8,7 @@ tags:
 
 *{{ page.title }}*.
 
-<!--more-->
+ 
 
 ## [rails generate](http://guides.rubyonrails.org/command_line.html#rails-generate)
 

@@ -7,7 +7,7 @@ tags:
 - flexbox
 ---
 
-<!--more-->
+
 
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout
 - [philipwalton/solved-by-flexbox](https://github.com/philipwalton/solved-by-flexbox)

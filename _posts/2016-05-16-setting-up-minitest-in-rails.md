@@ -10,7 +10,7 @@ tags:
 
 This is my memo on *{{ page.title }}*.
 
-<!--more-->
+ 
 
 ### MiniTest reporters
 It gets the default Rails tests to show red and green at the appropriate times.

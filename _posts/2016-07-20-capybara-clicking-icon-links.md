@@ -7,7 +7,7 @@ tags:
 - capybara
 ---
 
-<!--more-->
+
 
 ```html
 <div class="col-sm-4 align-center">

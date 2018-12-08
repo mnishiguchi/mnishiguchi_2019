@@ -11,7 +11,7 @@ I just wanted to create a simple reusable CSS grid system without using Bootstra
 
 NOTE: The code is not tested.
 
-<!--more-->
+ 
 
 ### Stylesheet
 

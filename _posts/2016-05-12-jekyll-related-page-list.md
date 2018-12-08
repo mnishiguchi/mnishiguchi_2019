@@ -8,7 +8,6 @@ tags:
 
 I wanted to make a list of related pages at the bottom of each post in my Jekyll site.
 
-<!--more-->
 
 ## Objectives
 - Generate a list of related posts based on the attributes of the current page.

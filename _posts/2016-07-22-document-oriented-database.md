@@ -7,7 +7,7 @@ tags:
 - mongodb
 ---
 
-<!--more-->
+
 
 ## Document-oriented database vs Relationoal database
 - Different ways to store information.

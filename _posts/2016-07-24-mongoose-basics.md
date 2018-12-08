@@ -7,7 +7,7 @@ tags:
 - mongodb
 ---
 
-<!--more-->
+
 
 ## [Mongoose](http://mongoosejs.com/)
 - An ODM (Object Data Mapping)

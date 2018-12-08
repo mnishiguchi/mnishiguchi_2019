@@ -1,19 +1,13 @@
 title: Masatoshi Nishiguchi
-tagline: Web Developer
-description: Maintainable Web Development using Ruby on Rails and React.
+description: Maintainable Web Development using Ruby, Rails and React.
 permalink: pretty
-url:       "https://mnishiguchi.com"  # Hostname & protocol for your site
-baseurl:   ""
-repo: https://github.com/mnishiguchi/mnishiguchi.com
+url: "https://mnishiguchi.com"
+baseurl: ""
 author:
-  name:              Masatoshi Nishiguchi
-  email:             nishiguchi.masa@gmail.com
-  url:               https://mnishiguchi.com
-  github_url:        https://github.com/mnishiguchi
-  linkedin_url:      https://linkedin.com/in/mnishiguchi
-  stackoverflow_url: https://stackoverflow.com/users/3837223/mnishiguchi
+  name: Masatoshi Nishiguchi
+  email: nishiguchi.masa@gmail.com
 sass:
-  sass_dir: _sass  # Specify the directory that contains sass partials.
+  sass_dir: _sass  # the directory that contains sass partials
   style: :compressed
 include:
   - _pages
@@ -23,12 +17,16 @@ exclude:
   - admin/index.js
 plugins:
   - jekyll-gist
-
-# Helpers
-navigation_items:
-  About: "/"      # /index.html
-  Blog:  "/blog/" # /blog/index.html
-  Talks: "/talks" # /talks.html
-excerpt_separator: <!--more-->
-feed: false
+  - jekyll-paginate
+navigation_links:
+  - [Home, /]
+  - [Posts, /posts]
+  - [About, /about]
+social_links:
+  - [github, "https://github.com/mnishiguchi"]
+  - [linkedin, "https://linkedin.com/in/mnishiguchi"]
+  - [stack-overflow, "https://stackoverflow.com/users/3837223/mnishiguchi"]
+paginate: 2
+excerpt_separator: "\n\n\n" # two blank lines
+read_more_text: "read more »"
 empty_array: []

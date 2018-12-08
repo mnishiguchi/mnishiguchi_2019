@@ -5,6 +5,7 @@ tags:
   - javascript
 comments: true
 ---
+
 ```js
 const parameterize = string =>
   string

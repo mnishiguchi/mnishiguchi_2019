@@ -12,7 +12,7 @@ tags:
 
 This is my memo on *{{ page.title }}*.
 
-<!--more-->
+ 
 
 ## I want to:
 - display a dropdown list of suggestions every time user enters a character into a text field.

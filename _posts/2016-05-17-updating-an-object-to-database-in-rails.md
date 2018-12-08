@@ -9,7 +9,7 @@ tags:
 
 This is my memo on *{{ page.title }}*.
 
-<!--more-->
+ 
 
 ```ruby
 # Applies the validations.

@@ -12,7 +12,7 @@ tags:
 
 This is my memo on *{{ page.title }}*.
 
-<!--more-->
+ 
 
 #### Query for grandchildren, through a many to many relationship
 

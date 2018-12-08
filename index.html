@@ -1,24 +1,20 @@
 ---
-layout: page
-title: About
+title: Home
+layout: default
 ---
 
-<p class="introduction">
-  I am passionate about building maintainable web applications using Ruby on Rails and React.
-  I am originally from Japan, but currently live in Washington DC, United States.
-</p>
+{% for page in paginator.posts %}
+  <article>
+    {% include post_header.html %}
 
-<h2>I am good at</h2>
-<p>
-  writing maintainable clean code in Ruby and Javascript.
-</p>
+    {{ page.excerpt }}
 
-<h2>I know and enjoy</h2>
-<p>
-  Android, Angular.js, C++, Design Patterns, Elasticsearch, Elixir, GIMP, Git, Heroku, HTML5, Java,
-  Jekyll, jQuery, Kotlin, Linux, Netlify, Object-Oriented Programming, Phoenix, PostgreSQL, React,
-  RSpec, Ruby, SASS, Wordpress, and more.
-</p>
-
-<h2>History</h2>
-{% include timeline.html %}
+    {% unless page.excerpt == page.content %}
+      <footer>
+        <a class="ghost" href="{{ page.url | prepend: site.baseurl }}">
+          {{ site.read_more_text }}
+        </a>
+      </footer>
+    {% endunless %}
+  </article>
+{% endfor %}

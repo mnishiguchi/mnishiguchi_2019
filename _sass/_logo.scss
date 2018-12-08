@@ -1,16 +1,12 @@
-#logo-wrapper {
+.logo-wrapper {
   padding: 2px;  // Determine based on dimensions of svg.line-drawing and .logo.
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -28px;
+  right: 0;
   z-index: 3;
-  background-color: $header-color;
   height: 86px;
-}
-
-@media screen and (max-width: 46.0625em) {
-  #logo-wrapper {
-    margin-bottom: 0;
+  @media screen and (min-width: 750px) {
+    right: 18px;
   }
 }
 
@@ -25,32 +21,27 @@ svg {
 
 .show {
   opacity: 1;
+  transition: opacity 0.5s;
 }
 
 .hide {
   opacity: 0;
+  transition: opacity 0.5s;
 }
 
 .line-drawing {
   transition: opacity 0.5s;
-}
-
-.line-drawing path {
-  fill: none;
-  stroke: white;
-  stroke-width: 3;
-}
-
-.hide,
-.show {
-  transition: opacity 0.5s;
+  path {
+    fill: none;
+    stroke: white;
+    stroke-width: 3;
+  }
 }
 
 .logo {
   position: relative;
   width: 80px;
   height: 80px;
-  background: $header-color no-repeat 50% 50%;
 }
 
 svg.line-drawing {
@@ -62,14 +53,12 @@ svg.line-drawing {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-}
-
-svg.line-drawing path {
-  fill: none;
-  stroke-width: 2;
-  stroke: #ddd;
-}
-
-svg.line-drawing path.darker {
-  stroke: #aaa;
+  path {
+    fill: none;
+    stroke-width: 2;
+    stroke: #ddd;
+  }
+  path.darker {
+    stroke: #aaa;
+  }
 }
