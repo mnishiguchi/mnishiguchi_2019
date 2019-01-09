@@ -7,7 +7,6 @@ tags:
   - iziToast
 comments: true
 ---
-
 This is my note on how to set up iziToast in rails 5.2 app.
 
 
@@ -28,27 +27,26 @@ yarn add izitoast --save
 
 #### configure webpacker for iziToast
 
-```diff
---- a/app/javascript/packs/application.js
-+++ b/app/javascript/packs/application.js
+```js
+// app/javascript/packs/application.js
 
-+import iziToast from 'izitoast/dist/js/iziToast';
-+
-+// expose to window
-+window.iziToast = iziToast;
+import iziToast from 'izitoast/dist/js/iziToast';
+
+// expose to window
+window.iziToast = iziToast;
 ```
 
-```diff
---- a/app/javascript/packs/stylesheet.scss
-+++ b/app/javascript/packs/stylesheet.scss
+```js
+// app/javascript/packs/stylesheet.scss
 
-+@import "~izitoast/dist/css/iziToast";
+@import "~izitoast/dist/css/iziToast";
 ```
 
 #### define flash_tag view helper
 
 ```rb
 # app/helpers/application_helper.rb
+
 module ApplicationHelper
   def flash_tag
     messages = []
@@ -76,14 +74,24 @@ end
 
 #### call flash_tag in layouts/application
 
-```diff
---- a/app/views/layouts/application.slim
-+++ b/app/views/layouts/application.slim
+```slim
+/ app/views/layouts/application.slim
 
-   body
-     = render "layouts/header"
-     main[style="min-height:80vh"]
-+      = flash_tag
-       = yield
-     = render "layouts/footer"
+doctype html
+html
+  head
+    title My App
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application'
+    = stylesheet_pack_tag 'stylesheet'
+    = render "layouts/tracking_script"
+  body
+    = render "layouts/header"
+    main[style="min-height:80vh"]
+      = flash_tag
+      = yield
+    = render "layouts/footer"
 ```
