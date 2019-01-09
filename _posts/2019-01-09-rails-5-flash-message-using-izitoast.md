@@ -3,6 +3,8 @@ layout: post
 title: Rails 5 - flash message using iziToast
 tags:
   - rails
+  - rails
+  - iziToast
 comments: true
 ---
 
