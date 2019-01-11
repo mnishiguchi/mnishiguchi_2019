@@ -60,6 +60,7 @@ h1 = feed.company_name
 
 javascript:
   var feedsShowView = document.querySelector('#feeds.show_view');
+  feedsShowView.querySelectorAll('.loading').forEach(function(el) { el.style.display = 'none' });
   feedsShowView.addEventListener('click', function(e) {
     if (e.target && e.target.matches('.js_fetch_feed_link')) {
       feedsShowView.querySelectorAll('.loading').forEach(function(el) { el.style.display = 'block' });
