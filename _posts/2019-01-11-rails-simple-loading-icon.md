@@ -55,9 +55,8 @@ css:
 = render "shared/loading"
 
 h1 = feed.company_name
-= link_to "Fetch Feed", feed_path, method: :patch, 
-  class: "js_fetch_feed_link",
-  "data-test-id" => "feed_fetch_link__#{feed.id}"
+
+= link_to "Fetch Feed", feed_path, method: :patch, class: "js_fetch_feed_link"
 
 javascript:
   var feedsShowView = document.querySelector('#feeds.show_view');
