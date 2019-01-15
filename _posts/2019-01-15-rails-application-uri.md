@@ -20,7 +20,7 @@ Rails.application.routes.default_url_options = {
 }
 ```
 
-```
+```rb
 # app/models/application_uri.rb
 
 class ApplicationUri
