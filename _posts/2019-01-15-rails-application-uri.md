@@ -11,6 +11,14 @@ comments: true
 I found it handy to have all the application routes related information in a single module. 
 
 
+## dependencies
+
+- ruby 2.5
+- rails 5.2
+
+
+## get started
+
 ```rb
 # config/routes.rb
 
