@@ -1,6 +1,6 @@
 ---
 layout: post
-title: rails - what to do after installing webpacker
+title: Rails - what to do after installing webpacker
 tags:
   - ruby
   - rails
@@ -9,6 +9,13 @@ comments: true
 ---
 This is my note on how to use webpacker after installation.
 
+
+## dependencies
+
+- ruby 2.5
+- rails 5.2
+- webpacker
+- etc
 
 ## set up files
 
@@ -54,23 +61,23 @@ console.log('Hello World from Webpacker');
 ```js
 // app/javascript/packs/stylesheet/index.js
 
-// any js
+// any js here
 ```
 
-```scss
-# app/javascript/packs/stylesheet/index.scss
+```css
+// app/javascript/packs/stylesheet/index.scss
 
-# any scss
+// any scss here
 ```
 
 ## start app
 
-```
-// run webback server
+```bash
+# run webback server
 bin/webpack-dev-server
 ```
 
-```
-// run rails server
+```bash
+# run rails server
 bin/rails s
 ```
