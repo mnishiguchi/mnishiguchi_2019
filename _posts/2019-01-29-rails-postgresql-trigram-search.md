@@ -33,13 +33,13 @@ class Agency < ApplicationRecord
 
 ## set up fuzzy matching
 
-install pg_search gem
+### install pg_search gem
 
 ```rb
 gem "pg_search"
 ```
 
-#### installs PostgreSQL extensions
+### install PostgreSQL extensions
 
 - https://github.com/Casecommons/pg_search/wiki/Installing-PostgreSQL-Extensions
 
