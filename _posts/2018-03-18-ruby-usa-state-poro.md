@@ -12,12 +12,12 @@ A simple PORO that represents a USA state.
 
 
 ```rb
-class UsaState
+class UsState
   attr_reader :name, :abbreviation
 
   def initialize(name_or_abbreviation)
     @name = self.class.state_name_from_abbreviation(name_or_abbreviation)
-    @abbreviation = self.class.abbreviate_state_name(name_or_abbreviation)
+    @abbreviation = self.class.abbreviate_state_name(@name)
   end
 
   def valid?
@@ -25,22 +25,26 @@ class UsaState
   end
 
   class << self
+    def state_name_from_abbreviation(name_or_abbreviation)
+      return if name_or_abbreviation.blank?
+      return name_or_abbreviation if valid_state_name?(name_or_abbreviation)
+
+      US_STATES[name_or_abbreviation.to_s.upcase]
+    end
+
     def abbreviate_state_name(state_name)
+      return if state_name.blank?
       return state_name.to_s.upcase if valid_abbreviation?(state_name)
+
       US_STATES.invert[state_name]&.upcase
     end
 
-    def state_name_from_abbreviation(abbreviation)
-      return abbreviation if valid_state_name?(abbreviation)
-      US_STATES[abbreviation.to_s.upcase]
-    end
-
     def valid_abbreviation?(word)
-      word.length == 2 && US_STATES[word.to_s.upcase]
+      word&.length == 2 && US_STATES[word.to_s.upcase]
     end
 
     def valid_state_name?(word)
-      word.length != 2 && US_STATES.invert[word]
+      word&.length != 2 && US_STATES.invert[word]
     end
   end
 
@@ -105,9 +109,7 @@ end
 ```
 
 ```rb
-require "rails_helper"
-
-RSpec.describe UsaState do
+RSpec.describe UsState do
   it "is valid with valid abbreviation" do
     expect_valid_dc_instance(described_class.new("DC"))
     expect_valid_md_instance(described_class.new("md"))
@@ -119,6 +121,14 @@ RSpec.describe UsaState do
     expect_valid_dc_instance(described_class.new("District of Columbia"))
     expect(described_class.new("District Of Columbia")).not_to be_valid
     expect(described_class.new("district of columbia")).not_to be_valid
+  end
+
+  context "when input is nil" do
+    it "has nil name and nil abbreviation" do
+      instance = described_class.new(nil)
+      expect(instance.name).to be_nil
+      expect(instance.abbreviation).to be_nil
+    end
   end
 
   private
