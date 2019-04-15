@@ -6,25 +6,22 @@ tags:
   - date
 comments: true
 ---
-I wanted to make a simple ruby object that translate date range.
+I wanted to make a simple ruby object that represents date range.
 
 
 ```rb
-class DateRange
+class DateRange < Range
   DEFAULT_FORMAT = "%m/%d/%Y".freeze
   DEFAULT_SEPARATOR = " - ".freeze
 
   attr_reader :start_date, :end_date, :format, :separator
 
   def initialize(start_date, end_date, opts = {})
+    super(start_date, end_date)
     @start_date = start_date
     @end_date = end_date
     @format =  opts[:format] || DEFAULT_FORMAT
     @separator = opts[:separator] || DEFAULT_SEPARATOR
-  end
-
-  def to_range
-    @to_range ||= start_date..end_date
   end
 
   def to_s
@@ -51,16 +48,14 @@ end
 ```
 
 ```rb
-require "rails_helper"
-
 describe DateRange do
   describe ".from_string" do
     it "returns correct instance" do
       instance = described_class.from_string("03/11/2019 - 04/15/2019", format: "%m/%d/%Y")
 
       expect(instance.to_s).to eq("03/11/2019 - 04/15/2019")
-      expect(instance.to_range.first).to eq("2019-03-11".to_date)
-      expect(instance.to_range.last).to eq("2019-04-15".to_date)
+      expect(instance.first).to eq("2019-03-11".to_date)
+      expect(instance.last).to eq("2019-04-15".to_date)
     end
   end
 
@@ -69,8 +64,8 @@ describe DateRange do
       instance = described_class.from_date_range("2019-03-11".to_date.."2019-04-15".to_date, format: "%m/%d/%Y")
 
       expect(instance.to_s).to eq("03/11/2019 - 04/15/2019")
-      expect(instance.to_range.first).to eq("2019-03-11".to_date)
-      expect(instance.to_range.last).to eq("2019-04-15".to_date)
+      expect(instance.first).to eq("2019-03-11".to_date)
+      expect(instance.last).to eq("2019-04-15".to_date)
     end
   end
 end
