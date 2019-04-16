@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Rails asset bundles and page specific js
-comments: true
 tags:
-- ruby
-- rails
-- asset_pipeline
+  - ruby
+  - rails
+  - asset_pipeline
+comments: true
 ---
 
 
@@ -24,14 +24,19 @@ tags:
 ```slim
 doctype html
 html
-  = render "layouts/head"
-
+  /...
   = content_tag :body, class: "#{action_name}_view", id: controller_name, data: { action: action_name, controller: controller_name } do
-    = render "layouts/navbar"
-    main
-      = render "layouts/flash"
-      = yield
-    = render "layouts/footer"
+    /...
+```
+
+```slim
+doctype html
+html
+  /...
+  - body_class = user_signed_in? ? "body--logged-in" : "body"
+  - body_data = { action: action_name.dasherize, controller: controller_path.parameterize.dasherize }
+  = content_tag :body, class: body_class, data: body_data do
+    /...
 ```
 
 ## Links and References
