@@ -22,7 +22,7 @@ js
 
 scss
 
-- All the shared / global scss files go to app/javascript/packs/stylesheets
+- All the shared / global scss files go to app/javascript/scss
 - Use asset pipeline for custom styles so that we can use rails helpers
 - Use webpacker for react components and third-party styles from node_modules
 
@@ -93,42 +93,44 @@ html
 
 - `app/javascript/packs/application.js` is the entry point
 - `application.js` and `application.css` wil be automatically generated after the compiling based on all the module imported into `app/javascript/packs/application.js`
+- The packs folder is only made for webpack entries. The files that are to be imported into the entry  must be outside the packs folder.
+  - https://github.com/rails/webpacker/issues/1432#issuecomment-382159016
 
 ```
 ./app/javascript/
+├── packs
+│   └── application.js # webpack entry
 ├── channels
 │   ├── consumer.js
 │   └── index.js
-└── packs
-    ├── application.js
-    ├── javascripts
-    │   ├── index.js
-    │   └── some_custom_script.js
-    └── stylesheets
-        ├── index.scss
-        ├── variables.scss
-        ├── mixins.scss
-        └── globals.scss
+├── js
+│   ├── index.js
+│   └── some_custom_script.js
+└── scss
+    ├── _globals.scss
+    ├── _mixins.scss
+    ├── _variables.scss
+    └── index.scss
 ```
 
 app/javascript/packs/application.js
 
 ```js
 // initialize rails
-require("@rails/ujs").start()
-require("turbolinks").start()
-require("@rails/activestorage").start()
-require("channels")
+require('@rails/ujs').start();
+require('turbolinks').start();
+require('@rails/activestorage').start();
+require('channels');
 
-// expose our custom js and scss
-import './javascripts';
-import './stylesheets';
+// import our js and scss
+require('../js');
+require('../scss');
 
-// sanity check
+// senity check
 console.log('Webpacker initialized');
 ```
 
-app/javascript/packs/stylesheet/index.js
+app/javascript/js/index.js
 
 ```js
 // Reference third-party js in node_modules
@@ -146,7 +148,7 @@ window.$ = jquery;
 window.iziToast = iziToast;
 ```
 
-app/javascript/packs/stylesheet/index.scss
+app/javascript/scss/index.scss
 
 ```scss
 // our custom configs
@@ -185,10 +187,10 @@ app/javascript/packs/stylesheet/index.scss
 app/assets/stylesheets/application.scss
 
 ```scss
-// our custom configs that are defined in app/javascript/packs/stylesheets
-@import '../../javascript/packs/stylesheets/variables';
-@import '../../javascript/packs/stylesheets/mixins';
-@import '../../javascript/packs/stylesheets/globals';
+// our custom configs that are defined in app/javascript/scss
+@import '../../javascript/scss/variables';
+@import '../../javascript/scss/mixins';
+@import '../../javascript/scss/globals';
 
 // third-party styles
 @import 'font-awesome';
