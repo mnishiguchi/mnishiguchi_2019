@@ -7,7 +7,7 @@ tags:
   - webpacker
 comments: true
 ---
-This is my note on how I should set up webpacker.
+This is my note on how I should set up [webpacker](https://github.com/rails/webpacker).
 
 
 ## My Goals
