@@ -7,13 +7,24 @@ tags:
   - webpacker
 comments: true
 ---
-This is my note on how to use webpacker after installation.
+This is my note on how I should set up webpacker.
 
 
-## Goals
+## My Goals
+
+general
 
 - Import all frontend dependencies through Webpacker
+
+js
+
 - Process all JS with Webpacker
+
+scss
+
+- All the shared / global scss files go to app/javascript/packs/stylesheets
+- Use asset pipeline for custom styles so that we can use rails helpers
+- Use webpacker for react components and third-party styles from node_modules
 
 ## Dependencies
 
@@ -60,9 +71,9 @@ This is my note on how to use webpacker after installation.
 
 #### Add `javascript_pack_tag` and `stylesheet_pack_tag` to a layout file
 
-```slim
-/ app/views/layouts/application.slim
+app/views/layouts/application.slim
 
+```slim
 doctype html
 html
   head
@@ -78,7 +89,7 @@ html
     /...
 ```
 
-#### Set up js and css files in app/javascript/packs
+#### Set up js and css files in `app/javascript/packs`
 
 - `app/javascript/packs/application.js` is the entry point
 - `application.js` and `application.css` wil be automatically generated after the compiling based on all the module imported into `app/javascript/packs/application.js`
@@ -95,12 +106,14 @@ html
     │   └── some_custom_script.js
     └── stylesheets
         ├── index.scss
-        └── some_custom_style.js
+        ├── variables.scss
+        ├── mixins.scss
+        └── globals.scss
 ```
 
-```js
-// app/javascript/packs/application.js
+app/javascript/packs/application.js
 
+```js
 // initialize rails
 require("@rails/ujs").start()
 require("turbolinks").start()
@@ -115,9 +128,9 @@ import './stylesheets';
 console.log('Webpacker initialized');
 ```
 
-```js
-// app/javascript/packs/stylesheet/index.js
+app/javascript/packs/stylesheet/index.js
 
+```js
 // Reference third-party js in node_modules
 import jquery from 'jquery';
 import iziToast from 'izitoast/dist/js/iziToast';
@@ -128,20 +141,26 @@ import 'bootstrap/dist/js/bootstrap.bundle.js';
 // Immediately invoke custom js
 import './some_custom_script.js';
 
-// Expose third-party js to window
+// Expose references to window
 window.$ = jquery;
 window.iziToast = iziToast;
 ```
 
-```scss
-// app/javascript/packs/stylesheet/index.scss
+app/javascript/packs/stylesheet/index.scss
 
-// from node_modules
+```scss
+// our custom configs
+@import './variables';
+@import './mixins';
+@import './globals';
+
+// third-party styles from node_modules
 @import '~izitoast/dist/css/iziToast';
+@import '~bootstrap/scss/bootstrap';
 @import '~bootstrap-daterangepicker/daterangepicker';
 
-// custom
-@import './bootstrap';
+// our custom styles
+//...
 ```
 
 #### Clean up app/assets (optional)
@@ -163,9 +182,28 @@ window.iziToast = iziToast;
     ├── ...
 ```
 
-```js
-// app/assets/config/manifest.js
+app/assets/stylesheets/application.scss
 
+```scss
+// our custom configs that are defined in app/javascript/packs/stylesheets
+@import '../../javascript/packs/stylesheets/variables';
+@import '../../javascript/packs/stylesheets/mixins';
+@import '../../javascript/packs/stylesheets/globals';
+
+// third-party styles
+@import 'font-awesome';
+
+// our custom styles
+@import 'breadcrumb';
+@import 'header_footer';
+@import 'not_logged_in_home';
+@import 'sidebar_menu';
+@import 'summary';
+```
+
+app/assets/config/manifest.js
+
+```js
 //= link_tree ../images
 //= link_directory ../stylesheets .css
 ```
