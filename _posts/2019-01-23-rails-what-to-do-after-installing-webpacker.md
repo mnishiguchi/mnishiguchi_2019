@@ -9,34 +9,35 @@ comments: true
 ---
 This is my note on how I should set up [webpacker](https://github.com/rails/webpacker).
 
-
 ## My Goals
 
-general
+#### general
 
 - Import all frontend dependencies through Webpacker
 
-js
+#### js
 
 - Process all JS with Webpacker
 
-scss
+#### scss
 
-- All the shared / global scss files go to app/javascript/scss
-- Use asset pipeline for custom styles so that we can use rails helpers
-- Use webpacker for react components and third-party styles from node_modules
+- All the shared / global scss files go to app/assets/stylesheets.
+- Set up css-modules for react components.
+- Load third-party styles from node_modules through webpacker.
 
 ## Dependencies
 
 - ruby 2.6.2
-- rails 5.2.3
-- webpacker
+- rails 6.0.0.beta3
+- webpacker 4.0.2
+- react-rails 2.5.0
 - etc
 
+#### package.json
+
 ```js
-// package.json
 {
-  "name": "my-app",
+  "name": "jwt_app",
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
@@ -48,30 +49,33 @@ scss
     "bootstrap": "^4.3.1",
     "izitoast": "^1.4.0",
     "jquery": "^3.4.0",
-    "popper.js": "^1.15.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "turbolinks": "^5.2.0"
-  },
-  "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.8.1",
-    "babel-plugin-syntax-dynamic-import": "^6.18.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "webpack-dev-server": "^3.3.1",
+    "react-router-dom": "^5.0.0",
+    "react_ujs": "^2.5.0",
+    "reactstrap": "^8.0.0",
+    "turbolinks": "^5.2.0",
     "webpack-merge": "^4.2.1"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.3.1"
   }
 }
 ```
 
-## Set up files
+## Set up webpacker load path 
+
+#### config/webpacker.yml
+
+```yml
+  resolved_paths: ['app/assets']
+```
+
+## Set up outputs in `app/views/layouts/application.slim`
 
 #### Add `javascript_pack_tag` and `stylesheet_pack_tag` to a layout file
-
-app/views/layouts/application.slim
 
 ```slim
 doctype html
@@ -89,125 +93,128 @@ html
     /...
 ```
 
-#### Set up js and css files in `app/javascript/packs`
+## Set up `app/assets`
+
+```bash
+$ tree app/assets/
+app/assets/
+├── config
+│   └── manifest.js
+├── images
+└── stylesheets
+    ├── application.scss       # global scss
+    └── shared                 # scss shared with webpacker
+        └── variables.scss
+```
+
+#### app/assets/stylesheets/application.scss
+
+```scss
+@import './shared/variables';
+
+// third-party styles from node_modules
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'izitoast/dist/css/iziToast';
+```
+
+#### app/assets/config/manifest.js
+
+- no longer need to load js here
+
+```js
+//= link_tree ../images
+//= link_directory ../stylesheets .css
+```
+
+## Set up `app/javascript`
 
 - `app/javascript/packs/application.js` is the entry point
 - `application.js` and `application.css` wil be automatically generated after the compiling based on all the module imported into `app/javascript/packs/application.js`
 - The packs folder is only made for webpack entries. The files that are to be imported into the entry  must be outside the packs folder.
   - https://github.com/rails/webpacker/issues/1432#issuecomment-382159016
 
-```
-./app/javascript/
-├── packs
-│   └── application.js # webpack entry
+```bash
+$ tree app/javascript -I node_modules -L 3
+app/javascript
 ├── channels
-│   ├── consumer.js
-│   └── index.js
-├── js
-│   ├── index.js
-│   └── some_custom_script.js
-└── scss
-    ├── _globals.scss
-    ├── _mixins.scss
-    ├── _variables.scss
-    └── index.scss
+│   ├── consumer.js
+│   └── index.js
+├── components                 # react components
+│   ├── ReactApp
+│   │   ├── ...
+│   │   ├── TopNav.jsx
+│   │   └── TopNav.module.scss # *.module.scss extension for activation css modules
+│   └── ReactApp.js
+├── packs                      # entry points for webpack
+│   ├── application.js
+│   └── server_rendering.js    # See react-rails docs
+└── src                        # custom javascript imported into application.js
+    └── index.js
 ```
 
-app/javascript/packs/application.js
+#### app/javascript/packs/application.js
 
 ```js
-// initialize rails
+// Rails scripts
 require('@rails/ujs').start();
 require('turbolinks').start();
 require('@rails/activestorage').start();
 require('channels');
 
-// import our js and scss
-require('../js');
-require('../scss');
+// Our custom scripts
+require('../src/index.js');
+
+// Support component names relative to this directory:
+const componentRequireContext = require.context('components', true);
+const ReactRailsUJS = require('react_ujs');
+
+ReactRailsUJS.useContext(componentRequireContext);
+```
+
+#### app/javascript/src/index.js
+
+```js
+// Initialize rails
+require('@rails/ujs').start();
+require('turbolinks').start();
+require('@rails/activestorage').start();
+require('channels');
+
+// Initialize react-rails
+const componentRequireContext = require.context('components', true);
+const ReactRailsUJS = require('react_ujs');
+ReactRailsUJS.useContext(componentRequireContext);
+
+// Initialize our js
+require('../src/index.js');
 
 // senity check
 console.log('Webpacker initialized');
 ```
 
-app/javascript/js/index.js
+## CSS modules
 
-```js
-// Reference third-party js in node_modules
-import jquery from 'jquery';
-import iziToast from 'izitoast/dist/js/iziToast';
-
-// Immediately invoke third-party js in node_modules
-import 'bootstrap/dist/js/bootstrap.bundle.js';
-
-// Immediately invoke custom js
-import './some_custom_script.js';
-
-// Expose references to window
-window.$ = jquery;
-window.iziToast = iziToast;
-```
-
-app/javascript/scss/index.scss
+- TL;DR: Make sure that filename is "*.module.*"
 
 ```scss
-// our custom configs
-@import './variables';
-@import './mixins';
-@import './globals';
+// app/javascript/components/ReactApp/TopNav.module.scss
 
-// third-party styles from node_modules
-@import '~izitoast/dist/css/iziToast';
-@import '~bootstrap/scss/bootstrap';
-@import '~bootstrap-daterangepicker/daterangepicker';
+@import 'stylesheets/shared/variables';
 
-// our custom styles
+.navbar {
+  background-color: $app-theme-color;
+}
+```
+
+```js
+// app/javascript/components/ReactApp/TopNav.js
+
 //...
-```
+import css from './TopNav.module';
 
-#### Clean up app/assets (optional)
-
-- We no longer need js files in app/assets.
-
-```
-./app/assets/
-├── config
-│   └── manifest.js
-├── images
-│   ├── feature.png
-│   ├── hero.jpg
-│   └── logo.png
-└── stylesheets
-    ├── _breadcrumb.scss
-    ├── ...
-    ├── application.scss
-    ├── ...
-```
-
-app/assets/stylesheets/application.scss
-
-```scss
-// our custom configs that are defined in app/javascript/scss
-@import '../../javascript/scss/variables';
-@import '../../javascript/scss/mixins';
-@import '../../javascript/scss/globals';
-
-// third-party styles
-@import 'font-awesome';
-
-// our custom styles
-@import 'breadcrumb';
-@import 'header_footer';
-@import 'not_logged_in_home';
-@import 'sidebar_menu';
-@import 'summary';
-```
-
-app/assets/config/manifest.js
-
-```js
-//= link_tree ../images
-//= link_directory ../stylesheets .css
+const TopNav = () => {
+  return (
+    <Navbar dark expand="md" className={css.navbar}>
 ```
 
 ## Start app
