@@ -60,7 +60,7 @@ $ bundle update
 
 #### Initialze a git repo (local and remote)
 
-#### [Deploy it to Heroku]({{ site.baseurl }}/2016/05/13/deploying-rails-app-to-heroku)
+#### [Deploy it to Heroku]({% post_url 2016-05-13-deploying-rails-app-to-heroku %})
 
 ---
 

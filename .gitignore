@@ -21,3 +21,4 @@ _site
 # Folders to ignore
 node_modules
 .netlify
+.jekyll-cache

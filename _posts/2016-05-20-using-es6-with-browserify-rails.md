@@ -10,7 +10,7 @@ tags:
 
 This is my memo on *{{ page.title }}*.
 
- 
+
 
 #### Install [browserify-rails](https://github.com/browserify-rails/browserify-rails)
 
@@ -69,7 +69,7 @@ module.exports =  function(){
 }
 ```
 
-#### [Deploy the project to Heroku]({{ site.baseurl}}/2016-05-13-deploying-rails-app-to-heroku)
+#### [Deploy the project to Heroku]({% post_url 2016-05-13-deploying-rails-app-to-heroku %})
 
 [Claer the asset pipeline cache](https://github.com/browserify-rails/browserify-rails#clear-the-asset-pipeline-cache).
 

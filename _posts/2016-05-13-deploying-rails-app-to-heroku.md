@@ -122,7 +122,8 @@ $ heroku config:unset BUILDPACK_URL
 ```
 
 ## Troubleshooting
-- [Heroku Troubleshooting]({{ site.baseurl }}/2016/05/13/heroku-troubleshooting/)
+
+- [Heroku Troubleshooting]({% post_url 2016-05-13-heroku-troubleshooting %})
 
 ## Reference
 - [RUBY ON RAILS TUTORIAL (3ND ED.)](https://www.railstutorial.org/book/beginning#sec-deploying)

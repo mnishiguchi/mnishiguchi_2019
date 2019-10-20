@@ -10,11 +10,6 @@ tags:
 
 I wanted to make the site navigation appear on a modal dialog box. After googling around, I found that I could implement modal with pure CSS. I thought this was a great opportunity to learn how to implement simple modal without JS.
 
-
-![]({{ site.baseurl }}/images/20160510_modal_nav_menu.png)
-
-
-
 ## Objectives
 - Create a simple modal dialog box that displays the navigation menu.
 - Open and close the modal by clicking a button.
@@ -227,8 +222,6 @@ Because of that, the code can become buggy or difficult to maintain.
 ```
 {% endraw %}
 
-
-
 ## Conclusion
 - It is great to know that I can trigger the navigation to open with pure CSS only.
 - Although classic-style modal often comes with transparent overlay, we can consider
@@ -237,10 +230,6 @@ scrolling page contents.
 - There are tons of other options to consider, including:
   - [Sliding Sidebar by mdo](https://github.com/poole/lanyon)
   - [Full-Screen Pushing Navigation by Sebastiano Guerriero](https://codyhouse.co/gem/full-screen-pushing-navigation/)
-
-![]({{ site.baseurl }}/images/20160510_sidebar_nav_menu.png)
-
-
 
 ## Reference
 - [Modal in pure html and css - JSFiddle](http://jsfiddle.net/raving/1mhsynmw/)
