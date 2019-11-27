@@ -166,6 +166,7 @@ module.exports = {
       },
     },
     // Must be after other CSS plugins
+    // https://www.gatsbyjs.org/packages/gatsby-plugin-netlify/
     'gatsby-plugin-netlify', // Make sure to keep it last in the array
   ],
 }

@@ -1,4 +1,4 @@
-Copyright (c) 2018 Masatoshi Nishiguchi
+Copyright (c) 2020 Masatoshi Nishiguchi
 
 MIT License
 

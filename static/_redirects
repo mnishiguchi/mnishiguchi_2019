@@ -1,0 +1,8 @@
+http://mnishiguchi.com/*      https://www.mnishiguchi.com/:splat  301!
+http://www.mnishiguchi.com/*  https://www.mnishiguchi.com/:splat  301!
+
+/2015/*  https://mnishiguchi-2019.netlify.com              301!
+/2016/*  https://mnishiguchi-2019.netlify.com/2016/:splat  301!
+/2017/*  https://mnishiguchi-2019.netlify.com/2017/:splat  301!
+/2018/*  https://mnishiguchi-2019.netlify.com/2018/:splat  301!
+/2019/*  https://mnishiguchi-2019.netlify.com/2019/:splat  301!
