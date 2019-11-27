@@ -1,0 +1,110 @@
+@import '../styles/variables';
+
+$accentColor: $primary;
+$textColor: $primary;
+$borderColor: $primary-invert;
+$inputHeight: 2rem;
+
+// https://vuepress.vuejs.org/
+// https://github.com/vuejs/vuepress/blob/master/packages/%40vuepress/plugin-search/SearchBox.vue
+.searchBox {
+  display: inline-block;
+  position: relative;
+  margin-right: 1rem;
+}
+
+.input {
+  cursor: text;
+  width: 20rem;
+  height: 2rem;
+  color: lighten($textColor, 25%);
+  display: inline-block;
+  border: 1px solid darken($borderColor, 10%);
+  font-size: 0.9rem;
+  line-height: 2rem;
+  padding: 0 0.5rem 0 2rem;
+  outline: none;
+  transition: all 0.2s ease;
+  background: $accentColor url(../img/search.svg) 0.6rem 0.5rem
+    no-repeat;
+  background-size: 1rem;
+
+  &:focus {
+    cursor: auto;
+    border-color: $accentColor;
+    background-color: $primary-invert;
+  }
+}
+
+.suggestions {
+  background: #fff;
+  width: 20rem;
+  position: absolute;
+  top: 3rem;
+  // For some reason "left" causes strange behavior in animation.
+  right: 0.8rem;
+  border: 1px solid darken($borderColor, 10%);
+  padding: 0.4rem;
+  list-style-type: none;
+}
+
+.suggestion {
+  line-height: 1.4;
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  cursor: pointer;
+
+  a {
+    white-space: normal;
+    color: lighten($textColor, 35%);
+  }
+
+  &.focused {
+    background-color: #f3f4f5;
+
+    a {
+      color: $accentColor;
+    }
+  }
+}
+
+.pageTitle {
+  font-weight: 600;
+}
+
+// Override when narrower than widescreen
+@media (max-width: $widescreen) {
+  .input {
+    cursor: pointer;
+    width: 0;
+    border-color: transparent;
+    position: relative;
+    &:focus {
+      cursor: text;
+      left: 0;
+      width: 20rem;
+    }
+  }
+}
+
+// Override when narrower than desktop
+@media (max-width: $desktop) {
+  .search-box {
+    margin-right: 0;
+  }
+
+  .suggestions {
+    right: 0.8rem;
+  }
+}
+
+// Override when narrower than tablet
+@media (max-width: $tablet) {
+  .suggestions {
+    width: calc(100vw - 1.6rem);
+  }
+
+  .input:focus {
+    width: calc(100vw - 1.6rem);
+  }
+}

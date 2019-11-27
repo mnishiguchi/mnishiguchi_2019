@@ -1,0 +1,22 @@
+@import '../styles/variables';
+
+.internalLink {
+  // Note: Disable the CSS Module for `.is-active` class.
+  &:global(.is-active) {
+    // Note: The color won't change without `!important`.
+    color: $navbar-item-hover-color !important;
+    cursor: default;
+    pointer-events: none;
+
+    &:hover {
+      color: $navbar-item-hover-color !important;
+    }
+  }
+}
+
+// Override for use of svg's from https://simpleicons.org/
+.icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}

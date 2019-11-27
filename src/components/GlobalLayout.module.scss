@@ -1,0 +1,6 @@
+@import "../styles/variables";
+
+// Make variables available in JS.
+:export {
+  primaryColor: $primary;
+}

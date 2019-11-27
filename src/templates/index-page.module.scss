@@ -1,0 +1,31 @@
+@import '../styles/variables';
+
+.hero {
+  background-color: $primary;
+}
+
+.heroBody {
+  padding: 0.5rem 1.5rem 1.5rem;
+}
+
+.heroTitle {
+  color: white;
+  line-height: 1;
+  padding: 0.25em;
+}
+
+.heroSubtitle {
+  color: white;
+  line-height: 1;
+  padding: 0.25em;
+  a {
+    color: $navbar-item-color;
+    &:hover {
+      color: $navbar-item-hover-color;
+    }
+  }
+}
+
+:export {
+  tablet: $tablet;
+}

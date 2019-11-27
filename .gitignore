@@ -1,24 +1,9 @@
-# Ignore docs files
-_gh_pages
-_site
-.sass-cache
-
-# Numerous always-ignore extensions
-*.diff
-*.err
-*.orig
-*.log
-*.rej
-*.swo
-*.swp
-*.zip
-*.vi
-*~
-
-# OS folders
-.DS_Store
-
-# Folders to ignore
+# Project dependencies
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
-.netlify
-.jekyll-cache
+.cache/
+# Build directory
+public/
+static/admin/*.bundle.*
+.DS_Store
+yarn-error.log
