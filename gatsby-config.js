@@ -124,6 +124,14 @@ const flexsearchPlugin = {
   },
 }
 
+// https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/
+const googleAnalyticsPlugin = {
+  resolve: `gatsby-plugin-google-analytics`,
+  options: {
+    trackingId: process.env.GA_TRACKING_ID,
+  },
+}
+
 module.exports = {
   siteMetadata: {
     title: 'mnishiguchi',
@@ -140,6 +148,7 @@ module.exports = {
     // https://www.gatsbyjs.org/packages/gatsby-transformer-sharp/
     'gatsby-transformer-sharp',
     ...transformarRemarkPlugins,
+    googleAnalyticsPlugin,
     flexsearchPlugin,
     {
       resolve: 'gatsby-plugin-netlify-cms',

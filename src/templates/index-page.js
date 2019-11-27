@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Media from 'react-media'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import GlobalLayout from '../components/GlobalLayout'
 import StackOverflowFlair from '../components/StackOverflowFlair'
@@ -21,15 +22,15 @@ export const IndexPageContent = ({ title, heading, subheading }) => (
             <Media query={{ maxWidth: styles.tablet }}>
               {matches => (matches ? <br /> : <span>{` · `}</span>)}
             </Media>
-            <a href="https://www.google.com/maps/d/u/0/embed?mid=1VQHZbH9Elf3YIR0JCo9qQ0ywXGA&hl=en&ll=38.901906769884384%2C-77.01435253235564&z=6">
+            <OutboundLink href="https://www.google.com/maps/d/u/0/embed?mid=1VQHZbH9Elf3YIR0JCo9qQ0ywXGA&hl=en&ll=38.901906769884384%2C-77.01435253235564&z=6">
               Washington, DC
-            </a>
+            </OutboundLink>
           </h2>
         </div>
       </div>
     </header>
 
-    <section className="section section--gradient" style={{ paddingTop: 0 }}>
+    <section className="section" style={{ paddingTop: 0 }}>
       <div className="container">
         <div className="columns">
           <div className="column is-10 is-offset-1">
