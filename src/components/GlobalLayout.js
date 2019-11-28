@@ -8,7 +8,7 @@ import useSiteMetadata from './SiteMetadata'
 import styles from './GlobalLayout.module.scss'
 import '../styles/global.scss'
 
-export default ({ children, hideNavbar = false }) => {
+export default ({ children }) => {
   const { title, description } = useSiteMetadata()
 
   return (
@@ -53,7 +53,7 @@ export default ({ children, hideNavbar = false }) => {
         />
       </Helmet>
 
-      {hideNavbar ? '' : <Navbar />}
+      <Navbar />
 
       <main style={{ minHeight: '80vh' }}>{children}</main>
 

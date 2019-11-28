@@ -1,44 +1,19 @@
 import React, { useState } from 'react'
-import { Link } from 'gatsby'
+import { navigate } from 'gatsby'
 
 import styles from './BlogPostSearch.module.scss'
 
-const ResultList = ({ results, query }) => {
-  if (results.length === 0) return ''
-
-  if (results.length > 0) {
-    return (
-      <ul className={styles.suggestions}>
-        {results.map((page, i) => (
-          <li className={styles.suggestion} key={i}>
-            <Link to={page.url}>
-              <h4 className={styles.pageTitle}>{page.title}</h4>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    )
-  } else if (query.length > 2) {
-    return (
-      <ul className={styles.suggestions}>
-        <li className={styles.suggestion}>{`No results for ${query}`}</li>
-      </ul>
-    )
-  } else {
-    return ''
-  }
-}
-
-const defaultState = {
-  query: '',
-  results: [],
-}
-
 // https://www.gatsbyjs.org/packages/gatsby-plugin-flexsearch
 const BlogPostSearch = ({ className, style }) => {
-  const [state, setState] = useState(defaultState)
+  const MIN_QUERY_LENGTH = 3
 
-  const fetchSearchResults = query => {
+  const [isActive, setIsActive] = useState(false)
+  const [query, setQuery] = useState('')
+  const [suggestions, setsuggestions] = useState([])
+
+  let queryInputRef = React.createRef()
+
+  const fetchSearchsuggestions = query => {
     var index = window.__FLEXSEARCH__.en.index
     var store = window.__FLEXSEARCH__.en.store
 
@@ -61,35 +36,62 @@ const BlogPostSearch = ({ className, style }) => {
   }
 
   const onSearch = event => {
-    const query = event.target.value
-    if (state.query.length > 2) {
-      setState({ results: fetchSearchResults(query), query: query })
-    } else {
-      setState({ results: [], query: query })
-    }
+    const inputValue = event.target.value
+    setQuery(inputValue)
+    setsuggestions(
+      inputValue.length > 2 ? fetchSearchsuggestions(inputValue) : []
+    )
   }
 
-  const onBlur = event => {
-    event.target.value = ''
-
-    // Delay a bit for navigating to a new page.
-    setTimeout(() => setState(defaultState), 200)
+  const toggleActiveStatus = () => {
+    if (isActive) {
+      queryInputRef.current.value = ''
+      setIsActive(false)
+      setQuery('')
+      setsuggestions([])
+    } else {
+      setIsActive(true)
+      queryInputRef.current && queryInputRef.current.focus()
+    }
   }
 
   return (
     <div className={className} style={style}>
-      <div className={styles.searchBox}>
+      <div className={`${styles.searchBox} ${isActive ? 'is-active' : ''}`}>
         <input
-          className={styles.input}
           type="text"
-          aria-label="Search"
-          autoComplete="off"
-          spellCheck="false"
+          ref={queryInputRef}
+          className={`input ${styles.queryInput}`}
           onChange={onSearch}
-          onBlur={onBlur}
+          placeholder="Search mnishiguchi.com"
         />
-        <ResultList results={state.results} query={state.query} />
+        <div
+          className={`${styles.searchToggle}`}
+          onClick={toggleActiveStatus}
+        ></div>
       </div>
+
+      {query.length > MIN_QUERY_LENGTH ? (
+        <ul className={`list is-hoverable ${styles.suggestions}`}>
+          {suggestions.length === 0 ? (
+            <li
+              className={`list-item ${styles.suggestion}`}
+            >{`No suggestions for ${query}`}</li>
+          ) : (
+            suggestions.map((page, i) => (
+              <li
+                className={`list-item ${styles.suggestion}`}
+                key={page.title}
+                onClick={() => navigate(page.url)}
+              >
+                <h4>{page.title}</h4>
+              </li>
+            ))
+          )}
+        </ul>
+      ) : (
+        ''
+      )}
     </div>
   )
 }

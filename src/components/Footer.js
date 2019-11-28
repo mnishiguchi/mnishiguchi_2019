@@ -9,9 +9,7 @@ const Footer = () => {
         style={{ display: 'flex', justifyContent: 'space-between' }}
       >
         <span>© 2019 Masatoshi Nishiguchi</span>
-        <BackToTopLink style={{ width: `50px`, height: `50px` }}>
-          ⬆
-        </BackToTopLink>
+        <BackToTopLink>Back to top ⬆</BackToTopLink>
       </div>
     </footer>
   )

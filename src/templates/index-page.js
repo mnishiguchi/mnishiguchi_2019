@@ -37,7 +37,7 @@ export const IndexPageContent = ({ title, heading, subheading }) => (
             <div className="content">
               <img src={masaChinatown} alt="" style={{ width: `280px` }} />
               <br />
-              <StackOverflowFlair theme="clean" />
+              <StackOverflowFlair theme="clean" size="300px" />
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <GlobalLayout hideNavbar={false}>
+    <GlobalLayout>
       <IndexPageContent
         title={frontmatter.title}
         heading={frontmatter.heading}

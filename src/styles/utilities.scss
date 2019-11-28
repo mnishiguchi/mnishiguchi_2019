@@ -17,16 +17,6 @@ $navbar-background-color: $primary;
 $navbar-item-color: darken($primary-invert, 20%);
 $navbar-item-hover-color: lighten($link, 20%);
 
-// Menu overrides
-// https://bulma.io/documentation/components/menu/#variables
-$menu-item-color: $white-ter;
-$menu-item-hover-color: $primary !important;
-$menu-item-hover-background-color: $primary;
-$menu-item-active-color: $primary-invert;
-$menu-item-active-background-color: $primary-invert;
-$menu-list-border-left: 1px solid $primary-invert;
-$menu-label-color: $white-ter;
-
 // Footer overrides
 // https://bulma.io/documentation/layout/footer/#variables
 $footer-background-color: $primary;
@@ -46,3 +36,5 @@ $widescreen-enabled: true;
 // 1344px container + 4rem
 $fullhd: 960px + (2 * $gap);
 $fullhd-enabled: true;
+
+@import "~bulma/sass/utilities/_all";

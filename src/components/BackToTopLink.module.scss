@@ -1,0 +1,6 @@
+// Remove default styles of button
+// https://stackoverflow.com/questions/2460100/remove-the-complete-styling-of-an-html-button-submit
+.button {
+  all: unset;
+  cursor: pointer;
+}
