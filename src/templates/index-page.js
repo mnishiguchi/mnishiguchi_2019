@@ -14,8 +14,8 @@ import styles from './index-page.module.scss'
 export const IndexPageContent = ({ title, heading, subheading }) => (
   <>
     <header className={`hero ${styles.hero}`}>
-      <div className={`hero-body ${styles.heroBody}`}>
-        <div className="container">
+      <div className={`container ${styles.indexContainer}`}>
+        <div className={`hero-body ${styles.heroBody}`}>
           <h1 className={`title ${styles.heroTitle}`}>Masatoshi Nishiguchi</h1>
           <h2 className={`subtitle ${styles.heroSubtitle}`}>
             Software Engineer
@@ -31,23 +31,24 @@ export const IndexPageContent = ({ title, heading, subheading }) => (
     </header>
 
     <section className="section" style={{ paddingTop: 0 }}>
-      <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <section className="content">
-              <img src={masaChinatown} alt="" style={{ width: `230px` }} />
+      <div className={`container ${styles.indexContainer}`}>
+        <div className="columns is-centered is-vcentered is-mobile">
+          <div className="column is-narrow has-text-centered">
+            <div className="content">
+              <img src={masaChinatown} alt="" style={{ width: `280px` }} />
               <br />
               <StackOverflowFlair theme="clean" />
-            </section>
-            <section className="content">
-              I enjoy
-              <br />
-              <BrandIconList />
-              <br />
-              and more...
-            </section>
+            </div>
           </div>
         </div>
+
+        <p className="content">
+          I enjoy
+          <br />
+          <BrandIconList />
+          <br />
+          and more...
+        </p>
       </div>
     </section>
   </>

@@ -1,5 +1,9 @@
 @import '../styles/variables';
 
+.indexContainer {
+  max-width: 769px;
+}
+
 .hero {
   background-color: $primary;
 }
