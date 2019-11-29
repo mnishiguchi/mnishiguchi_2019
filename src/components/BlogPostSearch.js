@@ -14,25 +14,20 @@ const BlogPostSearch = ({ className, style }) => {
   let queryInputRef = React.createRef()
 
   const fetchSearchsuggestions = query => {
-    var index = window.__FLEXSEARCH__.en.index
-    var store = window.__FLEXSEARCH__.en.store
+    const index = window.__FLEXSEARCH__.en.index
+    const store = window.__FLEXSEARCH__.en.store
 
-    if (!query || !index) {
-      return []
-    } else {
-      var results = []
-      Object.keys(index).forEach(idx => {
-        results.push(...index[idx].values.search(query))
-      })
+    if (!query || !index) return []
 
-      results = Array.from(new Set(results))
+    let results = []
+    Object.keys(index).forEach(idx =>
+      results.push(...index[idx].values.search(query))
+    )
+    results = Array.from(new Set(results))
 
-      var nodes = store
-        .filter(node => (results.includes(node.id) ? node : null))
-        .map(node => node.node)
-
-      return nodes
-    }
+    return store
+      .filter(node => results.includes(node.id))
+      .map(node => node.node)
   }
 
   const onSearch = event => {
@@ -72,7 +67,7 @@ const BlogPostSearch = ({ className, style }) => {
       </div>
 
       {query.length > MIN_QUERY_LENGTH ? (
-        <ul className={`list is-hoverable ${styles.suggestions}`}>
+        <ul className={`list ${styles.suggestions}`}>
           {suggestions.length === 0 ? (
             <li
               className={`list-item ${styles.suggestion}`}

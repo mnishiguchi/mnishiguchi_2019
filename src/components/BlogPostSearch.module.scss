@@ -63,6 +63,7 @@ $inputHeight: 2rem;
   cursor: pointer;
 
   &:hover {
-    color: $link;
+    color: $black;
+    background-color: $white-bis;
   }
 }

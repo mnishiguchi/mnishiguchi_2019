@@ -1,8 +1,9 @@
 ---
 templateKey: 'blog-post'
-title: Rails hash camelize and underscore keys
-date: 2017-11-29T15:04:10.000Z
+title: Rails Hash - camelize and underscore keys
+date: 2019-11-29T15:04:10.000Z
 featuredpost: false
+description: How to convert the case of hash keys in Rails.
 tags:
   - ruby
   - rails
@@ -11,15 +12,19 @@ tags:
   - api
 ---
 
-## Camelize hash keys before converting hash to json
-
-#### Manually using Hash#deep_transform_keys!
+## Using `Hash#deep_transform_keys!`
 
 ```rb
+# Convert keys to the lower camel case.
 hash.deep_transform_keys! { |key| key.camelize(:lower) }
 ```
 
-#### In jbuilder
+```rb
+# Convert keys to the underscore case.
+hash.deep_transform_keys! { |key| key.underscore }
+```
+
+## Automatically converting for outgoing JSON response in jbuilder
 
 - Automatically camelize the keys of any outgoing jsons.
 - https://stackoverflow.com/questions/37569439/automatically-convert-hash-keys-to-camelcase-in-jbuilder
@@ -29,15 +34,7 @@ hash.deep_transform_keys! { |key| key.camelize(:lower) }
 Jbuilder.key_format camelize: :lower
 ```
 
-## Snakecase hash keys from json
-
-#### A: Manually using Hash#deep_transform_keys!
-
-```rb
-hash.deep_transform_keys! { |key| key.underscore }
-```
-
-#### B: In middleware
+## Automatically converting keys for incoming request params in middleware
 
 - Automatically snakecase the keys of any incoming params.
 
@@ -49,7 +46,7 @@ config.middleware.use SnakeCaseParameters
 
 ```rb
 # app/middlewares/snake_case_parameters.rb
-# A middleware that underscores the keys of any incoming (to the rails server) params
+# A middleware that underscores the keys of any incoming (to the rails server) params.
 class SnakeCaseParameters
   def initialize(app)
     @app = app
@@ -65,7 +62,12 @@ class SnakeCaseParameters
 end
 ```
 
-## Links and References
+## Related Gems
+
+- [ActiveSupport::Inflector](https://api.rubyonrails.org/classes/ActiveSupport/Inflector.html)
+- [piotrmurach/strings-case](https://github.com/piotrmurach/strings-case)
+
+## Additional resources
 
 - https://stackoverflow.com/questions/37569439/automatically-convert-hash-keys-to-camelcase-in-jbuilder
 - https://apidock.com/rails/Hash/transform_keys

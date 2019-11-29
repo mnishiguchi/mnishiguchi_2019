@@ -3,13 +3,17 @@ import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import GlobalLayout from '../components/GlobalLayout'
 
-const TagRoute = ({ data, pageContext }) => {
-  const posts = data.allMarkdownRemark.edges
-  const tag = pageContext.tag
-  const title = data.site.siteMetadata.title
-  const totalCount = data.allMarkdownRemark.totalCount
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? '' : 's'
+import styles from './tags.module.scss'
+
+const TagRoute = ({
+  data: { site, allMarkdownRemark },
+  pageContext: { tag },
+}) => {
+  const posts = allMarkdownRemark.edges
+  const title = site.siteMetadata.title
+  const totalCount = allMarkdownRemark.totalCount
+  const tagHeader = `${totalCount} ${
+    totalCount === 1 ? 'post' : 'posts'
   } tagged with “${tag}”`
 
   return (
@@ -25,13 +29,13 @@ const TagRoute = ({ data, pageContext }) => {
               <h2 className="title is-size-4">{tagHeader}</h2>
 
               <div className="list">
-                {posts.map(post => (
+                {posts.map(({ node: { fields, frontmatter } }) => (
                   <Link
-                    to={post.node.fields.slug}
-                    key={post.node.fields.slug}
-                    className="list-item"
+                    to={fields.slug}
+                    key={fields.slug}
+                    className={`list-item ${styles.listItem}`}
                   >
-                    {post.node.frontmatter.title}
+                    {frontmatter.title}
                   </Link>
                 ))}
               </div>

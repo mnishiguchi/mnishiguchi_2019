@@ -3,6 +3,8 @@ import { animateScroll as scroll } from 'react-scroll'
 
 import styles from './BackToTopLink.module.scss'
 
+const defaultTitle = 'Back to top'
+
 // https://github.com/fisshy/react-scroll
 const onClick = () => scroll.scrollToTop({ duration: 200 })
 
@@ -10,11 +12,11 @@ const BackToTopLink = ({ children, style = {}, className = '' }) => {
   return (
     <button
       style={style}
-      className={`${className} ${styles.button}`}
+      className={className || styles.button}
       onClick={onClick}
-      title="Back to top"
+      title={defaultTitle}
     >
-      {children || 'Back to top'}
+      {children || defaultTitle}
     </button>
   )
 }

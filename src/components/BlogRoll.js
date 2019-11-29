@@ -31,8 +31,8 @@ const BlogRoll = ({ data }) => {
                 </p>
               </header>
 
-              <p style={{ overflowX: `auto` }}>
-                {post.excerpt}
+              <p style={{ overflowX: `auto`, wordWrap: `break-word` }}>
+                {post.frontmatter.description || post.excerpt}
                 <br />
                 <br />
                 <Link className="button" to={post.fields.slug}>
@@ -74,6 +74,7 @@ export default () => (
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
                 featuredpost
+                description
               }
             }
           }

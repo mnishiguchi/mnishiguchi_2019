@@ -13,6 +13,7 @@ export const BlogPostContent = ({
   tags,
   title,
   helmet,
+  date,
 }) => {
   const PostContent = contentComponent || Content
 
@@ -26,6 +27,7 @@ export const BlogPostContent = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
+            <span className="subtitle is-size-5 is-block">{date}</span>
 
             <p>{description}</p>
 
@@ -52,30 +54,31 @@ BlogPostContent.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
+  date: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
 }
 
-const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data
-
+const BlogPost = ({
+  data: {
+    markdownRemark: { html, frontmatter },
+  },
+}) => {
   return (
     <GlobalLayout>
       <BlogPostContent
-        content={post.html}
+        content={html}
         contentComponent={HTMLContent}
-        description={post.frontmatter.description}
+        description={frontmatter.description}
+        date={frontmatter.date}
+        tags={frontmatter.tags}
+        title={frontmatter.title}
         helmet={
           <Helmet titleTemplate="%s | Blog">
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta
-              name="description"
-              content={`${post.frontmatter.description}`}
-            />
+            <title>{frontmatter.title}</title>
+            <meta name="description" content={frontmatter.description} />
           </Helmet>
         }
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
       />
     </GlobalLayout>
   )

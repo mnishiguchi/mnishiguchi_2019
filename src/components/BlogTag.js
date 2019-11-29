@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { navigate } from 'gatsby'
 import { kebabCase } from 'lodash'
 
 const BlogTag = ({
@@ -9,16 +9,18 @@ const BlogTag = ({
   tagCount = null,
 }) => {
   return (
-    <button className="button" style={style || { margin: '0.2rem' }}>
-      <Link to={`/tags/${kebabCase(tagName)}/`}>
-        {tagCount ? (
-          <span>
-            {tagName}({tagCount})
-          </span>
-        ) : (
-          tagName
-        )}
-      </Link>
+    <button
+      className="button"
+      style={style || { margin: '0.2rem' }}
+      onClick={() => navigate(`/tags/${kebabCase(tagName)}/`)}
+    >
+      {tagCount ? (
+        <span>
+          {tagName} <span className="tag">{tagCount}</span>
+        </span>
+      ) : (
+        tagName
+      )}
     </button>
   )
 }
