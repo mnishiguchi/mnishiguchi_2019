@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
-import { kebabCase } from 'lodash'
+import BlogTag from './BlogTag'
 
 import styles from './BlogRoll.module.scss'
 
@@ -37,12 +37,7 @@ const BlogRoll = ({ data: { allMarkdownRemark } }) => {
 
                 <span className="subtitle is-size-5 is-block">
                   {frontmatter.tags.map(tagName => (
-                    <Link
-                      className={`tag ${styles.tagName}`}
-                      to={`/tags/${kebabCase(tagName)}/`}
-                    >
-                      {tagName}
-                    </Link>
+                    <BlogTag tagName={tagName} />
                   ))}
                 </span>
 
