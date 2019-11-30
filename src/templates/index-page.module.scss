@@ -1,5 +1,9 @@
 @import '../styles/utilities';
 
+:export {
+  tablet: $tablet;
+}
+
 .indexContainer {
   max-width: 769px;
 }
@@ -30,6 +34,8 @@
   }
 }
 
-:export {
-  tablet: $tablet;
+.iEnjoyThese {
+  // width: 100vw;
+  // padding: 1rem;
+  background: $white-ter;
 }

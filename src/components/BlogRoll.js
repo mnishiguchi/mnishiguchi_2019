@@ -12,7 +12,7 @@ const BlogRoll = ({ data: { allMarkdownRemark } }) => {
     <div className="columns is-multiline">
       {posts &&
         posts.map(({ node: { id, frontmatter, fields, excerpt } }) => (
-          <div className="is-parent column is-6" key={id}>
+          <div className="is-parent column is-6" key={fields.slug}>
             <article
               className={`tile is-child box notification ${
                 frontmatter.featuredpost ? styles.isFeatured : ''
@@ -37,7 +37,7 @@ const BlogRoll = ({ data: { allMarkdownRemark } }) => {
 
                 <span className="subtitle is-size-5 is-block">
                   {frontmatter.tags.map(tagName => (
-                    <BlogTag tagName={tagName} />
+                    <BlogTag tagName={tagName} key={tagName} />
                   ))}
                 </span>
 

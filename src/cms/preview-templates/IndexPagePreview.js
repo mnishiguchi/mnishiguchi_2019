@@ -4,15 +4,10 @@ import { IndexPageContent } from '../../templates/index-page'
 
 const IndexPagePreview = ({ entry, getAsset }) => {
   const data = entry.getIn(['data']).toJS()
+  const frontmatter = data.markdownRemark
 
   if (data) {
-    return (
-      <IndexPageContent
-        title={data.title}
-        heading={data.heading}
-        subheading={data.subheading}
-      />
-    )
+    return <IndexPageContent {...frontmatter} />
   } else {
     return <div>Loading...</div>
   }

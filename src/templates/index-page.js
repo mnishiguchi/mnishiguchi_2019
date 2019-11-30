@@ -3,15 +3,35 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Media from 'react-media'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import Img from 'gatsby-image' // https://www.gatsbyjs.org/packages/gatsby-image/
 
 import GlobalLayout from '../components/GlobalLayout'
 import StackOverflowFlair from '../components/StackOverflowFlair'
 import BrandIconList from '../components/BrandIconList'
-import masaChinatown from '../img/masa-chinatown.png'
 
 import styles from './index-page.module.scss'
 
-export const IndexPageContent = ({ title, subtitle, location, gmapUrl }) => (
+const IndexPageSections = ({ children }) => (
+  <section className="section" style={{ paddingTop: 0 }}>
+    <div className={`container ${styles.indexContainer}`}>
+      <div className="columns is-centered is-vcentered is-mobile">
+        <div className="column is-narrow has-text-centered">
+          <div className="content">
+            <React.Fragment>{children}</React.Fragment>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+)
+
+export const IndexPageContent = ({
+  title,
+  subtitle,
+  location,
+  gmapUrl,
+  mainImage,
+}) => (
   <>
     <header className={`hero ${styles.hero}`}>
       <div className={`container ${styles.indexContainer}`}>
@@ -28,27 +48,19 @@ export const IndexPageContent = ({ title, subtitle, location, gmapUrl }) => (
       </div>
     </header>
 
-    <section className="section" style={{ paddingTop: 0 }}>
-      <div className={`container ${styles.indexContainer}`}>
-        <div className="columns is-centered is-vcentered is-mobile">
-          <div className="column is-narrow has-text-centered">
-            <div className="content">
-              <img src={masaChinatown} alt="" style={{ width: `280px` }} />
-              <br />
-              <StackOverflowFlair theme="clean" size="300px" />
-            </div>
-          </div>
-        </div>
+    <IndexPageSections>
+      <Img fluid={mainImage.childImageSharp.fluid} />
+      <br />
+      <StackOverflowFlair theme="clean" size="300px" />
+    </IndexPageSections>
 
-        <p className="content">
-          I enjoy
-          <br />
-          <BrandIconList />
-          <br />
-          and more...
-        </p>
-      </div>
-    </section>
+    <IndexPageSections>
+      I enjoy
+      <br />
+      <BrandIconList />
+      <br />
+      and more...
+    </IndexPageSections>
   </>
 )
 
@@ -57,22 +69,18 @@ IndexPageContent.propTypes = {
   subtitle: PropTypes.string,
   location: PropTypes.string,
   gmapUrl: PropTypes.string,
+  mainImage: PropTypes.object,
 }
 
-const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
-
-  return (
-    <GlobalLayout>
-      <IndexPageContent
-        title={frontmatter.title}
-        subtitle={frontmatter.subtitle}
-        location={frontmatter.location}
-        gmapUrl={frontmatter.gmapUrl}
-      />
-    </GlobalLayout>
-  )
-}
+const IndexPage = ({
+  data: {
+    markdownRemark: { frontmatter },
+  },
+}) => (
+  <GlobalLayout>
+    <IndexPageContent {...frontmatter} />
+  </GlobalLayout>
+)
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
@@ -92,6 +100,13 @@ export const pageQuery = graphql`
         subtitle
         location
         gmapUrl
+        mainImage: image {
+          childImageSharp {
+            fluid(maxWidth: 240, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
