@@ -55,7 +55,7 @@ export default ({ children }) => {
 
       <Navbar />
 
-      <main style={{ minHeight: '80vh' }}>{children}</main>
+      <main className={styles.main}>{children}</main>
 
       <Footer />
     </div>

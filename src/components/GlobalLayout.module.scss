@@ -4,3 +4,8 @@
 :export {
   primaryColor: $primary;
 }
+
+.main {
+  min-height: 80vh;
+  overflow-wrap: break-word;
+}

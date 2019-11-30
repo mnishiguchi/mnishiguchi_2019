@@ -12,7 +12,7 @@ tags:
   - api
 ---
 
-## Using `Hash#deep_transform_keys!`
+## Using Hash#deep_transform_keys!
 
 ```rb
 # Convert keys to the lower camel case.
