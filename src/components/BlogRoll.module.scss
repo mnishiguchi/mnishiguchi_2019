@@ -1,3 +1,5 @@
+@import '../styles/utilities';
+
 .isFeatured {
   background-color: #07203133;
 }
@@ -10,4 +12,11 @@
 .featuredThumbnail {
   flex-basis: 35%;
   margin: 0 1.5em 0 0;
+}
+
+.tagName {
+  margin-right: 0.2rem;
+  background-color: $link !important;
+  color: $white-bis !important;
+  text-decoration: none !important;
 }
