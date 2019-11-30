@@ -1,5 +1,6 @@
 @import './utilities';
 
+// CSS framework
 // https://github.com/jgthms/bulma/blob/master/bulma.sass
 @import "~bulma/sass/base/_all";
 @import "~bulma/sass/elements/_all";
@@ -7,3 +8,8 @@
 @import "~bulma/sass/components/_all";
 @import "~bulma/sass/grid/_all";
 @import "~bulma/sass/layout/_all";
+
+// Syntax highlighting
+// https://prismjs.com/
+// https://github.com/PrismJS/prism/tree/master/themes
+@import "~prismjs/themes/prism-tomorrow.css";

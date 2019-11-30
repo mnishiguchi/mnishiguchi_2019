@@ -27,60 +27,37 @@ const sourceFilesystemPlugins = [
 
 // Parses Markdown files using Remark.
 // https://www.gatsbyjs.org/packages/gatsby-transformer-remark/
-const transformarRemarkPlugins = [
-  {
-    resolve: 'gatsby-transformer-remark',
-    options: {
-      plugins: [
-        {
-          resolve: 'gatsby-remark-relative-images',
-          options: {
-            name: 'uploads',
-          },
+const transformarRemarkPlugin = {
+  resolve: 'gatsby-transformer-remark',
+  options: {
+    plugins: [
+      {
+        resolve: 'gatsby-remark-relative-images',
+        options: {
+          name: 'uploads',
         },
-        {
-          resolve: 'gatsby-remark-images',
-          options: {
-            // It's important to specify the maxWidth (in pixels) of
-            // the content container as this plugin uses this as the
-            // base for generating different widths of each image.
-            maxWidth: 2048,
-          },
+      },
+      {
+        resolve: 'gatsby-remark-images',
+        options: {
+          // It's important to specify the maxWidth (in pixels) of
+          // the content container as this plugin uses this as the
+          // base for generating different widths of each image.
+          maxWidth: 2048,
         },
-        {
-          resolve: 'gatsby-remark-copy-linked-files',
-          options: {
-            destinationDir: 'static',
-          },
+      },
+      {
+        resolve: 'gatsby-remark-copy-linked-files',
+        options: {
+          destinationDir: 'static',
         },
-      ],
-    },
+      },
+      // https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/
+      `gatsby-remark-prismjs`,
+      `gatsby-remark-autolink-headers`,
+    ],
   },
-  {
-    resolve: `gatsby-transformer-remark`,
-    options: {
-      plugins: [
-        {
-          // https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/
-          resolve: `gatsby-remark-prismjs`,
-          options: {
-            classPrefix: 'language-',
-            inlineCodeMarker: null,
-            aliases: {},
-            showLineNumbers: false,
-            noInlineHighlight: false,
-          },
-        },
-      ],
-    },
-  },
-  {
-    resolve: `gatsby-transformer-remark`,
-    options: {
-      plugins: [`gatsby-remark-autolink-headers`],
-    },
-  },
-]
+}
 
 // For full text search implementation based on FlexSearch.js client-side index.
 // https://www.gatsbyjs.org/packages/gatsby-plugin-flexsearch/
@@ -147,7 +124,7 @@ module.exports = {
     // Creates ImageSharp nodes from image types that are supported by the Sharp image processing library and provides fields in their GraphQL types for processing your images in a variety of ways including resizing, cropping, and creating responsive images.
     // https://www.gatsbyjs.org/packages/gatsby-transformer-sharp/
     'gatsby-transformer-sharp',
-    ...transformarRemarkPlugins,
+    transformarRemarkPlugin,
     googleAnalyticsPlugin,
     flexsearchPlugin,
     {
