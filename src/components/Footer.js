@@ -8,7 +8,7 @@ const Footer = () => {
         className="container"
         style={{ display: 'flex', justifyContent: 'space-between' }}
       >
-        <span>© 2019 Masatoshi Nishiguchi</span>
+        <span>©{new Date().getFullYear()} Masatoshi Nishiguchi</span>
         <BackToTopLink>⬆</BackToTopLink>
       </div>
     </footer>
