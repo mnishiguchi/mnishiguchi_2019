@@ -11,20 +11,18 @@ import masaChinatown from '../img/masa-chinatown.png'
 
 import styles from './index-page.module.scss'
 
-export const IndexPageContent = ({ title, heading, subheading }) => (
+export const IndexPageContent = ({ title, subtitle, location, gmapUrl }) => (
   <>
     <header className={`hero ${styles.hero}`}>
       <div className={`container ${styles.indexContainer}`}>
         <div className={`hero-body ${styles.heroBody}`}>
-          <h1 className={`title ${styles.heroTitle}`}>Masatoshi Nishiguchi</h1>
+          <h1 className={`title ${styles.heroTitle}`}>{title}</h1>
           <h2 className={`subtitle ${styles.heroSubtitle}`}>
-            Software Engineer
+            {subtitle}
             <Media query={{ maxWidth: styles.tablet }}>
               {matches => (matches ? <br /> : <span>{` · `}</span>)}
             </Media>
-            <OutboundLink href="https://www.google.com/maps/d/u/0/embed?mid=1VQHZbH9Elf3YIR0JCo9qQ0ywXGA&hl=en&ll=38.901906769884384%2C-77.01435253235564&z=6">
-              Washington, DC
-            </OutboundLink>
+            <OutboundLink href={gmapUrl}>{location}</OutboundLink>
           </h2>
         </div>
       </div>
@@ -55,10 +53,10 @@ export const IndexPageContent = ({ title, heading, subheading }) => (
 )
 
 IndexPageContent.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
+  subtitle: PropTypes.string,
+  location: PropTypes.string,
+  gmapUrl: PropTypes.string,
 }
 
 const IndexPage = ({ data }) => {
@@ -68,8 +66,9 @@ const IndexPage = ({ data }) => {
     <GlobalLayout>
       <IndexPageContent
         title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
+        subtitle={frontmatter.subtitle}
+        location={frontmatter.location}
+        gmapUrl={frontmatter.gmapUrl}
       />
     </GlobalLayout>
   )
@@ -90,9 +89,9 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
-        heading
-        subheading
-        description
+        subtitle
+        location
+        gmapUrl
       }
     }
   }
