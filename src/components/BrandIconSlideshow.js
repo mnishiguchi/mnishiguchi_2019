@@ -35,6 +35,8 @@ import visualstudiocode from '../img/brands/visualstudiocode.svg'
 import vuejs from '../img/brands/vuejs.svg'
 import wikipedia from '../img/brands/wikipedia.svg'
 
+import styles from './BrandIconSlideshow.module.scss'
+
 const brandIcons = [
   amazonaws,
   android,
@@ -73,16 +75,22 @@ const brandIcons = [
 
 const gridStyle = { height: '50px', padding: `4px` }
 
-const BrandIconList = () => {
+const BrandIconSlideshow = ({ className = '', style = {} }) => {
   const setHash = React.useState()[1]
 
   return (
-    <span onClick={() => setHash(new Date())}>
-      {_.shuffle(brandIcons).map((icon, i) => (
-        <img src={icon} alt="" key={i} style={gridStyle} />
-      ))}
-    </span>
+    <div className={className || styles.slideshow}>
+      <div
+        className={styles.mover}
+        style={{ width: `${brandIcons.length * 50 + 4 * 2}px` }}
+        onClick={() => setHash(new Date())}
+      >
+        {_.shuffle(brandIcons).map((icon, i) => (
+          <img src={icon} alt="" key={i} style={gridStyle} />
+        ))}
+      </div>
+    </div>
   )
 }
 
-export default BrandIconList
+export default BrandIconSlideshow

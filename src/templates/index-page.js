@@ -7,7 +7,7 @@ import Img from 'gatsby-image' // https://www.gatsbyjs.org/packages/gatsby-image
 
 import GlobalLayout from '../components/GlobalLayout'
 import StackOverflowFlair from '../components/StackOverflowFlair'
-import BrandIconList from '../components/BrandIconList'
+import BrandIconSlideshow from '../components/BrandIconSlideshow'
 
 import styles from './index-page.module.scss'
 
@@ -55,11 +55,11 @@ export const IndexPageContent = ({
     </IndexPageSections>
 
     <IndexPageSections>
-      I enjoy
-      <br />
-      <BrandIconList />
-      <br />
-      and more...
+      <div style={{ width: '100vw' }}>
+        I enjoy
+        <BrandIconSlideshow />
+        and more...
+      </div>
     </IndexPageSections>
   </>
 )
@@ -100,7 +100,7 @@ export const pageQuery = graphql`
         subtitle
         location
         gmapUrl
-        mainImage: image {
+        mainImage {
           childImageSharp {
             fluid(maxWidth: 240, quality: 100) {
               ...GatsbyImageSharpFluid
