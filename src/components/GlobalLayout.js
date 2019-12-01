@@ -1,6 +1,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { withPrefix } from 'gatsby'
+import { useTranslation } from 'react-i18next'
+
 import Footer from './Footer'
 import Navbar from './Navbar'
 import useSiteMetadata from './SiteMetadata'
@@ -10,13 +12,19 @@ import '../styles/global.scss'
 import styles from './GlobalLayout.module.scss'
 
 export default ({ children }) => {
+  // TODO: Move this to translation.
   const { title, description } = useSiteMetadata()
+
+  // https://react.i18next.com/latest/usetranslation-hook#usetranslation-params
+  const { i18n } = useTranslation('indexPage')
 
   return (
     <div style={{ overflowX: 'hidden' }}>
       <Helmet>
-        <html lang="en" />
+        <html lang={i18n.language || `en`} />
+
         <title>{title}</title>
+
         <meta name="description" content={description} />
 
         <link

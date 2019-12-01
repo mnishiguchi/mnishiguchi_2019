@@ -16,7 +16,6 @@ i18next
     interpolation: {
       escapeValue: false, // not needed for react!!
     },
-
     resources: {
       en: {
         indexPage: {
@@ -34,3 +33,7 @@ i18next
   })
 
 export default i18next
+
+// https://github.com/i18next/i18next/issues/489#issuecomment-455247510
+export const getCurrentLanguage = () =>
+  i18next.language || window.localStorage.i18nextLng || ''

@@ -35,8 +35,7 @@ export const IndexPageContent = ({
   mainImage,
 }) => {
   // https://react.i18next.com/latest/usetranslation-hook#usetranslation-params
-  const { t, i18n } = useTranslation('indexPage')
-  i18n.changeLanguage('ja');
+  const { t } = useTranslation('indexPage')
 
   return (
     <>
