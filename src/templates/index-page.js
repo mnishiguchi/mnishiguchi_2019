@@ -8,6 +8,7 @@ import Img from 'gatsby-image' // https://www.gatsbyjs.org/packages/gatsby-image
 import GlobalLayout from '../components/GlobalLayout'
 import StackOverflowFlair from '../components/StackOverflowFlair'
 import BrandIconSlideshow from '../components/BrandIconSlideshow'
+import masaTalk from '../img/masa-talk.jpg'
 
 import styles from './index-page.module.scss'
 
@@ -60,6 +61,15 @@ export const IndexPageContent = ({
         <BrandIconSlideshow />
         and more...
       </div>
+    </IndexPageSections>
+
+    <IndexPageSections>
+      {/* I left this as a normal img because I had trouble setting up gatsby image for multiple images */}
+      <img
+        src={masaTalk}
+        alt="Masatoshi Nishiguchi at Node DC"
+        style={{ maxWidth: `600px` }}
+      />
     </IndexPageSections>
   </>
 )
