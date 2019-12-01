@@ -27,7 +27,11 @@ const BlogRoll = ({ data: { allMarkdownRemark } }) => {
                     {frontmatter.title}
                   </Link>
                   <span className="subtitle is-size-5 is-block">
-                    {frontmatter.date}
+                    {/* {frontmatter.date} */}
+                    {/* <br /> */}
+                    {frontmatter.tags.map(tagName => (
+                      <BlogTag tagName={tagName} key={tagName} />
+                    ))}
                   </span>
                 </p>
               </header>
@@ -35,12 +39,8 @@ const BlogRoll = ({ data: { allMarkdownRemark } }) => {
               <p style={{ overflowX: `auto`, wordWrap: `break-word` }}>
                 {frontmatter.description || excerpt}
 
-                <span className="subtitle is-size-5 is-block">
-                  {frontmatter.tags.map(tagName => (
-                    <BlogTag tagName={tagName} key={tagName} />
-                  ))}
-                </span>
-
+                <br />
+                <br />
                 <Link className="button" to={fields.slug}>
                   Keep Reading →
                 </Link>
