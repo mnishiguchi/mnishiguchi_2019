@@ -35,7 +35,7 @@ export const IndexPageContent = ({
   mainImage,
 }) => {
   // https://react.i18next.com/latest/usetranslation-hook#usetranslation-params
-  const { t } = useTranslation('indexPage')
+  const { t } = useTranslation()
 
   return (
     <>
@@ -62,9 +62,9 @@ export const IndexPageContent = ({
 
       <IndexPageSections>
         <div style={{ width: '100vw' }}>
-          {t('iEnjoy')}
+          {t('indexPage.iEnjoy')}
           <BrandIconSlideshow />
-          {t('etc')}
+          {t('indexPage.etc')}
         </div>
       </IndexPageSections>
 
