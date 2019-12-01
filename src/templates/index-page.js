@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Media from 'react-media'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import Img from 'gatsby-image' // https://www.gatsbyjs.org/packages/gatsby-image/
+import { useTranslation } from 'react-i18next'
 
 import GlobalLayout from '../components/GlobalLayout'
 import StackOverflowFlair from '../components/StackOverflowFlair'
@@ -32,47 +33,53 @@ export const IndexPageContent = ({
   location,
   gmapUrl,
   mainImage,
-}) => (
-  <>
-    <header className={`hero ${styles.hero}`}>
-      <div className={`container ${styles.indexContainer}`}>
-        <div className={`hero-body ${styles.heroBody}`}>
-          <h1 className={`title ${styles.heroTitle}`}>{title}</h1>
-          <h2 className={`subtitle ${styles.heroSubtitle}`}>
-            {subtitle}
-            <Media query={{ maxWidth: styles.tablet }}>
-              {matches => (matches ? <br /> : <span>{` · `}</span>)}
-            </Media>
-            <OutboundLink href={gmapUrl}>{location}</OutboundLink>
-          </h2>
+}) => {
+  // https://react.i18next.com/latest/usetranslation-hook#usetranslation-params
+  const { t, i18n } = useTranslation('indexPage')
+  i18n.changeLanguage('ja');
+
+  return (
+    <>
+      <header className={`hero ${styles.hero}`}>
+        <div className={`container ${styles.indexContainer}`}>
+          <div className={`hero-body ${styles.heroBody}`}>
+            <h1 className={`title ${styles.heroTitle}`}>{title}</h1>
+            <h2 className={`subtitle ${styles.heroSubtitle}`}>
+              {subtitle}
+              <Media query={{ maxWidth: styles.tablet }}>
+                {matches => (matches ? <br /> : <span>{` · `}</span>)}
+              </Media>
+              <OutboundLink href={gmapUrl}>{location}</OutboundLink>
+            </h2>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <IndexPageSections>
-      <Img fluid={mainImage.childImageSharp.fluid} />
-      <br />
-      <StackOverflowFlair theme="clean" size="300px" />
-    </IndexPageSections>
+      <IndexPageSections>
+        <Img fluid={mainImage.childImageSharp.fluid} />
+        <br />
+        <StackOverflowFlair theme="clean" size="300px" />
+      </IndexPageSections>
 
-    <IndexPageSections>
-      <div style={{ width: '100vw' }}>
-        I enjoy
-        <BrandIconSlideshow />
-        and more...
-      </div>
-    </IndexPageSections>
+      <IndexPageSections>
+        <div style={{ width: '100vw' }}>
+          {t('iEnjoy')}
+          <BrandIconSlideshow />
+          {t('etc')}
+        </div>
+      </IndexPageSections>
 
-    <IndexPageSections>
-      {/* I left this as a normal img because I had trouble setting up gatsby image for multiple images */}
-      <img
-        src={masaTalk}
-        alt="Masatoshi Nishiguchi at Node DC"
-        style={{ maxWidth: `600px` }}
-      />
-    </IndexPageSections>
-  </>
-)
+      <IndexPageSections>
+        {/* I left this as a normal img because I had trouble setting up gatsby image for multiple images */}
+        <img
+          src={masaTalk}
+          alt="Masatoshi Nishiguchi at Node DC"
+          style={{ maxWidth: `600px` }}
+        />
+      </IndexPageSections>
+    </>
+  )
+}
 
 IndexPageContent.propTypes = {
   title: PropTypes.string,

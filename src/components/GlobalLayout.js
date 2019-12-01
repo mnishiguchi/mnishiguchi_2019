@@ -4,9 +4,10 @@ import { withPrefix } from 'gatsby'
 import Footer from './Footer'
 import Navbar from './Navbar'
 import useSiteMetadata from './SiteMetadata'
+import '../i18n'
 
-import styles from './GlobalLayout.module.scss'
 import '../styles/global.scss'
+import styles from './GlobalLayout.module.scss'
 
 export default ({ children }) => {
   const { title, description } = useSiteMetadata()
