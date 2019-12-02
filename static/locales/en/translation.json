@@ -1,8 +1,15 @@
 {
-  "iEnjoy": "I enjoy",
-  "etc": "and more...",
+  "author": {
+    "name": "Masatoshi Nishiguchi",
+    "profession": "Software Engineer",
+    "location": "Washington, DC"
+  },
   "indexPage": {
     "iEnjoy": "I enjoy",
     "etc": "and more..."
+  },
+  "language": {
+    "en": "English",
+    "ja": "Japanese"
   }
 }

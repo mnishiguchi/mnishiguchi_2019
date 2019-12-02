@@ -1,5 +1,6 @@
 import React from 'react'
 import BlogPostSearch from './BlogPostSearch'
+import LanguageSwitcher from './LanguageSwitcher'
 import {
   HomeLink,
   BlogLink,
@@ -11,6 +12,8 @@ import {
 import styles from './Navbar.module.scss'
 
 const Navbar = () => {
+  const [languagesActive, setLanguagesActive] = React.useState(false)
+
   return (
     <nav
       className="navbar is-transparent"
@@ -25,6 +28,36 @@ const Navbar = () => {
             <TagsLink className="navbar-item" />
             <LinkedinLink className="navbar-item" />
             <GithubLink className="navbar-item" />
+
+            <div
+              className="navbar-item"
+              style={{
+                position: 'relative',
+              }}
+            >
+              <span onClick={() => setLanguagesActive(prev => !prev)}>
+                A⇄文
+              </span>
+
+              <div
+                className={`navbar-dropdown ${styles.langDropdown}`}
+                onClick={() => setLanguagesActive(false)}
+                style={{ display: languagesActive ? 'block' : 'none' }}
+              >
+                <span className="navbar-item">
+                  <LanguageSwitcher
+                    languageCode="en"
+                    style={{ color: 'black' }}
+                  />
+                </span>
+                <span className="navbar-item">
+                  <LanguageSwitcher
+                    languageCode="ja"
+                    style={{ color: 'black' }}
+                  />
+                </span>
+              </div>
+            </div>
           </div>
 
           <div className="navbar-end has-text-centered">

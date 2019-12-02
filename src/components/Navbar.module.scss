@@ -1,13 +1,9 @@
-@import '../styles/utilities';
+@import "../styles/utilities";
 
-.navbarMenu {
-  box-shadow: none !important;
-}
-
-.navbarItemIcon {
-  color: $primary;
-}
-
-.navbarItemLogo {
-  padding: 0 1rem;
+.langDropdown {
+  position: absolute;
+  top: 52px;
+  left: 0;
+  width: 100%;
+  min-width: 100px !important;
 }

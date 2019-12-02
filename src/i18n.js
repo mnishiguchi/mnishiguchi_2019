@@ -17,6 +17,7 @@ i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     lng: 'en',
+    // https://www.i18next.com/overview/api#languages
     fallbackLng: 'en',
     debug: process.env.NODE_ENV !== 'production',
     interpolation: {

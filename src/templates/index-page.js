@@ -27,13 +27,7 @@ const IndexPageSections = ({ children }) => (
   </section>
 )
 
-export const IndexPageContent = ({
-  title,
-  subtitle,
-  location,
-  gmapUrl,
-  mainImage,
-}) => {
+export const IndexPageContent = ({ gmapUrl, mainImage }) => {
   // https://react.i18next.com/latest/usetranslation-hook#usetranslation-params
   const { t } = useTranslation()
 
@@ -42,13 +36,13 @@ export const IndexPageContent = ({
       <header className={`hero ${styles.hero}`}>
         <div className={`container ${styles.indexContainer}`}>
           <div className={`hero-body ${styles.heroBody}`}>
-            <h1 className={`title ${styles.heroTitle}`}>{title}</h1>
+            <h1 className={`title ${styles.heroTitle}`}>{t('author.name')}</h1>
             <h2 className={`subtitle ${styles.heroSubtitle}`}>
-              {subtitle}
+              {t('author.profession')}
               <Media query={{ maxWidth: styles.tablet }}>
                 {matches => (matches ? <br /> : <span>{` · `}</span>)}
               </Media>
-              <OutboundLink href={gmapUrl}>{location}</OutboundLink>
+              <OutboundLink href={gmapUrl}>{t('author.location')}</OutboundLink>
             </h2>
           </div>
         </div>
@@ -81,9 +75,6 @@ export const IndexPageContent = ({
 }
 
 IndexPageContent.propTypes = {
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  location: PropTypes.string,
   gmapUrl: PropTypes.string,
   mainImage: PropTypes.object,
 }
@@ -112,9 +103,6 @@ export const pageQuery = graphql`
   query IndexPageContent {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
-        title
-        subtitle
-        location
         gmapUrl
         mainImage {
           childImageSharp {

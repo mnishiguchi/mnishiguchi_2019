@@ -1,0 +1,14 @@
+@import '../styles/utilities';
+
+.activeLink {
+  color: $grey-light;
+  pointer-events: none;
+}
+
+.link {
+  color: $white;
+  cursor: pointer;
+  &:hover {
+    color: $link;
+  }
+}
