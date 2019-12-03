@@ -113,6 +113,7 @@ module.exports = {
   siteMetadata: {
     title: 'mnishiguchi',
     description: `This is Masatoshi Nishiguchi's blog`,
+    siteUrl: `https://www.mnishiguchi.com`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -127,6 +128,7 @@ module.exports = {
     transformarRemarkPlugin,
     googleAnalyticsPlugin,
     flexsearchPlugin,
+    `gatsby-plugin-sitemap`,
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
