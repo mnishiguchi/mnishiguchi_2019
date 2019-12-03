@@ -101,14 +101,6 @@ const flexsearchPlugin = {
   },
 }
 
-// https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/
-const googleAnalyticsPlugin = {
-  resolve: `gatsby-plugin-google-analytics`,
-  options: {
-    trackingId: process.env.GA_TRACKING_ID,
-  },
-}
-
 module.exports = {
   siteMetadata: {
     title: 'mnishiguchi',
@@ -126,14 +118,28 @@ module.exports = {
     // https://www.gatsbyjs.org/packages/gatsby-transformer-sharp/
     'gatsby-transformer-sharp',
     transformarRemarkPlugin,
-    googleAnalyticsPlugin,
     flexsearchPlugin,
     `gatsby-plugin-sitemap`,
+    {
+      // https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GA_TRACKING_ID,
+      },
+    },
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
         siteUrl: process.env.SITE_URL,
         stripQueryString: true,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: process.env.SITE_URL,
+        sitemap: `${process.env.SITE_URL}/sitemap.xml`,
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     {
