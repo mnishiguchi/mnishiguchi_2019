@@ -120,11 +120,24 @@ module.exports = {
     transformarRemarkPlugin,
     flexsearchPlugin,
     `gatsby-plugin-sitemap`,
+    // https://www.gatsbyjs.org/packages/gatsby-plugin-offline/
+    `gatsby-plugin-offline`,
     {
       // https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: process.env.GA_TRACKING_ID,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Masatoshi Nishiguchi`,
+        short_name: `Masatoshi Nishiguchi`,
+        start_url: `/`,
+        background_color: `#072031`,
+        theme_color: `#41b883`,
+        display: `standalone`,
       },
     },
     {
