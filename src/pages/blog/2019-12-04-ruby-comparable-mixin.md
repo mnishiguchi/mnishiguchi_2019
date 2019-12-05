@@ -15,8 +15,8 @@ tags:
 - https://docs.ruby-lang.org/en/2.5.0/Comparable.html
 
 ```rb
-# Plain Old Ruby Object
-class PoroLanguage
+# By default, Ruby objects do not support sorting.
+class Language
   attr_reader :name
 
   def initialize(name)
@@ -24,19 +24,20 @@ class PoroLanguage
   end
 end
 
-languages = [PoroLanguage.new("Ruby"), PoroLanguage.new("Dart"), PoroLanguage.new("Python")]
+languages = [Language.new("Ruby"), Language.new("Dart"), Language.new("Python")]
 
 # Sorting does not work by default.
 languages.sort
-# ArgumentError: comparison of PoroLanguage with PoroLanguage failed
+# ArgumentError: comparison of Language with Language failed
 
 # Different instances are considered as different because each instance has a different object id.
-PoroLanguage.new("Dart") == Language.new("Dart")
+Language.new("Dart") == Language.new("Dart")
 #=> false
 ```
 
 ```rb
-class ComparableLanguage
+# Comparable class
+class Language
   include Comparable
 
   attr_reader :name
@@ -51,14 +52,14 @@ class ComparableLanguage
   end
 end
 
-languages = [ComparableLanguage.new("Ruby"), ComparableLanguage.new("Dart"), ComparableLanguage.new("Python")]
+languages = [Language.new("Ruby"), Language.new("Dart"), Language.new("Python")]
 
 # Can be sorted based on the <=> operator.
 languages.sort
-#=> [#<ComparableLanguage:0x007f991b2373a8 @name="Dart">, #<ComparableLanguage:0x007f991b237308 @name="Python">, #<ComparableLanguage:0x007f991b237448 @name="Ruby">]
+#=> [#<Language:0x007f991b2373a8 @name="Dart">, #<Language:0x007f991b237308 @name="Python">, #<Language:0x007f991b237448 @name="Ruby">]
 
 # Can be compared based on the <=> operator.
-ComparableLanguage.new("Dart") == ComparableLanguage.new("Dart")
+Language.new("Dart") == Language.new("Dart")
 #=> true
 ```
 
