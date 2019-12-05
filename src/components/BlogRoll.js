@@ -13,11 +13,7 @@ const BlogRoll = ({ data: { allMarkdownRemark } }) => {
       {posts &&
         posts.map(({ node: { id, frontmatter, fields, excerpt } }) => (
           <div className="is-parent column is-6" key={fields.slug}>
-            <article
-              className={`tile is-child box notification ${
-                frontmatter.featuredpost ? styles.isFeatured : ''
-              }`}
-            >
+            <article className="tile is-child box notification">
               <header className={styles.header}>
                 <p className="post-meta">
                   <Link
@@ -79,7 +75,6 @@ export default () => (
                 title
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
-                featuredpost
                 description
                 tags
               }

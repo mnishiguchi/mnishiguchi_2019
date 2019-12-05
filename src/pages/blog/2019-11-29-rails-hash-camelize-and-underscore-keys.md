@@ -2,7 +2,6 @@
 templateKey: 'blog-post'
 title: Rails Hash - camelize and underscore keys
 date: 2019-11-29T15:04:10.000Z
-featuredpost: false
 description: How to convert the case of hash keys in Rails.
 tags:
   - ruby
