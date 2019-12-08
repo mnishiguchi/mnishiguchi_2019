@@ -1,0 +1,96 @@
+---
+templateKey: blog-post
+title: 'React Font Awesome regular and solid icons '
+date: 2019-12-08T21:06:42.575Z
+description: >-
+  This is my note on how to set up Fontawesome for React.There are two types of
+  icons for free Font Awesome, regular and solid.
+tags:
+  - react
+  - font-awesome
+  - icon
+---
+For example, if a like button has the heart icon, I want to toggle it between the [regular](https://fontawesome.com/icons/heart?style=regular) and [solid](https://fontawesome.com/icons/heart?style=solid) based on the like status.
+
+## Install [react-fontawesome](https://github.com/FortAwesome/react-fontawesome)
+
+- Follow the instructions in the [readme](https://github.com/FortAwesome/react-fontawesome#installation) 
+- Make sure that both `@fortawesome/free-solid-svg-icons` and `@fortawesome/free-regular-svg-icons` are installed.
+
+```sh
+# Install the library core.
+$ yarn add @fortawesome/react-fontawesome
+$ yarn add @fortawesome/fontawesome-svg-core
+```
+
+```sh
+# Install necessary icons.
+$ yarn add @fortawesome/free-solid-svg-icons
+$ yarn add @fortawesome/free-regular-svg-icons
+```
+
+## Find icons
+
+- Finde icons in [Font Awesome Icon Gallery](https://fontawesome.com/icons?d=gallery)
+- There are [two plans](https://fontawesome.com/plans): Free and Standard (Pro)
+
+## React
+
+### Import the `FontAwesomeIcon` component
+
+```js
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+```
+
+### Import icon
+
+- Both `@fortawesome/free-solid-svg-icons` and `@fortawesome/free-regular-svg-icons` contains the same icon names so I [aliased imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) to avoid naming colision.
+
+```js
+import { faHeart as faHeartActive } from '@fortawesome/free-solid-svg-icons'
+import { faHeart as faHeartInactive } from '@fortawesome/free-regular-svg-icons'
+```
+
+### Example component
+
+```jsx
+import React from 'react'
+import {
+  Card,
+  CardText,
+  CardBody,
+  CardTitle,
+} from 'reactstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart as faHeartActive } from '@fortawesome/free-solid-svg-icons'
+import { faHeart as faHeartInactive } from '@fortawesome/free-regular-svg-icons'
+
+const likeIcon = liked => (liked ? faHeartActive : faHeartInactive)
+
+const ExampleLikeableCard = ({ name, explanation, liked, likeCount, className = '' }) => {
+  return (
+    <Card className={className}>
+      <CardBody>
+        <CardTitle>{name}</CardTitle>
+        <CardText>{explanation}</CardText>
+
+        <Button outline>
+          <FontAwesomeIcon
+            icon={likeIcon(liked)}
+            fixedWidth={true}
+            style={{
+              color: liked ? 'red' : 'inherit',
+            }}
+          />
+          <span className="ml-1">{likeCount}</span>
+        </Button>
+      </CardBody>
+    </Card>
+  )
+}
+
+export default ExampleLikeableCard
+```
+
+
+That's it.
