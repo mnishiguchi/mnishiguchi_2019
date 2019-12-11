@@ -55,9 +55,18 @@ import { faHeart as faHeartActive } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as faHeartInactive } from '@fortawesome/free-regular-svg-icons'
 ```
 
+If there is no naming collision, it is simple.
+
+```js
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+
+<FontAwesomeIcon icon={faGithub} />
+```
+
 ### Example component
 
-```jsx
+```js
 import React from 'react'
 import {
   Card,
