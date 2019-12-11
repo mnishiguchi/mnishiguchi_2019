@@ -31,8 +31,12 @@ $ yarn add @fortawesome/free-regular-svg-icons
 
 ## Find icons
 
-- Finde icons in [Font Awesome Icon Gallery](https://fontawesome.com/icons?d=gallery)
+- Find icons in [Font Awesome Icon Gallery](https://fontawesome.com/icons?d=gallery)
 - There are [two plans](https://fontawesome.com/plans): Free and Standard (Pro)
+
+## Find icon constant names for JS use
+
+- Consult this: https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome
 
 ## React
 
@@ -91,6 +95,5 @@ const ExampleLikeableCard = ({ name, explanation, liked, likeCount, className = 
 
 export default ExampleLikeableCard
 ```
-
 
 That's it.
