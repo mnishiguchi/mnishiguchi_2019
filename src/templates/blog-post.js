@@ -2,73 +2,61 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
+import { Container, Alert } from 'reactstrap'
+
 import GlobalLayout from '../components/GlobalLayout'
-import Content, { HTMLContent } from '../components/Content'
 import BlogTag from '../components/BlogTag'
 
-export const BlogPostContent = ({
-  content,
-  contentComponent,
+export function BlogPostContent({
+  html,
   description,
   tags,
   title,
   helmet,
   date,
-}) => {
-  const PostContent = contentComponent || Content
-
+}) {
   return (
-    <section className="section">
+    <Container className="my-4 blogPost">
       {helmet || ''}
 
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <span className="subtitle is-size-5 is-block">{date}</span>
+      <header>
+        <h1>{title}</h1>
+        <span className="text-muted">{date}</span>
+        {tags && tags.length ? (
+          <p>
+            {tags.map(tag => (
+              <BlogTag key={tag} tagName={tag} />
+            ))}
+          </p>
+        ) : null}
+      </header>
 
-            <p>{description}</p>
+      <Alert color="light" className="lead py-2">
+        {description}
+      </Alert>
 
-            <PostContent content={content} />
-
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <div className="content">
-                  {tags.map(tag => (
-                    <BlogTag key={tag} tagName={tag} />
-                  ))}
-                </div>
-              </div>
-            ) : null}
-          </div>
-        </div>
-      </div>
-    </section>
+      <section dangerouslySetInnerHTML={{ __html: html }} />
+    </Container>
   )
 }
 
 BlogPostContent.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
+  html: PropTypes.node.isRequired,
   description: PropTypes.string,
   date: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
 }
 
-const BlogPost = ({
+function BlogPost({
   data: {
     markdownRemark: { html, frontmatter },
   },
-}) => {
+}) {
   return (
     <GlobalLayout>
       <BlogPostContent
-        content={html}
-        contentComponent={HTMLContent}
+        html={html}
         description={frontmatter.description}
         date={frontmatter.date}
         tags={frontmatter.tags}

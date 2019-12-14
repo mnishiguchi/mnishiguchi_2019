@@ -140,13 +140,13 @@ module.exports = {
         display: `standalone`,
       },
     },
-    {
-      resolve: `gatsby-plugin-canonical-urls`,
-      options: {
-        siteUrl: process.env.SITE_URL,
-        stripQueryString: true,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-canonical-urls`,
+    //   options: {
+    //     siteUrl: process.env.SITE_URL,
+    //     stripQueryString: true,
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
@@ -161,15 +161,16 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
+    // Bootstrap did not work with this plugin.
     // Remove unused css from css/sass/less/stylus files and modules in your Gatsby project using purgecss.
     // https://www.gatsbyjs.org/packages/gatsby-plugin-purgecss/
-    {
-      resolve: 'gatsby-plugin-purgecss',
-      options: {
-        develop: true, // Activates purging in npm run develop
-        purgeOnly: ['/global.scss'], // applies purging only on the bulma css file
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-purgecss',
+    //   options: {
+    //     develop: true, // Activates purging in npm run develop
+    //     purgeOnly: ['/global.scss'], // applies purging only on the bulma css file
+    //   },
+    // },
     // Must be after other CSS plugins
     // https://www.gatsbyjs.org/packages/gatsby-plugin-netlify/
     'gatsby-plugin-netlify', // Make sure to keep it last in the array

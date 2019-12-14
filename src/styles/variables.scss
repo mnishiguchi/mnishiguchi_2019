@@ -1,0 +1,84 @@
+// Custom variables
+// - Override the framework's variables here.
+// - This file can be imported into a component.
+// https://getbootstrap.com/docs/4.4/getting-started/theming/#variable-defaults
+// https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
+
+//
+// Colors
+//
+
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
+
+$blue: #0d6efd;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #d63384;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #28a745;
+$teal: #20c997;
+$cyan: #17a2b8;
+$coffee: #2b2523;
+$orange-red: #ff4400;
+
+$primary: #072031;
+$secondary: $gray-600;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-100;
+$dark: $gray-800;
+
+//
+// SASS options: https://getbootstrap.com/docs/4.4/getting-started/theming/#sass-options
+//
+$enable-rounded: false;
+$spacer: 1.5rem;
+
+// Links
+//
+// Style anchor elements.
+
+$link-color: #7acda8;
+$link-decoration: none;
+$link-hover-color: darken($link-color, 15%);
+$link-hover-decoration: underline;
+// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+$emphasized-link-hover-darken-percentage: 15%;
+
+$stretched-link-pseudo-element: after;
+$stretched-link-z-index: 1;
+
+// Paragraphs
+//
+// Style p element.
+
+// $paragraph-margin-bottom: 1.5rem;
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// $headings-margin-bottom: $spacer / 2;
+
+//
+// Navs
+//
+
+$navbar-padding-y: 0.5rem;
+$navbar-padding-x: 1rem;
+
+$navbar-nav-link-padding-x: 0.5rem;

@@ -2,20 +2,11 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { kebabCase } from 'lodash'
 
-import styles from './BlogTag.module.scss'
+import css from './BlogTag.module.scss'
 
-const BlogTag = ({
-  tagName,
-  className = '',
-  style = null,
-  tagCount = null,
-}) => {
+function BlogTag({ tagName, tagCount = null }) {
   return (
-    <Link
-      className={className || `tag ${styles.tag}`}
-      to={`/tags/${kebabCase(tagName)}/`}
-      style={style || { margin: '0.2rem' }}
-    >
+    <Link className={`badge ${css.tag}`} to={`/tags/${kebabCase(tagName)}/`}>
       {tagCount ? (
         <span>
           {tagName} <span>({tagCount})</span>

@@ -14,7 +14,7 @@ For example, if a like button has the heart icon, I want to toggle it between th
 
 ## Install [react-fontawesome](https://github.com/FortAwesome/react-fontawesome)
 
-- Follow the instructions in the [readme](https://github.com/FortAwesome/react-fontawesome#installation) 
+- Follow the instructions in the [readme](https://github.com/FortAwesome/react-fontawesome#installation)
 - Make sure that both `@fortawesome/free-solid-svg-icons` and `@fortawesome/free-regular-svg-icons` are installed.
 
 ```sh

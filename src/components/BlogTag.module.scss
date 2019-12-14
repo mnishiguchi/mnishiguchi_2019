@@ -1,11 +1,11 @@
-@import '../styles/utilities';
+@import '../styles/variables';
 
 .tag {
-  margin-right: 0.2rem;
-  background-color: $link !important;
-  color: $white-bis !important;
-  text-decoration: none !important;
+  margin-right: 0.2em;
+  background-color: $link-hover-color !important;
+  color: $white !important;
+  cursor: pointer;
   &:hover {
-    background-color: $link-hover !important;
+    background-color: $link-color !important;
   }
 }

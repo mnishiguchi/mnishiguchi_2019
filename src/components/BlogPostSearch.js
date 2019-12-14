@@ -1,10 +1,19 @@
 import React, { useState } from 'react'
 import { navigate } from 'gatsby'
+import {
+  Input,
+  Button,
+  Modal,
+  ModalBody,
+  ListGroup,
+  ListGroupItem,
+} from 'reactstrap'
 
-import styles from './BlogPostSearch.module.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-flexsearch
-const BlogPostSearch = ({ className, style }) => {
+function BlogPostSearch({ className, style }) {
   const MIN_QUERY_LENGTH = 3
 
   const [isActive, setIsActive] = useState(false)
@@ -51,43 +60,40 @@ const BlogPostSearch = ({ className, style }) => {
   }
 
   return (
-    <div className={className} style={style}>
-      <div className={`${styles.searchBox} ${isActive ? 'is-active' : ''}`}>
-        <input
-          type="text"
-          ref={queryInputRef}
-          className={`input ${styles.queryInput}`}
-          onChange={onSearch}
-          placeholder="Search mnishiguchi.com"
-        />
-        <div
-          className={`${styles.searchToggle}`}
-          onClick={toggleActiveStatus}
-        ></div>
-      </div>
+    <>
+      <Button onClick={toggleActiveStatus}>
+        <FontAwesomeIcon icon={isActive ? faTimes : faSearch} />
+      </Button>
+      <Modal isOpen={isActive} toggle={toggleActiveStatus}>
+        <ModalBody>
+          <Input
+            type="text"
+            ref={queryInputRef}
+            onChange={onSearch}
+            placeholder="Search mnishiguchi.com"
+          />
 
-      {query.length > MIN_QUERY_LENGTH ? (
-        <ul className={`list ${styles.suggestions}`}>
-          {suggestions.length === 0 ? (
-            <li
-              className={`list-item ${styles.suggestion}`}
-            >{`No suggestions for ${query}`}</li>
+          {query.length > MIN_QUERY_LENGTH ? (
+            <ListGroup>
+              {suggestions.length === 0 ? (
+                <ListGroupItem>{`No suggestions for ${query}`}</ListGroupItem>
+              ) : (
+                suggestions.map((page, i) => (
+                  <ListGroupItem
+                    key={page.title}
+                    onClick={() => navigate(page.url)}
+                  >
+                    <h4>{page.title}</h4>
+                  </ListGroupItem>
+                ))
+              )}
+            </ListGroup>
           ) : (
-            suggestions.map((page, i) => (
-              <li
-                className={`list-item ${styles.suggestion}`}
-                key={page.title}
-                onClick={() => navigate(page.url)}
-              >
-                <h4>{page.title}</h4>
-              </li>
-            ))
+            ''
           )}
-        </ul>
-      ) : (
-        ''
-      )}
-    </div>
+        </ModalBody>
+      </Modal>
+    </>
   )
 }
 

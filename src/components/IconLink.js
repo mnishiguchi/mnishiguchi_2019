@@ -2,24 +2,24 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
-import styles from './IconLink.module.scss'
+import css from './IconLink.module.scss'
 
 // Abstract component for external link with SVG icon.
 const ExternalLink = ({ href, children, className = '' }) => (
   <OutboundLink className={className} href={href}>
-    <span className={styles.icon}>{children /* SVG˝ */}</span>
+    <span className={css.icon}>{children /* SVG˝ */}</span>
   </OutboundLink>
 )
 
 // Abstract component for internal link with SVG icon.
-// https://www.gatsbyjs.org/docs/gatsby-link/#add-custom-styles-for-the-currently-active-link
+// https://www.gatsbyjs.org/docs/gatsby-link/#add-custom-css-for-the-currently-active-link
 const InternalLink = ({ to, children, className = '' }) => (
   <Link
-    className={`${className} ${styles.internalLink}`}
+    className={`${className} ${css.internalLink}`}
     to={to}
-    activeClassName="is-active"
+    activeClassName="isActive"
   >
-    <span className={styles.icon}>{children /* SVG˝ */}</span>
+    <span className={css.icon}>{children /* SVG˝ */}</span>
   </Link>
 )
 

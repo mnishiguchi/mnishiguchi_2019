@@ -1,42 +1,38 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
+import { Container } from 'reactstrap'
+
 import GlobalLayout from '../../components/GlobalLayout'
 import BlogTag from '../../components/BlogTag'
 
-const TagsPage = ({
+function TagsPage({
   data: {
     allMarkdownRemark: { group },
     site: {
       siteMetadata: { title },
     },
   },
-}) => (
-  <GlobalLayout>
-    <section className="section">
+}) {
+  return (
+    <GlobalLayout>
       <Helmet title={`Tags | ${title}`} />
-      <div className="container content">
-        <div className="columns">
-          <div
-            className="column is-10 is-offset-1"
-            style={{ marginBottom: '6rem' }}
-          >
-            <h1 className="title is-size-2 is-bold-light">Tags</h1>
-            <div className="content">
-              {group.map(tag => (
-                <BlogTag
-                  key={tag.fieldValue}
-                  tagName={tag.fieldValue}
-                  tagCount={tag.totalCount}
-                />
-              ))}
-            </div>
-          </div>
+
+      <Container className="my-4">
+        <h1>Tags</h1>
+        <div className="h3">
+          {group.map(tag => (
+            <BlogTag
+              key={tag.fieldValue}
+              tagName={tag.fieldValue}
+              tagCount={tag.totalCount}
+            />
+          ))}
         </div>
-      </div>
-    </section>
-  </GlobalLayout>
-)
+      </Container>
+    </GlobalLayout>
+  )
+}
 
 export default TagsPage
 

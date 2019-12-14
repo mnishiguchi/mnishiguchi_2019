@@ -35,7 +35,7 @@ import visualstudiocode from '../img/brands/visualstudiocode.svg'
 import vuejs from '../img/brands/vuejs.svg'
 import wikipedia from '../img/brands/wikipedia.svg'
 
-import styles from './BrandIconSlideshow.module.scss'
+import css from './BrandIconSlideshow.module.scss'
 
 const brandIcons = [
   amazonaws,
@@ -75,15 +75,20 @@ const brandIcons = [
 
 const gridStyle = { height: '50px', padding: `4px` }
 
-const BrandIconSlideshow = ({ className = '', style = {} }) => {
+const BrandIconSlideshow = ({ width, style = {}, className = '' }) => {
   const setHash = React.useState()[1]
 
   return (
-    <div className={className || styles.slideshow}>
+    <div className={css.slideshow} style={{ ...style, width }}>
       <div
-        className={styles.mover}
+        className={css.mover}
         style={{ width: `${brandIcons.length * 50 + 4 * 2}px` }}
         onClick={() => setHash(new Date())}
+        onKeyDown={() => {
+          /* warning  Visible, non-interactive elements with click handlers must have at least one keyboard listener */
+        }}
+        role="button"
+        tabIndex="0"
       >
         {_.shuffle(brandIcons).map((icon, i) => (
           <img src={icon} alt="" key={i} style={gridStyle} />

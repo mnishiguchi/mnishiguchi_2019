@@ -3,12 +3,11 @@ import { Helmet } from 'react-helmet'
 import { withPrefix } from 'gatsby'
 import { useTranslation } from 'react-i18next'
 
-import Footer from './Footer'
-import Navbar from './Navbar'
+import AppFooter from './AppFooter'
+import AppHeader from './AppHeader'
 import useSiteMetadata from './SiteMetadata'
 import '../i18n'
 
-import '../styles/global.scss'
 import styles from './GlobalLayout.module.scss'
 
 export default ({ children }) => {
@@ -62,11 +61,11 @@ export default ({ children }) => {
         />
       </Helmet>
 
-      <Navbar />
+      <AppHeader />
 
       <main className={styles.main}>{children}</main>
 
-      <Footer />
+      <AppFooter />
     </div>
   )
 }
