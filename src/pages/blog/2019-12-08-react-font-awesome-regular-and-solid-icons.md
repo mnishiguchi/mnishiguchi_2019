@@ -10,6 +10,7 @@ tags:
   - font-awesome
   - icon
 ---
+
 For example, if a like button has the heart icon, I want to toggle it between the [regular](https://fontawesome.com/icons/heart?style=regular) and [solid](https://fontawesome.com/icons/heart?style=solid) based on the like status.
 
 ## Install [react-fontawesome](https://github.com/FortAwesome/react-fontawesome)
@@ -58,29 +59,29 @@ import { faHeart as faHeartInactive } from '@fortawesome/free-regular-svg-icons'
 If there is no naming collision, it is simple.
 
 ```js
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-
-<FontAwesomeIcon icon={faGithub} />
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+;<FontAwesomeIcon icon={faGithub} />
 ```
 
 ### Example component
 
 ```js
 import React from 'react'
-import {
-  Card,
-  CardText,
-  CardBody,
-  CardTitle,
-} from 'reactstrap'
+import { Card, CardText, CardBody, CardTitle } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as faHeartActive } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as faHeartInactive } from '@fortawesome/free-regular-svg-icons'
 
-const likeIcon = liked => (liked ? faHeartActive : faHeartInactive)
+const likeIcon = (liked) => (liked ? faHeartActive : faHeartInactive)
 
-const ExampleLikeableCard = ({ name, explanation, liked, likeCount, className = '' }) => {
+const ExampleLikeableCard = ({
+  name,
+  explanation,
+  liked,
+  likeCount,
+  className = '',
+}) => {
   return (
     <Card className={className}>
       <CardBody>

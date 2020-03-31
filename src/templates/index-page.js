@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import Img from 'gatsby-image' // https://www.gatsbyjs.org/packages/gatsby-image/
 import { useTranslation } from 'react-i18next'
-import { Container } from 'reactstrap'
 
 import GlobalLayout from '../components/GlobalLayout'
 import StackOverflowFlair from '../components/StackOverflowFlair'
@@ -18,7 +17,7 @@ export function IndexPageContent({ gmapUrl, mainImage }) {
   return (
     <>
       <header className={`py-3 bg-primary`}>
-        <Container style={{ maxWidth: '500px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '500px', textAlign: 'center' }}>
           <h1 className={`text-white`}>{t('author.name')}</h1>
           <h2 className={`text-white`}>
             {t('author.profession')}
@@ -27,18 +26,18 @@ export function IndexPageContent({ gmapUrl, mainImage }) {
               {t('author.location')}
             </OutboundLink>
           </h2>
-        </Container>
+        </div>
       </header>
 
-      <Container className="mb-4" style={{ maxWidth: '300px' }}>
+      <div className="mb-4" style={{ maxWidth: '300px' }}>
         <section>
           <Img fluid={mainImage.childImageSharp.fluid} />
           <br />
           <StackOverflowFlair theme="clean" width="300px" />
         </section>
-      </Container>
+      </div>
 
-      <Container
+      <div
         style={{ maxWidth: '600px', overflowX: 'hidden', textAlign: 'center' }}
       >
         <section className="mb-4">
@@ -55,7 +54,7 @@ export function IndexPageContent({ gmapUrl, mainImage }) {
             style={{ maxWidth: `600px` }}
           />
         </section>
-      </Container>
+      </div>
     </>
   )
 }

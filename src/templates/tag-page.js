@@ -1,7 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Link, graphql } from 'gatsby'
-import { Container, ListGroup, ListGroupItem } from 'reactstrap'
+import { Link } from 'gatsby'
 
 import GlobalLayout from '../components/GlobalLayout'
 
@@ -17,25 +16,25 @@ function TagPage({ data: { site, allMarkdownRemark }, pageContext: { tag } }) {
     <GlobalLayout>
       <Helmet title={`${tag} | ${title}`} />
 
-      <Container className="my-4">
-        <h1 className="h3">{tagHeader}</h1>
+      <div>
+        <h1>{tagHeader}</h1>
 
-        <ListGroup>
+        <ul>
           {posts.map(({ node: { fields, frontmatter } }) => (
-            <ListGroupItem>
+            <li>
               <Link to={fields.slug} key={fields.slug} className="text-dark">
                 {frontmatter.title}
               </Link>
-            </ListGroupItem>
+            </li>
           ))}
-        </ListGroup>
+        </ul>
 
         <br />
         <br />
         <Link to="/tags/" className="btn btn-outline-primary">
           Browse all tags
         </Link>
-      </Container>
+      </div>
     </GlobalLayout>
   )
 }

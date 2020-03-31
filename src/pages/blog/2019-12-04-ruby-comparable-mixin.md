@@ -11,6 +11,7 @@ tags:
   - mixin
   - comparable
 ---
+
 - The Comparable mixin is used by classes whose objects may be ordered.
 - https://docs.ruby-lang.org/en/2.5.0/Comparable.html
 

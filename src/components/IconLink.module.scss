@@ -1,16 +1,8 @@
-@import '../styles/variables';
-
 .internalLink {
   // Note: Disable the CSS Module for `.isActive` class.
   &:global(.isActive) {
-    // Note: The color won't change without `!important`.
-    color: $link-hover-color !important;
     cursor: default;
     pointer-events: none;
-
-    &:hover {
-      color: $link-hover-color !important;
-    }
   }
 }
 

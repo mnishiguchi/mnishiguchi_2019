@@ -1,12 +1,4 @@
 import React from 'react'
-import {
-  Navbar,
-  Nav,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from 'reactstrap'
 
 import BlogPostSearch from './BlogPostSearch'
 import LanguageSwitcher from './LanguageSwitcher'
@@ -20,27 +12,19 @@ import {
 
 function AppHeader() {
   return (
-    <Navbar color="light" light expand="xs">
-      <Nav className="mr-auto" navbar>
-        <HomeLink className="nav-link" />
-        <BlogLink className="nav-link" />
-        <TagsLink className="nav-link" />
-        <LinkedinLink className="nav-link" />
-        <GithubLink className="nav-link" />
-        <UncontrolledDropdown nav inNavbar>
-          <DropdownToggle nav caret>
-            A⇄文
-          </DropdownToggle>
-          <DropdownMenu right>
-            <DropdownItem>
-              <LanguageSwitcher languageCode="en" />
-            </DropdownItem>
-            <DropdownItem>
-              <LanguageSwitcher languageCode="ja" />
-            </DropdownItem>
-          </DropdownMenu>
-        </UncontrolledDropdown>
-      </Nav>
+    <div>
+      <div>
+        <HomeLink />
+        <BlogLink />
+        <TagsLink />
+        <LinkedinLink />
+        <GithubLink />
+        <div>
+          <div>A⇄文</div>
+          <LanguageSwitcher languageCode="en" />
+          <LanguageSwitcher languageCode="ja" />
+        </div>
+      </div>
 
       <BlogPostSearch
         style={{
@@ -51,7 +35,7 @@ function AppHeader() {
           padding: '0.5rem 0.75rem 0 0',
         }}
       />
-    </Navbar>
+    </div>
   )
 }
 

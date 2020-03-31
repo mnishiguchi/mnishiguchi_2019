@@ -10,6 +10,7 @@ tags:
   - poro
   - array
 ---
+
 - By default, arrays of objects cannot be intersected in Ruby.
 - By overriding `eql?(other)` and `hash` methods, we can make a Ruby object capable of intersecting.
 

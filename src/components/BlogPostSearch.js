@@ -1,16 +1,5 @@
 import React, { useState } from 'react'
 import { navigate } from 'gatsby'
-import {
-  Input,
-  Button,
-  Modal,
-  ModalBody,
-  ListGroup,
-  ListGroupItem,
-} from 'reactstrap'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-flexsearch
 function BlogPostSearch({ className, style }) {
@@ -22,24 +11,24 @@ function BlogPostSearch({ className, style }) {
 
   let queryInputRef = React.createRef()
 
-  const fetchSearchsuggestions = query => {
+  const fetchSearchsuggestions = (query) => {
     const index = window.__FLEXSEARCH__.en.index
     const store = window.__FLEXSEARCH__.en.store
 
     if (!query || !index) return []
 
     let results = []
-    Object.keys(index).forEach(idx =>
+    Object.keys(index).forEach((idx) =>
       results.push(...index[idx].values.search(query))
     )
     results = Array.from(new Set(results))
 
     return store
-      .filter(node => results.includes(node.id))
-      .map(node => node.node)
+      .filter((node) => results.includes(node.id))
+      .map((node) => node.node)
   }
 
-  const onSearch = event => {
+  const onSearch = (event) => {
     const inputValue = event.target.value
     setQuery(inputValue)
     setsuggestions(
@@ -61,12 +50,12 @@ function BlogPostSearch({ className, style }) {
 
   return (
     <>
-      <Button onClick={toggleActiveStatus}>
-        <FontAwesomeIcon icon={isActive ? faTimes : faSearch} />
-      </Button>
-      <Modal isOpen={isActive} toggle={toggleActiveStatus}>
-        <ModalBody>
-          <Input
+      <div onClick={toggleActiveStatus}>
+        {isActive ? 'faTimes' : 'faSearch'}
+      </div>
+      <div isOpen={isActive} toggle={toggleActiveStatus}>
+        <div>
+          <div
             type="text"
             ref={queryInputRef}
             onChange={onSearch}
@@ -74,25 +63,22 @@ function BlogPostSearch({ className, style }) {
           />
 
           {query.length > MIN_QUERY_LENGTH ? (
-            <ListGroup>
+            <div>
               {suggestions.length === 0 ? (
-                <ListGroupItem>{`No suggestions for ${query}`}</ListGroupItem>
+                <div>{`No suggestions for ${query}`}</div>
               ) : (
                 suggestions.map((page, i) => (
-                  <ListGroupItem
-                    key={page.title}
-                    onClick={() => navigate(page.url)}
-                  >
+                  <div key={page.title} onClick={() => navigate(page.url)}>
                     <h4>{page.title}</h4>
-                  </ListGroupItem>
+                  </div>
                 ))
               )}
-            </ListGroup>
+            </div>
           ) : (
             ''
           )}
-        </ModalBody>
-      </Modal>
+        </div>
+      </div>
     </>
   )
 }

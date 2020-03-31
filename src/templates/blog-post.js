@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import { Container, Alert } from 'reactstrap'
 
 import GlobalLayout from '../components/GlobalLayout'
 import BlogTag from '../components/BlogTag'
@@ -16,27 +15,25 @@ export function BlogPostContent({
   date,
 }) {
   return (
-    <Container className="my-4 blogPost">
+    <div className="blogPost">
       {helmet || ''}
 
       <header>
         <h1>{title}</h1>
-        <span className="text-muted">{date}</span>
+        <span>{date}</span>
         {tags && tags.length ? (
           <p>
-            {tags.map(tag => (
+            {tags.map((tag) => (
               <BlogTag key={tag} tagName={tag} />
             ))}
           </p>
         ) : null}
       </header>
 
-      <Alert color="light" className="lead py-2">
-        {description}
-      </Alert>
+      <div>{description}</div>
 
       <section dangerouslySetInnerHTML={{ __html: html }} />
-    </Container>
+    </div>
   )
 }
 

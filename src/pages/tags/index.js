@@ -1,7 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import { Container } from 'reactstrap'
 
 import GlobalLayout from '../../components/GlobalLayout'
 import BlogTag from '../../components/BlogTag'
@@ -18,10 +17,10 @@ function TagsPage({
     <GlobalLayout>
       <Helmet title={`Tags | ${title}`} />
 
-      <Container className="my-4">
+      <div className="my-4">
         <h1>Tags</h1>
         <div className="h3">
-          {group.map(tag => (
+          {group.map((tag) => (
             <BlogTag
               key={tag.fieldValue}
               tagName={tag.fieldValue}
@@ -29,7 +28,7 @@ function TagsPage({
             />
           ))}
         </div>
-      </Container>
+      </div>
     </GlobalLayout>
   )
 }

@@ -23,9 +23,9 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
-      result.errors.forEach(e => console.error(e.toString()))
+      result.errors.forEach((e) => console.error(e.toString()))
       return Promise.reject(result.errors)
     }
 
@@ -33,7 +33,7 @@ exports.createPages = ({ actions, graphql }) => {
     const posts = result.data.allMarkdownRemark.edges
 
     // Programatically create Post pages
-    posts.forEach(edge => {
+    posts.forEach((edge) => {
       const id = edge.node.id
       createPage({
         path: edge.node.fields.slug,
@@ -58,7 +58,7 @@ exports.createPages = ({ actions, graphql }) => {
     )
 
     // Programatically create Tag pages:
-    Array.from(new Set(tags)).forEach(tag => {
+    Array.from(new Set(tags)).forEach((tag) => {
       createPage({
         path: `/tags/${_.kebabCase(tag)}/`,
         component: path.resolve(`src/templates/tag-page.js`),

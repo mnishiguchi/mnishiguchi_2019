@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
-import { Row, Col, Card, CardBody } from 'reactstrap'
 
 import BlogTag from './BlogTag'
 
@@ -9,12 +8,12 @@ function BlogRoll({ data: { allMarkdownRemark } }) {
   const posts = allMarkdownRemark.edges
 
   return (
-    <Row>
+    <div>
       {posts &&
         posts.map(({ node: { id, frontmatter, fields, excerpt } }) => (
-          <Col sm="12" md="6" lg="4" key={fields.slug}>
-            <Card className="mb-2">
-              <CardBody>
+          <div sm="12" md="6" lg="4" key={fields.slug}>
+            <div className="mb-2">
+              <div>
                 <Link className="card-title h4 text-dark" to={fields.slug}>
                   {frontmatter.title}
                 </Link>
@@ -22,24 +21,24 @@ function BlogRoll({ data: { allMarkdownRemark } }) {
                 <span className="card-text">
                   <span className="text-muted">{frontmatter.date}</span>
                   <br />
-                  {frontmatter.tags.map(tagName => (
+                  {frontmatter.tags.map((tagName) => (
                     <BlogTag tagName={tagName} key={tagName} />
                   ))}
                 </span>
-              </CardBody>
+              </div>
 
-              <CardBody style={{ overflowX: `auto`, wordWrap: `break-word` }}>
+              <div style={{ overflowX: `auto`, wordWrap: `break-word` }}>
                 {frontmatter.description || excerpt}
                 <br />
                 <br />
                 <Link className="button" to={fields.slug}>
                   Keep Reading →
                 </Link>
-              </CardBody>
-            </Card>
-          </Col>
+              </div>
+            </div>
+          </div>
         ))}
-    </Row>
+    </div>
   )
 }
 
