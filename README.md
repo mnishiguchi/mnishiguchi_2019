@@ -10,5 +10,4 @@ This is Masatoshi Nishiguchi's currnet blog theme.
 - Gatsby and plugins - See [gatsby-config.js](./gatsby-config.js)
 - Netlify and [Gatsby + Netlify CMS Starter](https://templates.netlify.com/template/gatsby-blog-with-netlify-cms/)
 - https://simpleicons.org/
-- https://flaticon.com/
 - etc

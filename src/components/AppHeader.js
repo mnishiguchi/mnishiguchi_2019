@@ -10,6 +10,8 @@ import {
   LinkedinLink,
 } from './IconLink'
 
+import TranslateIcon from '@material-ui/icons/Translate'
+
 function AppHeader() {
   return (
     <div>
@@ -20,7 +22,9 @@ function AppHeader() {
         <LinkedinLink />
         <GithubLink />
         <div>
-          <div>A⇄文</div>
+          <div>
+            <TranslateIcon />
+          </div>
           <LanguageSwitcher languageCode="en" />
           <LanguageSwitcher languageCode="ja" />
         </div>

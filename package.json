@@ -10,6 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@material-ui/core": "^4.9.8",
+    "@material-ui/icons": "^4.9.1",
     "gatsby": "^2.20.11",
     "gatsby-image": "^2.3.1",
     "gatsby-plugin-canonical-urls": "^2.2.1",

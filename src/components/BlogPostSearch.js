@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { navigate } from 'gatsby'
+import ClearIcon from '@material-ui/icons/Clear'
+import SearchIcon from '@material-ui/icons/Search'
 
 // https://www.gatsbyjs.org/packages/gatsby-plugin-flexsearch
 function BlogPostSearch({ className, style }) {
@@ -51,7 +53,7 @@ function BlogPostSearch({ className, style }) {
   return (
     <>
       <div onClick={toggleActiveStatus}>
-        {isActive ? 'faTimes' : 'faSearch'}
+        {isActive ? <ClearIcon /> : <SearchIcon />}
       </div>
       <div isOpen={isActive} toggle={toggleActiveStatus}>
         <div>
