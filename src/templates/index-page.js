@@ -4,57 +4,100 @@ import { graphql } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import Img from 'gatsby-image' // https://www.gatsbyjs.org/packages/gatsby-image/
 import { useTranslation } from 'react-i18next'
+import Container from '@material-ui/core/Container'
+import { makeStyles } from '@material-ui/core/styles'
 
 import GlobalLayout from '../layouts/index'
 import StackOverflowFlair from '../components/StackOverflowFlair'
 import BrandIconSlideshow from '../components/BrandIconSlideshow'
-import masaTalk from '../img/masa-talk.jpg'
 
-export function IndexPageContent({ gmapUrl, mainImage }) {
+const useStyles = makeStyles((theme) => ({
+  header: {
+    backgroundColor: theme.palette.primary.dark,
+    paddingTop: '.8rem',
+    paddingBottom: '.8rem',
+    color: '#fff',
+  },
+  flexJustifyContentCenter: {
+    display: 'flex',
+    justifyContent: 'center',
+    textAlign: 'center',
+  },
+  spaceBetweenSections: {
+    marginTop: '2rem',
+  },
+  maxWidth600: {
+    width: '100%',
+    maxWidth: '600px',
+  },
+}))
+
+export function IndexPageContent({ gmapUrl, mainImage, secondaryImage }) {
   // https://react.i18next.com/latest/usetranslation-hook#usetranslation-params
   const { t } = useTranslation()
+  const classNames = useStyles()
 
   return (
     <>
-      <header className={`py-3 bg-primary`}>
-        <div style={{ maxWidth: '500px', textAlign: 'center' }}>
-          <h1 className={`text-white`}>{t('author.name')}</h1>
-          <h2 className={`text-white`}>
+      <header
+        className={[
+          classNames.header,
+          classNames.flexJustifyContentCenter,
+        ].join(' ')}
+      >
+        <div style={{ maxWidth: '500px' }}>
+          <h1>{t('author.name')}</h1>
+          <h2>
             {t('author.profession')}
             <br />
-            <OutboundLink className="h3 text-white-50" href={gmapUrl}>
+            <OutboundLink href={gmapUrl} style={{ color: '#fff' }}>
               {t('author.location')}
             </OutboundLink>
           </h2>
         </div>
       </header>
 
-      <div className="mb-4" style={{ maxWidth: '300px' }}>
-        <section>
-          <Img fluid={mainImage.childImageSharp.fluid} />
-          <br />
-          <StackOverflowFlair theme="clean" width="300px" />
-        </section>
-      </div>
-
-      <div
-        style={{ maxWidth: '600px', overflowX: 'hidden', textAlign: 'center' }}
-      >
-        <section className="mb-4">
-          <div>{t('pages.home.hobbies')}</div>
-          <BrandIconSlideshow style={{ width: '100px' }} />
-          <div>{t('pages.home.etc')}</div>
+      <Container>
+        <section
+          className={[
+            classNames.flexJustifyContentCenter,
+            classNames.spaceBetweenSections,
+          ].join(' ')}
+        >
+          <div>
+            <Img fluid={mainImage.childImageSharp.fluid} />
+            <br />
+            <StackOverflowFlair theme="clean" width="300px" />
+          </div>
         </section>
 
-        <section className="mb-4">
-          {/* I left this as a normal img because I had trouble setting up gatsby image for multiple images */}
-          <img
-            src={masaTalk}
-            alt="Masatoshi Nishiguchi at Node DC"
-            style={{ maxWidth: `600px` }}
-          />
+        <section
+          className={[
+            classNames.flexJustifyContentCenter,
+            classNames.spaceBetweenSections,
+          ].join(' ')}
+        >
+          <div className={classNames.maxWidth600}>
+            <div>{t('pages.home.hobbies')}</div>
+            <BrandIconSlideshow />
+            <div>{t('pages.home.etc')}</div>
+          </div>
         </section>
-      </div>
+
+        <section
+          className={[
+            classNames.flexJustifyContentCenter,
+            classNames.spaceBetweenSections,
+          ].join(' ')}
+        >
+          <div className={classNames.maxWidth600}>
+            <Img
+              fluid={secondaryImage.childImageSharp.fluid}
+              alt="Masatoshi Nishiguchi at Node DC"
+            />
+          </div>
+        </section>
+      </Container>
     </>
   )
 }
@@ -62,6 +105,7 @@ export function IndexPageContent({ gmapUrl, mainImage }) {
 IndexPageContent.propTypes = {
   gmapUrl: PropTypes.string,
   mainImage: PropTypes.object,
+  secondaryImage: PropTypes.object,
 }
 
 function IndexPage({
@@ -93,7 +137,14 @@ export const pageQuery = graphql`
         gmapUrl
         mainImage {
           childImageSharp {
-            fluid(maxWidth: 240, quality: 100) {
+            fluid(maxWidth: 300, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        secondaryImage {
+          childImageSharp {
+            fluid(maxWidth: 600, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }

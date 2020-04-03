@@ -1,4 +1,7 @@
 import React from 'react'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import indigo from '@material-ui/core/colors/indigo'
+import green from '@material-ui/core/colors/green'
 
 import AppHelmet from './AppHelmet'
 import AppFooter from './AppFooter'
@@ -6,22 +9,33 @@ import AppHeader from './AppHeader'
 import '../i18n'
 
 export default ({ children }) => {
+  // https://material-ui.com/customization/theming/
+  const theme = createMuiTheme({
+    typography: {},
+    palette: {
+      primary: indigo,
+      secondary: green,
+    },
+    overrides: {},
+  })
+
   return (
-    <div style={{ overflowX: 'hidden' }}>
+    <ThemeProvider theme={theme}>
       <AppHelmet />
 
       <AppHeader />
 
-      <main
+      {/* A spacer for the content */}
+      <div
         style={{
-          minHeight: '80vh',
-          overflowWrap: 'break-word',
+          height: '4rem',
         }}
-      >
-        {children}
-      </main>
+      />
+
+      {/* Use a container in each template not here so that they can be styled freely. */}
+      {children}
 
       <AppFooter />
-    </div>
+    </ThemeProvider>
   )
 }

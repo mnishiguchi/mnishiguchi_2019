@@ -1,10 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { withPrefix } from 'gatsby'
-import { useTranslation } from 'react-i18next'
 
-import AppFooter from './AppFooter'
-import AppHeader from './AppHeader'
 import useSiteMetadata from '../components/useSiteMetadata'
 import '../i18n'
 
