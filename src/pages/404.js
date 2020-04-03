@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import GlobalLayout from '../layouts/GlobalLayout'
+import GlobalLayout from '../layouts/index'
 
 function NotFoundPage() {
   return (

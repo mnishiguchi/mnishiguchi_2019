@@ -5,7 +5,7 @@ import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import Img from 'gatsby-image' // https://www.gatsbyjs.org/packages/gatsby-image/
 import { useTranslation } from 'react-i18next'
 
-import GlobalLayout from '../layouts/GlobalLayout'
+import GlobalLayout from '../layouts/index'
 import StackOverflowFlair from '../components/StackOverflowFlair'
 import BrandIconSlideshow from '../components/BrandIconSlideshow'
 import masaTalk from '../img/masa-talk.jpg'
@@ -41,9 +41,9 @@ export function IndexPageContent({ gmapUrl, mainImage }) {
         style={{ maxWidth: '600px', overflowX: 'hidden', textAlign: 'center' }}
       >
         <section className="mb-4">
-          <div>{t('indexPage.iEnjoy')}</div>
+          <div>{t('pages.home.hobbies')}</div>
           <BrandIconSlideshow style={{ width: '100px' }} />
-          <div>{t('indexPage.etc')}</div>
+          <div>{t('pages.home.etc')}</div>
         </section>
 
         <section className="mb-4">

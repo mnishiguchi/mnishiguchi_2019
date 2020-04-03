@@ -1,15 +1,30 @@
 {
+  "site": {
+    "title": "にしぐちまさとし",
+    "description": "ソフトウエアエンジニア"
+  },
   "author": {
     "name": "にしぐちまさとし",
     "profession": "ソフトウエアエンジニア",
     "location": "ワシントンDC"
   },
-  "indexPage": {
-    "iEnjoy": "得意分野",
-    "etc": "等々"
-  },
-  "language": {
-    "en": "英語",
-    "ja": "日本語"
+  "pages": {
+    "home": {
+      "title": "ホーム",
+      "link-label": "ホーム",
+      "description": "",
+      "hobbies": "趣味",
+      "etc": "など"
+    },
+    "blog": {
+      "title": "ノート",
+      "link-label": "ノート",
+      "description": ""
+    },
+    "tags": {
+      "title": "タグ",
+      "link-label": "タグ",
+      "description": ""
+    }
   }
 }

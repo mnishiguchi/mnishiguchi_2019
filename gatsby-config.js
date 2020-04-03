@@ -1,3 +1,5 @@
+const siteUrl = 'https://mnishiguchi.com'
+
 // For sourcing data into your Gatsby application from your local filesystem.
 // https://www.gatsbyjs.org/packages/gatsby-source-filesystem/
 const sourceFilesystemPlugins = [
@@ -105,7 +107,7 @@ module.exports = {
   siteMetadata: {
     title: 'mnishiguchi',
     description: `This is Masatoshi Nishiguchi's blog`,
-    siteUrl: process.env.SITE_URL,
+    siteUrl,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -140,18 +142,18 @@ module.exports = {
         display: `standalone`,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-canonical-urls`,
-    //   options: {
-    //     siteUrl: process.env.SITE_URL,
-    //     stripQueryString: true,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl,
+        stripQueryString: true,
+      },
+    },
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: process.env.SITE_URL,
-        sitemap: `${process.env.SITE_URL}/sitemap.xml`,
+        host: siteUrl,
+        sitemap: `${siteUrl}/sitemap.xml`,
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
@@ -161,16 +163,6 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
-    // Bootstrap did not work with this plugin.
-    // Remove unused css from css/sass/less/stylus files and modules in your Gatsby project using purgecss.
-    // https://www.gatsbyjs.org/packages/gatsby-plugin-purgecss/
-    // {
-    //   resolve: 'gatsby-plugin-purgecss',
-    //   options: {
-    //     develop: true, // Activates purging in npm run develop
-    //     purgeOnly: ['/global.scss'], // applies purging only on the bulma css file
-    //   },
-    // },
     // Must be after other CSS plugins
     // https://www.gatsbyjs.org/packages/gatsby-plugin-netlify/
     'gatsby-plugin-netlify', // Make sure to keep it last in the array

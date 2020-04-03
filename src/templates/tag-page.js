@@ -1,8 +1,7 @@
 import React from 'react'
-import Helmet from 'react-helmet'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 
-import GlobalLayout from '../layouts/GlobalLayout'
+import GlobalLayout from '../layouts/index'
 
 function TagPage({ data: { site, allMarkdownRemark }, pageContext: { tag } }) {
   const posts = allMarkdownRemark.edges
@@ -14,8 +13,6 @@ function TagPage({ data: { site, allMarkdownRemark }, pageContext: { tag } }) {
 
   return (
     <GlobalLayout>
-      <Helmet title={`${tag} | ${title}`} />
-
       <div>
         <h1>{tagHeader}</h1>
 

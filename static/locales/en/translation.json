@@ -1,15 +1,30 @@
 {
+  "site": {
+    "title": "Masatoshi Nishiguchi",
+    "description": "Software Engineer"
+  },
   "author": {
     "name": "Masatoshi Nishiguchi",
     "profession": "Software Engineer",
     "location": "Washington, DC"
   },
-  "indexPage": {
-    "iEnjoy": "I enjoy",
-    "etc": "and more..."
-  },
-  "language": {
-    "en": "English",
-    "ja": "Japanese"
+  "pages": {
+    "home": {
+      "title": "Home",
+      "link-label": "Home",
+      "description": "",
+      "hobbies": "I enjoy",
+      "etc": "and more..."
+    },
+    "blog": {
+      "title": "My Note",
+      "link-label": "My Note",
+      "description": ""
+    },
+    "tags": {
+      "title": "Tags",
+      "link-label": "Tags",
+      "description": ""
+    }
   }
 }

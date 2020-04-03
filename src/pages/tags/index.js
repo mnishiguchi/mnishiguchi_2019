@@ -1,24 +1,20 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
+import { useTranslation } from 'react-i18next'
 
-import GlobalLayout from '../../layouts/GlobalLayout'
+import GlobalLayout from '../../layouts/index'
 import BlogTag from '../../components/BlogTag'
 
 function TagsPage({
   data: {
     allMarkdownRemark: { group },
-    site: {
-      siteMetadata: { title },
-    },
   },
 }) {
+  const { t } = useTranslation()
   return (
     <GlobalLayout>
-      <Helmet title={`Tags | ${title}`} />
-
       <div className="my-4">
-        <h1>Tags</h1>
+        <h1>{t(`pages.tags.title`)}</h1>
         <div className="h3">
           {group.map((tag) => (
             <BlogTag
@@ -37,11 +33,6 @@ export default TagsPage
 
 export const tagPageQuery = graphql`
   query TagsQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(limit: 1000) {
       group(field: frontmatter___tags) {
         fieldValue

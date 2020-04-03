@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
-import GlobalLayout from '../layouts/GlobalLayout'
+import GlobalLayout from '../layouts/index'
 import BlogTag from '../components/BlogTag'
 
 export function BlogPostContent({
@@ -59,10 +59,10 @@ function BlogPost({
         tags={frontmatter.tags}
         title={frontmatter.title}
         helmet={
-          <Helmet titleTemplate="%s | Blog">
-            <title>{frontmatter.title}</title>
-            <meta name="description" content={frontmatter.description} />
-          </Helmet>
+          <Helmet
+            title={frontmatter.title}
+            meta={[{ name: 'description', content: frontmatter.description }]}
+          />
         }
       />
     </GlobalLayout>
