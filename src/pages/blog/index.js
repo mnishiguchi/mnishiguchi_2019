@@ -1,6 +1,6 @@
 import React from 'react'
 
-import GlobalLayout from '../../components/GlobalLayout'
+import GlobalLayout from '../../layouts/GlobalLayout'
 import BlogRoll from '../../components/BlogRoll'
 
 export default function BlogIndexPage() {

@@ -1,16 +1,15 @@
 import React from 'react'
+import TranslateIcon from '@material-ui/icons/Translate'
 
 import BlogPostSearch from './BlogPostSearch'
-import LanguageSwitcher from './LanguageSwitcher'
+import I18nSwitcher from './I18nSwitcher'
 import {
   HomeLink,
   BlogLink,
   TagsLink,
   GithubLink,
   LinkedinLink,
-} from './IconLink'
-
-import TranslateIcon from '@material-ui/icons/Translate'
+} from '../components/IconLink'
 
 function AppHeader() {
   return (
@@ -21,13 +20,7 @@ function AppHeader() {
         <TagsLink />
         <LinkedinLink />
         <GithubLink />
-        <div>
-          <div>
-            <TranslateIcon />
-          </div>
-          <LanguageSwitcher languageCode="en" />
-          <LanguageSwitcher languageCode="ja" />
-        </div>
+        <I18nSwitcher />
       </div>
 
       <BlogPostSearch

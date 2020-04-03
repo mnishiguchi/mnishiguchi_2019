@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
-import GlobalLayout from '../../components/GlobalLayout'
+import GlobalLayout from '../../layouts/GlobalLayout'
 import BlogTag from '../../components/BlogTag'
 
 function TagsPage({

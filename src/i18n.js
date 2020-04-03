@@ -15,18 +15,14 @@ i18next
   .init({
     debug: process.env.NODE_ENV !== 'production',
     resources: { en: { translation: en }, ja: { translation: ja } },
-    lang: 'ja',
-    whitelist: ['ja', 'en'],
-    fallbackLng: 'ja',
+    lang: 'en',
+    whitelist: ['en', 'ja'],
+    fallbackLng: 'en',
     interpolation: {
       escapeValue: false, // not needed for react!!
     },
     react: {
       useSuspense: false, // https://github.com/i18next/react-i18next/issues/766
-    },
-    detection: {
-      order: ['path'],
-      caches: [],
     },
   })
 

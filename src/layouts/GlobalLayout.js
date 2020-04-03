@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 import AppFooter from './AppFooter'
 import AppHeader from './AppHeader'
-import useSiteMetadata from './SiteMetadata'
+import useSiteMetadata from '../components/SiteMetadata'
 import '../i18n'
 
 import styles from './GlobalLayout.module.scss'

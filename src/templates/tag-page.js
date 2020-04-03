@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
 
-import GlobalLayout from '../components/GlobalLayout'
+import GlobalLayout from '../layouts/GlobalLayout'
 
 function TagPage({ data: { site, allMarkdownRemark }, pageContext: { tag } }) {
   const posts = allMarkdownRemark.edges

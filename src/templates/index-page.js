@@ -5,7 +5,7 @@ import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import Img from 'gatsby-image' // https://www.gatsbyjs.org/packages/gatsby-image/
 import { useTranslation } from 'react-i18next'
 
-import GlobalLayout from '../components/GlobalLayout'
+import GlobalLayout from '../layouts/GlobalLayout'
 import StackOverflowFlair from '../components/StackOverflowFlair'
 import BrandIconSlideshow from '../components/BrandIconSlideshow'
 import masaTalk from '../img/masa-talk.jpg'
