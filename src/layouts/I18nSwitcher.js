@@ -18,8 +18,15 @@ function I18nSwitcher() {
 
   /* eslint-disable jsx-a11y/no-onchange */
   return (
-    <>
-      <TranslateIcon style={{ color: 'black', marginRight: '.5rem' }} />
+    <div style={{ minWidth: '110px' }}>
+      <TranslateIcon
+        style={{
+          display: 'inline-block',
+          color: 'black',
+          marginRight: '.5rem',
+          verticalAlign: 'middle',
+        }}
+      />
 
       <FormControl>
         <Select
@@ -31,7 +38,7 @@ function I18nSwitcher() {
           <MenuItem value="ja">日本語</MenuItem>
         </Select>
       </FormControl>
-    </>
+    </div>
   )
 }
 

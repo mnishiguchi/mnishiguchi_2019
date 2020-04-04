@@ -1,6 +1,5 @@
 import React from 'react'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
-import indigo from '@material-ui/core/colors/indigo'
 import green from '@material-ui/core/colors/green'
 
 import AppHelmet from './AppHelmet'
@@ -12,8 +11,14 @@ export default ({ children }) => {
   // https://material-ui.com/customization/theming/
   const theme = createMuiTheme({
     typography: {},
+    // https://material-ui.com/customization/palette/
     palette: {
-      primary: indigo,
+      primary: {
+        // light: will be calculated from palette.primary.main,
+        main: '#1853a9',
+        // dark: will be calculated from palette.primary.main,
+        // contrastText: will be calculated to contrast with palette.primary.main
+      },
       secondary: green,
     },
     overrides: {},
@@ -28,7 +33,7 @@ export default ({ children }) => {
       {/* A spacer for the content */}
       <div
         style={{
-          height: '4rem',
+          height: '3.5rem',
         }}
       />
 
