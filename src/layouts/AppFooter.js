@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function AppFooter() {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const classNames = useStyles()
 
   return (

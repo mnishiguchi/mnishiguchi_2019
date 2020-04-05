@@ -9,6 +9,7 @@ import '../i18n'
 
 export default ({ children }) => {
   // https://material-ui.com/customization/theming/
+  // https://material-ui.com/customization/default-theme/#default-theme
   const theme = createMuiTheme({
     typography: {},
     // https://material-ui.com/customization/palette/

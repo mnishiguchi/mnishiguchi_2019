@@ -1,38 +1,38 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import HomeIcon from '@material-ui/icons/Home'
 import NoteIcon from '@material-ui/icons/Note'
 import LocalOfferIcon from '@material-ui/icons/LocalOffer'
 import LinkedinIcon from '@material-ui/icons/Linkedin'
 import GithubIcon from '@material-ui/icons/Github'
 
+import AppLink from './AppLink'
+
 export const LinkedinLink = (props) => (
-  <OutboundLink {...props} href="https://linkedin.com/in/mnishiguchi">
+  <AppLink.Outbound {...props} href="https://linkedin.com/in/mnishiguchi">
     <LinkedinIcon />
-  </OutboundLink>
+  </AppLink.Outbound>
 )
 
 export const GithubLink = (props) => (
-  <OutboundLink {...props} href="https://github.com/mnishiguchi">
+  <AppLink.Outbound {...props} href="https://github.com/mnishiguchi">
     <GithubIcon />
-  </OutboundLink>
+  </AppLink.Outbound>
 )
 
-export const HomeLink = ({ activeClassName, ...rest }) => (
-  <Link activeClassName={activeClassName} to="/" {...rest}>
+export const HomeLink = (props) => (
+  <AppLink to="/" {...props}>
     <HomeIcon />
-  </Link>
+  </AppLink>
 )
 
-export const BlogLink = ({ activeClassName, ...rest }) => (
-  <Link activeClassName={activeClassName} to="/blog" {...rest}>
+export const BlogLink = (props) => (
+  <AppLink to="/blog" {...props}>
     <NoteIcon />
-  </Link>
+  </AppLink>
 )
 
-export const TagsLink = ({ activeClassName, ...rest }) => (
-  <Link activeClassName={activeClassName} to="/tags" {...rest}>
+export const TagsLink = (props) => (
+  <AppLink to="/tags" {...props}>
     <LocalOfferIcon />
-  </Link>
+  </AppLink>
 )
