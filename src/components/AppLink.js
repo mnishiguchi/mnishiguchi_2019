@@ -8,7 +8,11 @@ import { useTheme } from '@material-ui/core/styles'
 // https://www.gatsbyjs.org/docs/gatsby-link/
 const AppLink = ({ children, ...rest }) => {
   const theme = useTheme()
-  return (
+  return !!rest.href ? (
+    <MuiLink component={OutboundLink} {...rest}>
+      {children}
+    </MuiLink>
+  ) : (
     <MuiLink
       component={GatsbyLink}
       color="primary"
@@ -19,12 +23,5 @@ const AppLink = ({ children, ...rest }) => {
     </MuiLink>
   )
 }
-
-// https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/
-AppLink.Outbound = ({ children, ...rest }) => (
-  <MuiLink component={OutboundLink} {...rest}>
-    {children}
-  </MuiLink>
-)
 
 export default AppLink

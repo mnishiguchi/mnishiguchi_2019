@@ -8,15 +8,15 @@ import GithubIcon from '@material-ui/icons/Github'
 import AppLink from './AppLink'
 
 export const LinkedinLink = (props) => (
-  <AppLink.Outbound {...props} href="https://linkedin.com/in/mnishiguchi">
+  <AppLink {...props} href="https://linkedin.com/in/mnishiguchi">
     <LinkedinIcon />
-  </AppLink.Outbound>
+  </AppLink>
 )
 
 export const GithubLink = (props) => (
-  <AppLink.Outbound {...props} href="https://github.com/mnishiguchi">
+  <AppLink {...props} href="https://github.com/mnishiguchi">
     <GithubIcon />
-  </AppLink.Outbound>
+  </AppLink>
 )
 
 export const HomeLink = (props) => (

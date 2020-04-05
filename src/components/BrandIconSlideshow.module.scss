@@ -1,6 +1,6 @@
 // https://css-tricks.com/infinite-all-css-scrolling-slideshow/
 .slideshow {
-  height: 50px;
+  min-height: 62px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -8,7 +8,6 @@
 }
 
 .slideshow .mover {
-  height: 50px;
   position: absolute;
   top: 0;
   left: 0;
