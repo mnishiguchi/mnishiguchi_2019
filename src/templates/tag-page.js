@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 
 import GlobalLayout from '../layouts/index'
+import AppContentContainer from '../components/AppContentContainer'
 
 function TagPage({ data: { site, allMarkdownRemark }, pageContext: { tag } }) {
   const posts = allMarkdownRemark.edges
@@ -13,9 +14,8 @@ function TagPage({ data: { site, allMarkdownRemark }, pageContext: { tag } }) {
 
   return (
     <GlobalLayout>
-      <div>
+      <AppContentContainer>
         <h1>{tagHeader}</h1>
-
         <ul>
           {posts.map(({ node: { fields, frontmatter } }) => (
             <li>
@@ -25,13 +25,12 @@ function TagPage({ data: { site, allMarkdownRemark }, pageContext: { tag } }) {
             </li>
           ))}
         </ul>
-
         <br />
         <br />
         <Link to="/tags/" className="btn btn-outline-primary">
           Browse all tags
         </Link>
-      </div>
+      </AppContentContainer>
     </GlobalLayout>
   )
 }

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import GlobalLayout from '../../layouts/index'
 import BlogTag from '../../components/BlogTag'
+import AppContentContainer from '../../components/AppContentContainer'
 
 function TagsPage({
   data: {
@@ -13,7 +14,7 @@ function TagsPage({
   const { t } = useTranslation()
   return (
     <GlobalLayout>
-      <div className="my-4">
+      <AppContentContainer>
         <h1>{t(`pages.tags.title`)}</h1>
         <div className="h3">
           {group.map((tag) => (
@@ -24,7 +25,7 @@ function TagsPage({
             />
           ))}
         </div>
-      </div>
+      </AppContentContainer>
     </GlobalLayout>
   )
 }

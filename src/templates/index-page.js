@@ -4,10 +4,10 @@ import { graphql } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import Img from 'gatsby-image' // https://www.gatsbyjs.org/packages/gatsby-image/
 import { useTranslation } from 'react-i18next'
-import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core/styles'
 
 import GlobalLayout from '../layouts/index'
+import AppContentContainer from '../components/AppContentContainer'
 import StackOverflowFlair from '../components/StackOverflowFlair'
 import BrandIconSlideshow from '../components/BrandIconSlideshow'
 
@@ -57,7 +57,7 @@ export function IndexPageContent({ gmapUrl, mainImage, secondaryImage }) {
         </div>
       </header>
 
-      <Container>
+      <AppContentContainer>
         <section
           className={[
             classNames.flexJustifyContentCenter,
@@ -70,7 +70,6 @@ export function IndexPageContent({ gmapUrl, mainImage, secondaryImage }) {
             <StackOverflowFlair theme="clean" width="300px" />
           </div>
         </section>
-
         <section
           className={[
             classNames.flexJustifyContentCenter,
@@ -83,7 +82,6 @@ export function IndexPageContent({ gmapUrl, mainImage, secondaryImage }) {
             <div>{t('pages.home.etc')}</div>
           </div>
         </section>
-
         <section
           className={[
             classNames.flexJustifyContentCenter,
@@ -97,7 +95,7 @@ export function IndexPageContent({ gmapUrl, mainImage, secondaryImage }) {
             />
           </div>
         </section>
-      </Container>
+      </AppContentContainer>
     </>
   )
 }

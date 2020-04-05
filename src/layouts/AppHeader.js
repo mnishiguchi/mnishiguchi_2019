@@ -31,6 +31,15 @@ const useStyles = makeStyles((theme) => ({
       display: 'block',
     },
   },
+  appBar: {
+    background: grey[50],
+  },
+  toolbar: {
+    [theme.breakpoints.up('md')]: {
+      maxWidth: theme.breakpoints.values['md'],
+      margin: 'auto',
+    },
+  },
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -116,12 +125,8 @@ export default (props) => {
 
   return (
     <>
-      <AppBar
-        style={{
-          background: grey[50],
-        }}
-      >
-        <Toolbar>
+      <AppBar className={classNames.appBar}>
+        <Toolbar className={classNames.toolbar}>
           <IconButton>
             <HomeLink />
           </IconButton>

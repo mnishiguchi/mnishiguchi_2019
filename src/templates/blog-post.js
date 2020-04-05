@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 
 import GlobalLayout from '../layouts/index'
 import BlogTag from '../components/BlogTag'
+import AppContentContainer from '../components/AppContentContainer'
 
 export function BlogPostContent({
   html,
@@ -15,9 +16,8 @@ export function BlogPostContent({
   date,
 }) {
   return (
-    <div className="blogPost">
+    <AppContentContainer>
       {helmet || ''}
-
       <header>
         <h1>{title}</h1>
         <span>{date}</span>
@@ -29,11 +29,9 @@ export function BlogPostContent({
           </p>
         ) : null}
       </header>
-
       <div>{description}</div>
-
       <section dangerouslySetInnerHTML={{ __html: html }} />
-    </div>
+    </AppContentContainer>
   )
 }
 

@@ -3,16 +3,16 @@ import { useTranslation } from 'react-i18next'
 
 import GlobalLayout from '../../layouts/index'
 import BlogRoll from '../../components/BlogRoll'
+import AppContentContainer from '../../components/AppContentContainer'
 
 export default function BlogIndexPage() {
   const { t } = useTranslation()
   return (
     <GlobalLayout>
-      <div className="my-4">
+      <AppContentContainer>
         <h1>{t(`pages.blog.title`)}</h1>
-
         <BlogRoll />
-      </div>
+      </AppContentContainer>
     </GlobalLayout>
   )
 }
