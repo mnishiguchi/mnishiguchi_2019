@@ -7,6 +7,7 @@ import AppContentContainer from '../../components/AppContentContainer'
 
 export default function BlogIndexPage() {
   const { t } = useTranslation()
+
   return (
     <GlobalLayout>
       <AppContentContainer>

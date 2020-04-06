@@ -2,15 +2,27 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import { makeStyles } from '@material-ui/core/styles'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import Typography from '@material-ui/core/Typography'
 
 import BlogTagLink from './BlogTagLink'
 
 const useStyles = makeStyles((theme) => ({
-  blogTagLinkList: {
+  title: {
+    marginBottom: theme.spacing(1.5),
+    textDecoration: 'none',
+  },
+  date: {
+    marginBottom: theme.spacing(0.5),
+  },
+  tags: {
     display: 'flex',
     flexWrap: 'wrap',
     '& > *': {
-      margin: theme.spacing(0.5),
+      marginRight: theme.spacing(0.5),
+      marginBottom: theme.spacing(1.5),
     },
   },
 }))
@@ -20,20 +32,26 @@ function BlogRoll({ data: { allMarkdownRemark } }) {
   const classNames = useStyles()
 
   return (
-    <div>
+    <List>
       {posts &&
         posts.map(({ node: { id, frontmatter, fields, excerpt } }) => (
-          <div sm="12" md="6" lg="4" key={fields.slug}>
-            <div className="mb-2">
-              <div>
-                <Link className="card-title h4 text-dark" to={fields.slug}>
+          <ListItem key={fields.slug}>
+            <ListItemText
+              primary={
+                <Typography
+                  component={Link}
+                  to={fields.slug}
+                  variant="h4"
+                  className={classNames.title}
+                  color="textPrimary"
+                >
                   {frontmatter.title}
-                </Link>
-                <br />
-                <span className="card-text">
-                  <span className="text-muted">{frontmatter.date}</span>
-                  <br />
-                  <div className={classNames.blogTagLinkList}>
+                </Typography>
+              }
+              secondary={
+                <>
+                  <div className={classNames.date}>{frontmatter.date}</div>
+                  <div className={classNames.tags}>
                     {frontmatter.tags.map((tagName) => (
                       <BlogTagLink
                         tagName={tagName}
@@ -42,21 +60,14 @@ function BlogRoll({ data: { allMarkdownRemark } }) {
                       />
                     ))}
                   </div>
-                </span>
-              </div>
 
-              <div style={{ overflowX: `auto`, wordWrap: `break-word` }}>
-                {frontmatter.description || excerpt}
-                <br />
-                <br />
-                <Link className="button" to={fields.slug}>
-                  Keep Reading →
-                </Link>
-              </div>
-            </div>
-          </div>
+                  <div>{frontmatter.description || excerpt}</div>
+                </>
+              }
+            />
+          </ListItem>
         ))}
-    </div>
+    </List>
   )
 }
 

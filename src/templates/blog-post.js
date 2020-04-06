@@ -3,18 +3,34 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { makeStyles } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
 
 import GlobalLayout from '../layouts/index'
 import BlogTagLink from '../components/BlogTagLink'
 import AppContentContainer from '../components/AppContentContainer'
 
 const useStyles = makeStyles((theme) => ({
-  blogTagLinkList: {
+  title: {
+    marginBottom: theme.spacing(1.5),
+  },
+  date: {
+    marginBottom: theme.spacing(1.5),
+  },
+  tags: {
     display: 'flex',
     flexWrap: 'wrap',
     '& > *': {
-      margin: theme.spacing(0.5),
+      marginRight: theme.spacing(0.5),
     },
+  },
+  header: {
+    marginBottom: theme.spacing(6.0),
+  },
+  description: {
+    marginBottom: theme.spacing(2.0),
+  },
+  body: {
+    marginBottom: theme.spacing(0.5),
   },
 }))
 
@@ -31,19 +47,29 @@ export function BlogPostContent({
   return (
     <AppContentContainer>
       {helmet || ''}
-      <header>
-        <h1>{title}</h1>
-        <span>{date}</span>
+      <header className={classNames.header}>
+        <Typography
+          component="h1"
+          variant="h4"
+          className={classNames.title}
+          color="textPrimary"
+        >
+          {title}
+        </Typography>
+        <div className={classNames.date}>{date}</div>
         {tags && tags.length ? (
-          <div className={classNames.blogTagLinkList}>
+          <div className={classNames.tags}>
             {tags.map((tag) => (
               <BlogTagLink key={tag} tagName={tag} size="small" />
             ))}
           </div>
         ) : null}
       </header>
-      <div>{description}</div>
-      <section dangerouslySetInnerHTML={{ __html: html }} />
+      <div className={classNames.description}>{description}</div>
+      <div
+        className={classNames.body}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </AppContentContainer>
   )
 }

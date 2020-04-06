@@ -6,7 +6,6 @@ import AppContentContainer from '../components/AppContentContainer'
 
 function TagPage({ data: { site, allMarkdownRemark }, pageContext: { tag } }) {
   const posts = allMarkdownRemark.edges
-  const title = site.siteMetadata.title
   const totalCount = allMarkdownRemark.totalCount
   const tagHeader = `${totalCount} ${
     totalCount === 1 ? 'post' : 'posts'
