@@ -1,33 +1,44 @@
 import React from 'react'
 import { kebabCase } from 'lodash'
+import { navigate } from 'gatsby'
+import Avatar from '@material-ui/core/Avatar'
 import Chip from '@material-ui/core/Chip'
-import Badge from '@material-ui/core/Badge'
-import { withStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 
-import AppLink from './AppLink'
-
-// https://material-ui.com/components/badges/#customized-badges
-const StyledBadge = withStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
   badge: {
-    right: `1rem`,
-    top: `1rem`,
-    border: `2px solid ${theme.palette.background.paper}`,
-    padding: '0 4px',
+    color: '#fff',
+    background: theme.palette.primary.main,
+    '&:hover': {
+      color: '#fff',
+    },
   },
-}))(Badge)
+}))
+
+const noop = () => {}
 
 function BlogTagLink({ tagName, tagCount = null, ...rest }) {
+  const classNames = useStyles()
   const tagCountProvided = parseInt(tagCount) >= 0
+
+  // onDelete is noop but necessary because it enables the deleteIcon prop.
+  // https://material-ui.com/components/chips/
   return (
-    <AppLink to={`/tags/${kebabCase(tagName)}/`} {...rest}>
-      <StyledBadge badgeContent={tagCount} color="primary">
-        <Chip
-          variant="outlined"
-          label={tagName}
-          style={{ paddingRight: tagCountProvided ? `1rem` : `auto` }}
-        />
-      </StyledBadge>
-    </AppLink>
+    <Chip
+      variant="outlined"
+      label={tagName}
+      clicable
+      onClick={() => navigate(`/tags/${kebabCase(tagName)}/`)}
+      onDelete={noop}
+      deleteIcon={
+        tagCountProvided ? (
+          <Avatar className={classNames.badge}>{tagCount}</Avatar>
+        ) : (
+          <></>
+        )
+      }
+      {...rest}
+    />
   )
 }
 

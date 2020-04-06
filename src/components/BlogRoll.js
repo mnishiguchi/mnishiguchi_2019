@@ -1,11 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
+import { makeStyles } from '@material-ui/core/styles'
 
 import BlogTagLink from './BlogTagLink'
 
+const useStyles = makeStyles((theme) => ({
+  blogTagLinkList: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    '& > *': {
+      margin: theme.spacing(0.5),
+    },
+  },
+}))
+
 function BlogRoll({ data: { allMarkdownRemark } }) {
   const posts = allMarkdownRemark.edges
+  const classNames = useStyles()
 
   return (
     <div>
@@ -21,9 +33,15 @@ function BlogRoll({ data: { allMarkdownRemark } }) {
                 <span className="card-text">
                   <span className="text-muted">{frontmatter.date}</span>
                   <br />
-                  {frontmatter.tags.map((tagName) => (
-                    <BlogTagLink tagName={tagName} key={tagName} />
-                  ))}
+                  <div className={classNames.blogTagLinkList}>
+                    {frontmatter.tags.map((tagName) => (
+                      <BlogTagLink
+                        tagName={tagName}
+                        key={tagName}
+                        size="small"
+                      />
+                    ))}
+                  </div>
                 </span>
               </div>
 

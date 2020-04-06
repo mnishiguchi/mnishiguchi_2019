@@ -2,10 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
+import { makeStyles } from '@material-ui/core/styles'
 
 import GlobalLayout from '../layouts/index'
 import BlogTagLink from '../components/BlogTagLink'
 import AppContentContainer from '../components/AppContentContainer'
+
+const useStyles = makeStyles((theme) => ({
+  blogTagLinkList: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    '& > *': {
+      margin: theme.spacing(0.5),
+    },
+  },
+}))
 
 export function BlogPostContent({
   html,
@@ -15,6 +26,8 @@ export function BlogPostContent({
   helmet,
   date,
 }) {
+  const classNames = useStyles()
+
   return (
     <AppContentContainer>
       {helmet || ''}
@@ -22,11 +35,11 @@ export function BlogPostContent({
         <h1>{title}</h1>
         <span>{date}</span>
         {tags && tags.length ? (
-          <p>
+          <div className={classNames.blogTagLinkList}>
             {tags.map((tag) => (
-              <BlogTagLink key={tag} tagName={tag} />
+              <BlogTagLink key={tag} tagName={tag} size="small" />
             ))}
-          </p>
+          </div>
         ) : null}
       </header>
       <div>{description}</div>

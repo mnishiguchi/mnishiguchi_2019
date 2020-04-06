@@ -1,10 +1,22 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { useTranslation } from 'react-i18next'
+import { makeStyles } from '@material-ui/core/styles'
+import { useTheme } from '@material-ui/core/styles'
 
 import GlobalLayout from '../../layouts/index'
 import BlogTagLink from '../../components/BlogTagLink'
 import AppContentContainer from '../../components/AppContentContainer'
+
+const useStyles = makeStyles((theme) => ({
+  blogTagLinkList: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    '& > *': {
+      margin: theme.spacing(0.5),
+    },
+  },
+}))
 
 function TagsPage({
   data: {
@@ -12,17 +24,20 @@ function TagsPage({
   },
 }) {
   const { t } = useTranslation()
+  const classNames = useStyles()
+  const theme = useTheme()
+
   return (
     <GlobalLayout>
       <AppContentContainer>
         <h1>{t(`pages.tags.title`)}</h1>
-        <div className="h3">
+        <div className={classNames.blogTagLinkList}>
           {group.map((tag) => (
             <BlogTagLink
               key={tag.fieldValue}
               tagName={tag.fieldValue}
               tagCount={tag.totalCount}
-              style={{ display: `inline-block`, margin: `0 .3rem .6rem 0` }}
+              style={{ fontSize: theme.typography.h5.fontSize }}
             />
           ))}
         </div>
