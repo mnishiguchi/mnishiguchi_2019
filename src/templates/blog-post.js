@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
 import GlobalLayout from '../layouts/index'
-import BlogTag from '../components/BlogTag'
+import BlogTagLink from '../components/BlogTagLink'
 import AppContentContainer from '../components/AppContentContainer'
 
 export function BlogPostContent({
@@ -24,7 +24,7 @@ export function BlogPostContent({
         {tags && tags.length ? (
           <p>
             {tags.map((tag) => (
-              <BlogTag key={tag} tagName={tag} />
+              <BlogTagLink key={tag} tagName={tag} />
             ))}
           </p>
         ) : null}

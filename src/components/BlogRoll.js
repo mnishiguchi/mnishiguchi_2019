@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 
-import BlogTag from './BlogTag'
+import BlogTagLink from './BlogTagLink'
 
 function BlogRoll({ data: { allMarkdownRemark } }) {
   const posts = allMarkdownRemark.edges
@@ -22,7 +22,7 @@ function BlogRoll({ data: { allMarkdownRemark } }) {
                   <span className="text-muted">{frontmatter.date}</span>
                   <br />
                   {frontmatter.tags.map((tagName) => (
-                    <BlogTag tagName={tagName} key={tagName} />
+                    <BlogTagLink tagName={tagName} key={tagName} />
                   ))}
                 </span>
               </div>

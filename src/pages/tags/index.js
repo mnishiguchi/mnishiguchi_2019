@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { useTranslation } from 'react-i18next'
 
 import GlobalLayout from '../../layouts/index'
-import BlogTag from '../../components/BlogTag'
+import BlogTagLink from '../../components/BlogTagLink'
 import AppContentContainer from '../../components/AppContentContainer'
 
 function TagsPage({
@@ -18,10 +18,11 @@ function TagsPage({
         <h1>{t(`pages.tags.title`)}</h1>
         <div className="h3">
           {group.map((tag) => (
-            <BlogTag
+            <BlogTagLink
               key={tag.fieldValue}
               tagName={tag.fieldValue}
               tagCount={tag.totalCount}
+              style={{ display: `inline-block`, margin: `0 .3rem .6rem 0` }}
             />
           ))}
         </div>
